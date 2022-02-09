@@ -1,0 +1,9 @@
+android
+ios
+Config.d.ts
+d11-*/**/*.js
+d11-*/**/*.d.ts
+!d11-scripts/helpers/**/*
+
+# Lottie files
+d11-app/src/image/*.json
