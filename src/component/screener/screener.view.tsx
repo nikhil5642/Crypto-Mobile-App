@@ -1,7 +1,9 @@
-import * as React from 'react';
-import {useState} from 'react';
-import {FlatList, View, Text} from 'react-native';
-import {styles} from './screener.style';
+import * as React from 'react'
+import {useState} from 'react'
+
+import {FlatList, View, Text} from 'react-native'
+
+import {styles} from './screener.style'
 
 export const Screener = () => {
   const [dataList, setDataList] = useState([
@@ -505,58 +507,56 @@ export const Screener = () => {
         },
       },
     },
-  ]);
+  ])
   if (dataList.length === 0) {
-    fetchLiveData(setDataList);
+    fetchLiveData(setDataList)
   }
   return (
     <View style={styles.container}>
       <FlatList
         data={dataList}
         renderItem={liveItem}
-        keyExtractor={item => item.name}
+        keyExtractor={(item) => item.name}
       />
     </View>
-  );
-};
+  )
+}
 
 function fetchLiveData(setDataList: any) {
-  var myHeaders = new Headers();
-  myHeaders.append('X-CMC_PRO_API_KEY', '8ac04e5d-477c-44c4-a58e-3e4f82e3253f');
+  const myHeaders = new Headers()
+  myHeaders.append('X-CMC_PRO_API_KEY', '8ac04e5d-477c-44c4-a58e-3e4f82e3253f')
 
-  var requestOptions = {
+  const requestOptions = {
     method: 'GET',
     headers: myHeaders,
-  };
+  }
 
   fetch(
     'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=INR&start=1&limit=10',
     requestOptions,
   )
-    .then(response => response.json())
-    .then(res => {
-      loadDataSuccess(res.data, setDataList);
+    .then((response) => response.json())
+    .then((res) => {
+      loadDataSuccess(res.data, setDataList)
     })
-    .catch(err => {
-      loadDataFailure(err);
-    });
+    .catch((err) => {
+      loadDataFailure(err)
+    })
 }
 
 function loadDataSuccess(data: any, setDataList: any) {
-  let items: any[] = [];
-  data.forEach(item => {
-    items.push(item);
-  });
-  setDataList(items);
-  console.log('data received', items);
+  const items: any[] = []
+  data.forEach((item) => {
+    items.push(item)
+  })
+  setDataList(items)
 }
 
 function loadDataFailure(error: any) {
-  console.log('error received', error);
+  console.log('error received', error)
 }
 
 const liveItem = ({item}) => {
-  console.log('live ITem ', item);
   return (
     <View style={styles.rowContainer}>
       <Text style={styles.name}>{item.name}</Text>
@@ -564,5 +564,5 @@ const liveItem = ({item}) => {
         Rs. {item.quote.INR.price.toLocaleString()}
       </Text>
     </View>
-  );
-};
+  )
+}

@@ -17,7 +17,10 @@ export const view: FC<Props<SplashScreenInterface, SplashScreenParams>> = ({
   e,
 }) => {
   function loadPreference() {
-    DefaultPreference.get('auth').then((auth) => e.of('mount').emit(auth))
+    DefaultPreference.get('auth').then((auth) => {
+      console.log('ajdljadf', auth)
+      e.of('mount').emit(auth)
+    })
   }
 
   return (
