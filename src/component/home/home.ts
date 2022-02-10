@@ -3,6 +3,7 @@ import * as R from 'ramda'
 import {Component} from '../../core/component'
 import {forward} from '../../core/forward'
 
+import {accountBalance} from './../Balance/balance'
 import {bottomNavigation} from './../bottom-navigation/bottom-navigation'
 import {screener} from './../screener/screener'
 import {command} from './home.command'
@@ -12,7 +13,7 @@ import {update} from './home.update'
 import {view} from './home.view'
 
 export const home: Component<HomeInterface, HomeParams> = R.compose(
-  forward({bottomNavigation, screener}),
+  forward({bottomNavigation, screener, accountBalance}),
 )({
   init: init,
   update: update,

@@ -1,27 +1,28 @@
-import * as React from 'react';
-import {useState} from 'react';
-import {View} from 'react-native';
-import {styles} from './balance.style';
-import {Text} from 'react-native';
-import {getCurrentBalance, setCurrentBalance} from './balance.utils';
+import * as React from 'react'
+import {FC} from 'react'
 
-const GIVEN_BALANCE_LIMIT = 100000;
-export const AccountBalance = () => {
-  const [balance, setBalance] = useState(-1);
-  if (balance === -1) {
-    getCurrentBalance().then(bal => {
-      if (bal) {
-        setBalance(parseInt(bal));
-      } else {
-        setCurrentBalance(GIVEN_BALANCE_LIMIT);
-        setBalance(GIVEN_BALANCE_LIMIT);
-      }
-    });
-  }
+import {View} from 'react-native'
+import {Text} from 'react-native'
+
+import {Props} from '../../core/component'
+import Lifecycle from '../lifecycle'
+
+import {BalanceInterface, BalanceParams} from './balance'
+import {styles} from './balance.style'
+
+export const AccountBalanceView: FC<Props<BalanceInterface, BalanceParams>> = ({
+  e,
+  m,
+  p,
+}) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.balanceTitle}>Current Balance: </Text>
-      <Text style={styles.balanceText}>Rs. {balance.toLocaleString()} </Text>
-    </View>
-  );
-};
+    <Lifecycle onMount={() => e.of('mount').emit(p)}>
+      <View style={styles.container}>
+        <Text style={styles.balanceTitle}>Remaining Credits: </Text>
+        <Text style={styles.balanceText}>
+          Rs. {m.balance.toLocaleString()}{' '}
+        </Text>
+      </View>
+    </Lifecycle>
+  )
+}
