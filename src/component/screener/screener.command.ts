@@ -1,7 +1,10 @@
 import {matchC} from '@action-land/tarz'
 
+import {Routes} from '../../navigator/navigator.interface'
+
 import {HTTPRequest} from './../../helper/http-helper'
-import {ScreenerInterface} from './screener.interface'
+import {PushScreenAction} from './../../helper/navigation-helper'
+import {ScreenerInterface, Ticker} from './screener.interface'
 
 export const command = matchC<ScreenerInterface>({
   mount: (tickers: Array<string>) => {
@@ -12,6 +15,12 @@ export const command = matchC<ScreenerInterface>({
       variables: {
         tickers: tickers,
       },
+    })
+  },
+  onTickerSelected: (item: Ticker) => {
+    return PushScreenAction({
+      route: Routes.TickerDetails,
+      params: {tickerId: item.id},
     })
   },
 })

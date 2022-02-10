@@ -11,7 +11,7 @@ import {HomeInterface} from './home.interface'
 
 export const command = matchC<HomeInterface>({
   openDetails: () =>
-    PushScreenAction({route: Routes.Details, params: {extra: 'ab'}}),
+    PushScreenAction({route: Routes.TickerDetails, params: {tickerId: 'ab'}}),
 
   back: () => PopScreenAction(),
 

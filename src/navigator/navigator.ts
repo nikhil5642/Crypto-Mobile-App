@@ -1,8 +1,8 @@
 import * as R from 'ramda'
 
-import {details} from '../component/details/details'
 import {home} from '../component/home/home'
 import {splashScreen} from '../component/splash-screen/splash-screen'
+import {tickerDetails} from '../component/ticker-details/ticker-details'
 import {Component} from '../core/component'
 import {forward} from '../core/forward'
 
@@ -14,7 +14,7 @@ import {update} from './navigator.update'
 import {view} from './navigator.view'
 
 export const navigator: Component<Navigator, NavigationParams> = R.compose(
-  forward({home, details, splashScreen, loginScreen}),
+  forward({home, tickerDetails, splashScreen, loginScreen}),
 )({
   init: init,
   update: update,

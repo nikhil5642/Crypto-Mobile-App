@@ -44,7 +44,6 @@ function getItem(
   isSelected: boolean,
   currentItem: BottomNavigationOptions,
 ) {
-  console.log('skdflakjlksajfa;', isSelected, currentItem)
   return (
     <Pressable
       style={styles.itemContainer}
