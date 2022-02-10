@@ -20,11 +20,13 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginLeft: 16,
+    // color: 'white',
   },
   price: {
     fontSize: 14,
     fontWeight: 'bold',
     marginRight: 16,
+    // color: 'white',
     color: 'green',
   },
   bottomLine: {

@@ -1,9 +1,10 @@
 import {bottomNavigation} from '../bottom-navigation/bottom-navigation'
+import {screener} from '../screener/screener'
 
-import {BottomNavigationInterface} from './../bottom-navigation/bottom-navigation.interface'
 import {HomeInterface} from './home.interface'
 
 export const init = (): HomeInterface => ({
   userId: 'nikhil',
   bottomNavigation: bottomNavigation.init(),
+  screener: screener.init(),
 })
