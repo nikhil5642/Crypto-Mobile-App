@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native'
 export const styles = StyleSheet.create({
   container: {
     height: 40,
-    backgroundColor: 'orange',
+    backgroundColor: '#686000',
     width: '100%',
     justifyContent: 'space-around',
     flexDirection: 'row',
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   bottomItemSelected: {
     flex: 1,
     fontSize: 16,
-    color: 'orange',
+    color: '#686000',
     borderColor: 'white',
     backgroundColor: 'white',
     borderLeftWidth: 0.5,

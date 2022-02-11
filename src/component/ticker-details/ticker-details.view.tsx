@@ -12,6 +12,7 @@ import {
   TickerDetailsParams,
 } from './ticker-details.interface'
 import {styles} from './ticker-details.styles'
+import {GeneralInfoItemVIew} from './ticker-items/generalInfo'
 import {PolarGraphItemView} from './ticker-items/polar-graph-item'
 
 export const TickerDetailView: FC<
@@ -30,7 +31,10 @@ export const TickerDetailView: FC<
 }
 
 function getAppropriateItem(item: any) {
-  if (item.itemType === 'PolarGraph') {
+  console.log('asklfjaj', item)
+  if (item.itemType === 'GeneralInfo') {
+    return <GeneralInfoItemVIew data={item.data} />
+  } else if (item.itemType === 'PolarGraph') {
     return <PolarGraphItemView data={item.data} />
   }
   return <View />

@@ -18,7 +18,7 @@ export const PolarGraphItemView = ({data}) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: 'grey',
+        backgroundColor: '#686000',
         flexDirection: 'column',
         paddingTop: 10,
       }}>
@@ -55,7 +55,7 @@ export const PolarGraphItemView = ({data}) => {
           )
         })}
         <VictoryBar
-          style={{data: {fill: 'darkgrey', width: 25}}}
+          style={{data: {fill: 'white', width: 25}}}
           data={data.values}
         />
       </VictoryChart>

@@ -10,7 +10,7 @@ import {
 export const command = matchC<TickerDetailsInterface>({
   mount: (params: TickerDetailsParams) => {
     return HTTPRequest({
-      endpoint: '/market/getTickerDetails',
+      endpoint: '/market/tickerDetails',
       method: 'POST',
       responseType: 'tickerDetailsResponse',
       variables: {
