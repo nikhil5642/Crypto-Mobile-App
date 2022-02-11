@@ -10,7 +10,7 @@ import {
   TickerDetailsParams,
 } from './ticker-details.interface'
 import {update} from './ticker-details.update'
-import {view} from './ticker-details.view'
+import {TickerDetailView} from './ticker-details.view'
 
 export const tickerDetails: Component<
   TickerDetailsInterface,
@@ -19,5 +19,5 @@ export const tickerDetails: Component<
   init: init,
   update: update,
   command: command,
-  view: view,
+  view: TickerDetailView,
 })

@@ -9,7 +9,6 @@ import {BottomNavigationOptions} from '../bottom-navigation/bottom-navigation.in
 import Lifecycle from '../lifecycle'
 import {PortFolio} from '../portfolio/portfolio.view'
 import {screener} from '../screener/screener'
-import {GraphItemView} from '../ticker-details/ticker-items/graph-item'
 
 import {HomeInterface, HomeParams} from './home.interface'
 
@@ -23,13 +22,16 @@ export const view: FC<Props<HomeInterface, HomeParams>> = ({e, m, p}) => {
           m={m.accountBalance}
         />
         {m.bottomNavigation.selection === BottomNavigationOptions.Market ? (
-          <screener.view e={e.of('screener')} p={{}} m={m.screener} />
+          <screener.view
+            e={e.of('screener')}
+            p={{userId: p.userId}}
+            m={m.screener}
+          />
         ) : null}
 
         {m.bottomNavigation.selection === BottomNavigationOptions.PortFolio ? (
           <PortFolio />
         ) : null}
-        <GraphItemView />
         <bottomNavigation.view
           e={e.of('bottomNavigation')}
           p={{}}

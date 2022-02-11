@@ -1,8 +1,9 @@
 export interface ScreenerInterface {
+  userId: string
   data: Ticker[]
 }
 
-export type ScreenerParams = Record<string, any>
+export type ScreenerParams = {userId: string}
 
 export interface Ticker {
   name: string

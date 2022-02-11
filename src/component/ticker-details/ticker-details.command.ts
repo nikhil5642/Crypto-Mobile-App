@@ -1,9 +1,21 @@
 import {matchC} from '@action-land/tarz'
 
-import {PopScreenAction, PushScreenAction} from '../../helper/navigation-helper'
+import {HTTPRequest} from '../../helper/http-helper'
 
-import {TickerDetailsInterface} from './ticker-details.interface'
+import {
+  TickerDetailsInterface,
+  TickerDetailsParams,
+} from './ticker-details.interface'
 
 export const command = matchC<TickerDetailsInterface>({
-  back: () => PopScreenAction(),
+  mount: (params: TickerDetailsParams) => {
+    return HTTPRequest({
+      endpoint: '/market/getTickerDetails',
+      method: 'POST',
+      responseType: 'tickerDetailsResponse',
+      variables: {
+        tickerId: params.tickerId,
+      },
+    })
+  },
 })

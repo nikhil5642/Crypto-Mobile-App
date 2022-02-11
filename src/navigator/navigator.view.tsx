@@ -39,7 +39,7 @@ export const view: FC<Props<Navigator, NavigationParams>> = ({e, m, p}) => {
         <Stack.Screen name={Routes.TickerDetails}>
           {({route}) => (
             <tickerDetails.view
-              e={e.of('details')}
+              e={e.of('tickerDetails')}
               p={{...(p.params as TickerDetailsParams), ...route.params}}
               m={m.tickerDetails}
             />

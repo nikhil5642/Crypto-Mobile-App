@@ -8,7 +8,7 @@ import Lifecycle from '../lifecycle'
 import {Ticker} from './screener.interface'
 import {styles} from './screener.style'
 
-export const ScreenerView = ({e, m}) => {
+export const ScreenerView = ({e, m, p}) => {
   const tickerList = ['BTC', 'ETH', 'XRP']
   function onTickerSelected(item: Ticker) {
     e.of('onTickerSelected').emit(item)
@@ -23,8 +23,14 @@ export const ScreenerView = ({e, m}) => {
       </Pressable>
     )
   }
+
+  function mount() {
+    e.of('updateState').emit(p)
+    e.of('mount').emit(tickerList)
+  }
+
   return (
-    <Lifecycle onMount={() => e.of('mount').emit(tickerList)}>
+    <Lifecycle onMount={mount}>
       <View style={styles.container}>
         <FlatList
           data={m.data}

@@ -17,10 +17,10 @@ export const command = matchC<ScreenerInterface>({
       },
     })
   },
-  onTickerSelected: (item: Ticker) => {
+  onTickerSelected: (item: Ticker, state) => {
     return PushScreenAction({
       route: Routes.TickerDetails,
-      params: {tickerId: item.id},
+      params: {tickerId: item.id, userId: state.userId},
     })
   },
 })

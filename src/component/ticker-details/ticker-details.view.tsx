@@ -1,22 +1,38 @@
 import React, {FC} from 'react'
 
-import {Text} from 'react-native'
+import {View} from 'react-native'
+import {FlatList} from 'react-native-gesture-handler'
 import {SafeAreaView} from 'react-native-safe-area-context'
 
 import {Props} from '../../core/component'
+import Lifecycle from '../lifecycle'
 
 import {
   TickerDetailsInterface,
   TickerDetailsParams,
 } from './ticker-details.interface'
 import {styles} from './ticker-details.styles'
+import {PolarGraphItemView} from './ticker-items/polar-graph-item'
 
-export const view: FC<Props<TickerDetailsInterface, TickerDetailsParams>> = ({
-  p,
-}) => {
+export const TickerDetailView: FC<
+  Props<TickerDetailsInterface, TickerDetailsParams>
+> = ({e, m, p}) => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>{p.tickerId}</Text>
-    </SafeAreaView>
+    <Lifecycle onMount={() => e.of('mount').emit(p)}>
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={m.data}
+          renderItem={(item) => getAppropriateItem(item.item)}
+        />
+      </SafeAreaView>
+    </Lifecycle>
   )
+}
+
+function getAppropriateItem(item: any) {
+  console.log('data', item, item.itemType, item.itemType === 'PolarGraph')
+  if (item.itemType === 'PolarGraph') {
+    return <PolarGraphItemView data={item.data.values} />
+  }
+  return <View />
 }
