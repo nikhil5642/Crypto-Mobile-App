@@ -19,9 +19,7 @@ export const AccountBalanceView: FC<Props<BalanceInterface, BalanceParams>> = ({
     <Lifecycle onMount={() => e.of('mount').emit(p)}>
       <View style={styles.container}>
         <Text style={styles.balanceTitle}>Remaining Credits: </Text>
-        <Text style={styles.balanceText}>
-          Rs. {m.balance.toLocaleString()}{' '}
-        </Text>
+        <Text style={styles.balanceText}>Rs. {m.balance.toLocaleString()}</Text>
       </View>
     </Lifecycle>
   )

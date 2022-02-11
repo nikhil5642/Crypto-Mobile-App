@@ -30,9 +30,8 @@ export const TickerDetailView: FC<
 }
 
 function getAppropriateItem(item: any) {
-  console.log('data', item, item.itemType, item.itemType === 'PolarGraph')
   if (item.itemType === 'PolarGraph') {
-    return <PolarGraphItemView data={item.data.values} />
+    return <PolarGraphItemView data={item.data} />
   }
   return <View />
 }
