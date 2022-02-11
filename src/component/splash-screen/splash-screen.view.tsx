@@ -18,7 +18,6 @@ export const view: FC<Props<SplashScreenInterface, SplashScreenParams>> = ({
 }) => {
   function loadPreference() {
     DefaultPreference.get('auth').then((auth) => {
-      console.log('ajdljadf', auth)
       e.of('mount').emit(auth)
     })
   }
@@ -27,7 +26,7 @@ export const view: FC<Props<SplashScreenInterface, SplashScreenParams>> = ({
     <Lifecycle onMount={loadPreference}>
       <SafeAreaView style={styles.container}>
         <View style={styles.textContainer}>
-          <Text style={styles.text}> Doc App</Text>
+          <Text style={styles.text}> First Learn then remove the 'L'</Text>
         </View>
       </SafeAreaView>
     </Lifecycle>

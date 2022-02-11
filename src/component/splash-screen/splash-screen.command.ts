@@ -42,7 +42,6 @@ export const command = matchC<SplashScreenInterface>({
       })
   },
   userIdResponse: (response) => {
-    console.log('dsfaasfasd', response)
     return ReplaceScreenAction({
       route: Routes.Home,
       params: {

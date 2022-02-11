@@ -9,6 +9,7 @@ import {BottomNavigationOptions} from '../bottom-navigation/bottom-navigation.in
 import Lifecycle from '../lifecycle'
 import {PortFolio} from '../portfolio/portfolio.view'
 import {screener} from '../screener/screener'
+import {GraphItemView} from '../ticker-details/ticker-items/graph-item'
 
 import {HomeInterface, HomeParams} from './home.interface'
 
@@ -28,7 +29,7 @@ export const view: FC<Props<HomeInterface, HomeParams>> = ({e, m, p}) => {
         {m.bottomNavigation.selection === BottomNavigationOptions.PortFolio ? (
           <PortFolio />
         ) : null}
-
+        <GraphItemView />
         <bottomNavigation.view
           e={e.of('bottomNavigation')}
           p={{}}

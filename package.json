@@ -33,6 +33,7 @@
     "react": "17.0.2",
     "react-i18next": "11.12.0",
     "react-native": "0.66.4",
+    "react-native-charts-wrapper": "^0.5.7",
     "react-native-default-preference": "^1.4.3",
     "react-native-gesture-handler": "1.10.3",
     "react-native-linear-gradient": "2.5.6",

@@ -7,7 +7,6 @@ import {
 
 export const update = matchR<BottomNavigationInterface>({
   onOptionSelected: (itemSelected: BottomNavigationOptions, state) => {
-    console.log('dsfjklasjkfkl;asdjflkaj;')
     return {...state, selection: itemSelected}
   },
 })

@@ -18,12 +18,6 @@ import {styles} from './bottom-navigation.style'
 export const BottomNavigationView: FC<
   Props<BottomNavigationInterface, BottomNavigationParams>
 > = ({e, m}) => {
-  console.log(
-    m.selection,
-    BottomNavigationOptions.Market,
-    m.selection === BottomNavigationOptions.Market,
-    'dkflakjk;fla;/ljs;',
-  )
   return (
     <View style={styles.container}>
       {getItem(
