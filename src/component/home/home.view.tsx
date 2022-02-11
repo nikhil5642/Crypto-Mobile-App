@@ -7,7 +7,7 @@ import {accountBalance} from '../Balance/balance'
 import {bottomNavigation} from '../bottom-navigation/bottom-navigation'
 import {BottomNavigationOptions} from '../bottom-navigation/bottom-navigation.interface'
 import Lifecycle from '../lifecycle'
-import {PortFolio} from '../portfolio/portfolio.view'
+import {portfolio} from '../portfolio/portfolio'
 import {screener} from '../screener/screener'
 
 import {HomeInterface, HomeParams} from './home.interface'
@@ -30,7 +30,11 @@ export const view: FC<Props<HomeInterface, HomeParams>> = ({e, m, p}) => {
         ) : null}
 
         {m.bottomNavigation.selection === BottomNavigationOptions.PortFolio ? (
-          <PortFolio />
+          <portfolio.view
+            e={e.of('portfolio')}
+            p={{userId: p.userId}}
+            m={m.portfolio}
+          />
         ) : null}
         <bottomNavigation.view
           e={e.of('bottomNavigation')}

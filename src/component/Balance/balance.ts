@@ -25,17 +25,18 @@ export const accountBalance: Component<
   }),
   update: matchR<BalanceInterface>({
     accountBalanceResponse: (response, state) => {
-      return {...state, balance: response.Credits}
+      return {...state, balance: response}
     },
   }),
   command: matchC<BalanceInterface>({
     mount: (params: BalanceParams) => {
       return HTTPRequest({
-        endpoint: '/portfolio/getRemainingCredits',
+        endpoint: '/portfolio/getRemainingAmount',
         method: 'POST',
         responseType: 'accountBalanceResponse',
         variables: {
           userId: params.userId,
+          currency: 'INR',
         },
       })
     },

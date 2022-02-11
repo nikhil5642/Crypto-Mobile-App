@@ -31,7 +31,6 @@ export const TickerDetailView: FC<
 }
 
 function getAppropriateItem(item: any) {
-  console.log('asklfjaj', item)
   if (item.itemType === 'GeneralInfo') {
     return <GeneralInfoItemVIew data={item.data} />
   } else if (item.itemType === 'PolarGraph') {

@@ -5,6 +5,7 @@ import {forward} from '../../core/forward'
 
 import {accountBalance} from './../Balance/balance'
 import {bottomNavigation} from './../bottom-navigation/bottom-navigation'
+import {portfolio} from './../portfolio/portfolio'
 import {screener} from './../screener/screener'
 import {command} from './home.command'
 import {init} from './home.init'
@@ -13,7 +14,7 @@ import {update} from './home.update'
 import {view} from './home.view'
 
 export const home: Component<HomeInterface, HomeParams> = R.compose(
-  forward({bottomNavigation, screener, accountBalance}),
+  forward({bottomNavigation, screener, accountBalance, portfolio}),
 )({
   init: init,
   update: update,
