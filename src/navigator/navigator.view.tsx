@@ -3,6 +3,8 @@ import React, {FC} from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 
+import {buySellScreen} from '../component/buy-sell-screen/buy-sell-screen'
+import {BuySellParams} from '../component/buy-sell-screen/buy-sell-screen.interface'
 import {home} from '../component/home/home'
 import {HomeParams} from '../component/home/home.interface'
 import {loginScreen} from '../component/login-flows/login-screen/login-screen'
@@ -61,6 +63,15 @@ export const view: FC<Props<Navigator, NavigationParams>> = ({e, m, p}) => {
               e={e.of('loginScreen')}
               p={{...(p.params as LoginScreenParams), ...route.params}}
               m={m.loginScreen}
+            />
+          )}
+        </Stack.Screen>
+        <Stack.Screen name={Routes.BuySellScreen}>
+          {({route}) => (
+            <buySellScreen.view
+              e={e.of('buySellScreen')}
+              p={{...(p.params as BuySellParams), ...route.params}}
+              m={m.buySellScreen}
             />
           )}
         </Stack.Screen>

@@ -6,6 +6,7 @@ import {tickerDetails} from '../component/ticker-details/ticker-details'
 import {Component} from '../core/component'
 import {forward} from '../core/forward'
 
+import {buySellScreen} from './../component/buy-sell-screen/buy-sell-screen'
 import {loginScreen} from './../component/login-flows/login-screen/login-screen'
 import {command} from './navigator.command'
 import {init} from './navigator.init'
@@ -14,7 +15,7 @@ import {update} from './navigator.update'
 import {view} from './navigator.view'
 
 export const navigator: Component<Navigator, NavigationParams> = R.compose(
-  forward({home, tickerDetails, splashScreen, loginScreen}),
+  forward({home, tickerDetails, splashScreen, loginScreen, buySellScreen}),
 )({
   init: init,
   update: update,

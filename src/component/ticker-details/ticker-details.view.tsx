@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 
-import {View} from 'react-native'
+import {View, Text, Pressable} from 'react-native'
 import {FlatList} from 'react-native-gesture-handler'
 import {SafeAreaView} from 'react-native-safe-area-context'
 
@@ -25,6 +25,18 @@ export const TickerDetailView: FC<
           data={m.data}
           renderItem={(item) => getAppropriateItem(item.item)}
         />
+        <View style={styles.buySellContainer}>
+          <Pressable
+            style={styles.buyContainer}
+            onPress={e.of('buyTicker').emit}>
+            <Text style={styles.buyText}>Buy</Text>
+          </Pressable>
+          <Pressable
+            style={styles.sellContainer}
+            onPress={e.of('sellTicker').emit}>
+            <Text style={styles.sellText}>Sell</Text>
+          </Pressable>
+        </View>
       </SafeAreaView>
     </Lifecycle>
   )

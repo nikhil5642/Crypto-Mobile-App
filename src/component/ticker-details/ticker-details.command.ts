@@ -1,7 +1,12 @@
+import {Action} from '@action-land/core'
 import {matchC} from '@action-land/tarz'
 
 import {HTTPRequest} from '../../helper/http-helper'
+import {Routes} from '../../navigator/navigator.interface'
 
+import {PushScreenAction} from './../../helper/navigation-helper'
+import {buySellScreen} from './../buy-sell-screen/buy-sell-screen'
+import {styles} from './../portfolio/portfolio.style'
 import {
   TickerDetailsInterface,
   TickerDetailsParams,
@@ -15,6 +20,30 @@ export const command = matchC<TickerDetailsInterface>({
       responseType: 'tickerDetailsResponse',
       variables: {
         tickerId: params.tickerId,
+      },
+    })
+  },
+
+  buyTicker: (_, state) => {
+    return PushScreenAction({
+      route: Routes.BuySellScreen,
+      params: {
+        userId: state.userId,
+        toCurrency: state.tickerId,
+        fromCurrency: 'INR',
+        actionType: 'buy',
+      },
+    })
+  },
+
+  sellTicker: (_, state) => {
+    return PushScreenAction({
+      route: Routes.BuySellScreen,
+      params: {
+        userId: state.userId,
+        toCurrency: state.tickerId,
+        fromCurrency: 'INR',
+        actionType: 'buy',
       },
     })
   },

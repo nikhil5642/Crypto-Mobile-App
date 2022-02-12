@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react'
 
-import {Alert, ColorValue, Pressable, Text} from 'react-native'
+import {ColorValue, Pressable, Text} from 'react-native'
 import {TextInput} from 'react-native-gesture-handler'
 import {SafeAreaView} from 'react-native-safe-area-context'
 import Toast from 'react-native-simple-toast'

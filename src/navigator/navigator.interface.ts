@@ -9,6 +9,10 @@ import {
 } from '../component/ticker-details/ticker-details.interface'
 
 import {
+  BuySellInterface,
+  BuySellParams,
+} from './../component/buy-sell-screen/buy-sell-screen.interface'
+import {
   LoginScreenInterface,
   LoginScreenParams,
 } from './../component/login-flows/login-screen/login-screen.interface'
@@ -18,6 +22,7 @@ export enum Routes {
   TickerDetails = 'TickerDetails',
   SplashScreen = 'SplashScreen',
   LoginScreen = 'LoginScreen',
+  BuySellScreen = 'BuySellScreen',
 }
 
 export interface NavigationBase<R extends Routes, P> {
@@ -30,10 +35,12 @@ export type NavigationParams =
   | NavigationBase<Routes.TickerDetails, TickerDetailsParams>
   | NavigationBase<Routes.SplashScreen, SplashScreenParams>
   | NavigationBase<Routes.LoginScreen, LoginScreenParams>
+  | NavigationBase<Routes.BuySellScreen, BuySellParams>
 
 export interface Navigator {
   home: HomeInterface
   tickerDetails: TickerDetailsInterface
   splashScreen: SplashScreenInterface
   loginScreen: LoginScreenInterface
+  buySellScreen: BuySellInterface
 }

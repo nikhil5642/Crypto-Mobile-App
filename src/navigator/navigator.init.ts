@@ -1,3 +1,4 @@
+import {buySellScreen} from '../component/buy-sell-screen/buy-sell-screen'
 import {home} from '../component/home/home'
 import {splashScreen} from '../component/splash-screen/splash-screen'
 
@@ -10,4 +11,5 @@ export const init = (): Navigator => ({
   tickerDetails: tickerDetails.init(),
   splashScreen: splashScreen.init(),
   loginScreen: loginScreen.init(),
+  buySellScreen: buySellScreen.init(),
 })

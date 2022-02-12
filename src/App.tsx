@@ -40,12 +40,25 @@ class App extends PureComponent<InitParams> {
 
   render() {
     return (
+      // <navigator.view
+      //   e={this.e}
+      //   m={this.state}
+      //   p={{
+      //     route: Routes.SplashScreen,
+      //     params: {},
+      //   }}
+      // />
       <navigator.view
         e={this.e}
         m={this.state}
         p={{
-          route: Routes.SplashScreen,
-          params: {},
+          route: Routes.BuySellScreen,
+          params: {
+            userId: '1',
+            toCurrency: 'BTC',
+            fromCurrency: 'INR',
+            actionType: 'buy',
+          },
         }}
       />
     )
