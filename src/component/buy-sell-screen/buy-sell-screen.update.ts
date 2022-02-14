@@ -12,11 +12,13 @@ export const update = matchR<BuySellInterface>({
       toCurrency: params.toCurrency,
       fromCurrency: params.fromCurrency,
       actionType: params.actionType,
+      amount: 0,
+      amountText: '',
+      availableBalance: 0,
     }
   },
   onAmountChanged: (amount, state) => {
-    console.log('amount', amount)
-    return {...state, amount: amount.replace(/[^0-9]/g, '')}
+    return {...state, amountText: amount, amount: parseFloat(amount)}
   },
 
   accountBalanceResponse: (response, state) => {

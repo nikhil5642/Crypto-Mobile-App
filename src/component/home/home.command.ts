@@ -9,11 +9,4 @@ import {Routes} from '../../navigator/navigator.interface'
 import {PopScreenAction} from './../../helper/navigation-helper'
 import {HomeInterface} from './home.interface'
 
-export const command = matchC<HomeInterface>({
-  openDetails: () =>
-    PushScreenAction({route: Routes.TickerDetails, params: {tickerId: 'ab'}}),
-
-  back: () => PopScreenAction(),
-
-  backTop: () => PopToTopScreenAction(),
-})
+export const command = matchC<HomeInterface>({})

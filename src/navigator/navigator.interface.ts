@@ -7,6 +7,7 @@ import {
   TickerDetailsInterface,
   TickerDetailsParams,
 } from '../component/ticker-details/ticker-details.interface'
+import {TransactionStatusParms} from '../component/transaction-status/transaction-status'
 
 import {
   BuySellInterface,
@@ -16,6 +17,10 @@ import {
   LoginScreenInterface,
   LoginScreenParams,
 } from './../component/login-flows/login-screen/login-screen.interface'
+import {
+  transactionStatus,
+  TransactionStatusInterFace,
+} from './../component/transaction-status/transaction-status'
 
 export enum Routes {
   Home = 'Home',
@@ -23,6 +28,7 @@ export enum Routes {
   SplashScreen = 'SplashScreen',
   LoginScreen = 'LoginScreen',
   BuySellScreen = 'BuySellScreen',
+  TransactionStatusScreen = 'TransactionStatusScreen',
 }
 
 export interface NavigationBase<R extends Routes, P> {
@@ -36,6 +42,7 @@ export type NavigationParams =
   | NavigationBase<Routes.SplashScreen, SplashScreenParams>
   | NavigationBase<Routes.LoginScreen, LoginScreenParams>
   | NavigationBase<Routes.BuySellScreen, BuySellParams>
+  | NavigationBase<Routes.TransactionStatusScreen, TransactionStatusParms>
 
 export interface Navigator {
   home: HomeInterface
@@ -43,4 +50,5 @@ export interface Navigator {
   splashScreen: SplashScreenInterface
   loginScreen: LoginScreenInterface
   buySellScreen: BuySellInterface
+  transactionStatusScreen: TransactionStatusInterFace
 }

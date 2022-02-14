@@ -14,24 +14,28 @@ export const view: FC<Props<BuySellInterface, BuySellParams>> = ({e, m, p}) => {
   return (
     <Lifecycle onMount={() => e.of('mount').emit(p)}>
       <SafeAreaView style={styles.container}>
-        <Text style={styles.text}> {m.fromCurrency} Amount</Text>
-        <View style={styles.textInputContainer}>
-          <View style={styles.textCurrencyInputContainer}>
-            <TextInput
-              style={styles.textCurrencyInput}
-              placeholder={'0 '}
-              keyboardType="numeric"
-              onChangeText={(text) => e.of('onAmountChanged').emit(text)}
-              value={m.amount > 0 ? m.amount.toString() : ''}
-              autoFocus={true}
-            />
+        <View style={styles.viewContainer}>
+          <Text style={styles.text}> {m.fromCurrency} Amount</Text>
+          <View style={styles.textInputContainer}>
+            <View style={styles.textCurrencyInputContainer}>
+              <TextInput
+                style={styles.textCurrencyInput}
+                placeholder={'0.00'}
+                keyboardType="numeric"
+                onChangeText={(text) => e.of('onAmountChanged').emit(text)}
+                value={m.amountText}
+                autoFocus={true}
+              />
+            </View>
+            <Text style={styles.textCurrencyDonoter}>{m.fromCurrency}</Text>
           </View>
-          <Text style={styles.textCurrencyDonoter}>{m.fromCurrency}</Text>
+          <Text style={styles.text}>
+            Balance: {m.availableBalance.toString()} {m.fromCurrency.toString()}
+          </Text>
+          {m.amount > m.availableBalance ? (
+            <Text style={styles.warningText}>* Add more funds to process</Text>
+          ) : null}
         </View>
-        <Text style={styles.text}>
-          Balance: {m.availableBalance} {m.fromCurrency}
-        </Text>
-
         <Pressable
           style={styles.buttonContainer}
           onPress={() => {
@@ -48,7 +52,7 @@ export const view: FC<Props<BuySellInterface, BuySellParams>> = ({e, m, p}) => {
                   : '#635F41') as ColorValue,
               },
             ]}>
-            Submit Login
+            {m.actionType === 'buy' ? 'Buy Now' : 'Sell Now'}
           </Text>
         </Pressable>
       </SafeAreaView>

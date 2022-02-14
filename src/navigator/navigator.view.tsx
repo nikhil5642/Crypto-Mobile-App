@@ -13,6 +13,10 @@ import {splashScreen} from '../component/splash-screen/splash-screen'
 import {SplashScreenParams} from '../component/splash-screen/splash-screen.interface'
 import {tickerDetails} from '../component/ticker-details/ticker-details'
 import {TickerDetailsParams} from '../component/ticker-details/ticker-details.interface'
+import {
+  transactionStatus,
+  TransactionStatusParms,
+} from '../component/transaction-status/transaction-status'
 import {Props} from '../core/component'
 import {navigationRef} from '../helper/navigation-helper'
 
@@ -72,6 +76,16 @@ export const view: FC<Props<Navigator, NavigationParams>> = ({e, m, p}) => {
               e={e.of('buySellScreen')}
               p={{...(p.params as BuySellParams), ...route.params}}
               m={m.buySellScreen}
+            />
+          )}
+        </Stack.Screen>
+
+        <Stack.Screen name={Routes.TransactionStatusScreen}>
+          {({route}) => (
+            <transactionStatus.view
+              e={e.of('transactionStatus')}
+              p={{...(p.params as TransactionStatusParms), ...route.params}}
+              m={m.transactionStatusScreen}
             />
           )}
         </Stack.Screen>

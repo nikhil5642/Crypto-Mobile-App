@@ -11,7 +11,7 @@ export const PortFolioView = ({e, m, p}) => {
     return (
       <View style={styles.rowContainer}>
         <Text style={styles.name}>{item.name}</Text>
-        <Text style={styles.price}>Rs. {item.value.toLocaleString()}</Text>
+        <Text style={styles.price}> {item.value}</Text>
       </View>
     )
   }

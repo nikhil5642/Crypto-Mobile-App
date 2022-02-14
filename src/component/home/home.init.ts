@@ -6,7 +6,6 @@ import {portfolio} from './../portfolio/portfolio'
 import {HomeInterface} from './home.interface'
 
 export const init = (): HomeInterface => ({
-  userId: '',
   bottomNavigation: bottomNavigation.init(),
   screener: screener.init(),
   portfolio: portfolio.init(),

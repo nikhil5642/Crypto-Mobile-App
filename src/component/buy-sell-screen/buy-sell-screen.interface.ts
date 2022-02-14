@@ -4,6 +4,7 @@ export interface BuySellInterface {
   toCurrency: string
   fromCurrency: string
   amount: number
+  amountText: string
   availableBalance: number
 }
 

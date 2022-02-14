@@ -6,5 +6,6 @@ export const init = (): BuySellInterface => ({
   toCurrency: '',
   fromCurrency: '',
   amount: 0,
+  amountText: '',
   availableBalance: 0,
 })

@@ -7,17 +7,17 @@ import {PushScreenAction} from './../../helper/navigation-helper'
 import {ScreenerInterface, Ticker} from './screener.interface'
 
 export const command = matchC<ScreenerInterface>({
-  mount: (tickers: Array<string>) => {
+  mount: (param) => {
     return HTTPRequest({
       endpoint: '/market/getTickerLiveData',
       method: 'POST',
       responseType: 'liveTickerDataResponse',
       variables: {
-        tickers: tickers,
+        tickers: param.tickers,
       },
     })
   },
-  onTickerSelected: (item: Ticker, state) => {
+  onTickerSelected: (item, state) => {
     return PushScreenAction({
       route: Routes.TickerDetails,
       params: {tickerId: item.id, userId: state.userId},

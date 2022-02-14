@@ -14,16 +14,32 @@ export const command = matchC<BuySellInterface>({
       responseType: 'accountBalanceResponse',
       variables: {
         userId: params.userId,
-        currency: 'INR',
+        currency: params.fromCurrency,
       },
     })
   }),
 
-  userIdResponse: (response) => {
+  submitExchange: (_, state) => {
+    return HTTPRequest({
+      endpoint: '/portfolio/exchangeCurrency',
+      method: 'POST',
+      responseType: 'exchangeCurrencyResponse',
+      variables: {
+        userId: state.userId,
+        fromCurrency: state.fromCurrency,
+        toCurrency: state.toCurrency,
+        amount: state.amount,
+        actionType: state.actionType,
+      },
+    })
+  },
+
+  exchangeCurrencyResponse: (response) => {
     return ReplaceScreenAction({
-      route: Routes.Home,
+      route: Routes.TransactionStatusScreen,
       params: {
-        userId: response.userID.toString(),
+        status: response.success ? 'success' : 'failure',
+        transactionId: response.success ? response.transactionId : '',
       },
     })
   },

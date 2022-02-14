@@ -5,7 +5,6 @@ import {BottomNavigationInterface} from './../bottom-navigation/bottom-navigatio
 import {ScreenerInterface} from './../screener/screener.interface'
 
 export interface HomeInterface {
-  userId: string
   bottomNavigation: BottomNavigationInterface
   screener: ScreenerInterface
   portfolio: PortFolioInterface

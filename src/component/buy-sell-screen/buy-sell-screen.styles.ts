@@ -13,6 +13,14 @@ export const styles = StyleSheet.create({
     color: '#1B1B1D',
   },
 
+  warningText: {
+    textAlign: 'center',
+    fontSize: 10,
+    fontWeight: '400',
+    marginTop: 10,
+    color: 'red',
+  },
+
   textCurrencyInputContainer: {
     flex: 1,
     alignItems: 'flex-end',
@@ -45,10 +53,16 @@ export const styles = StyleSheet.create({
     color: '#FFFFFF',
     textAlign: 'center',
     textAlignVertical: 'bottom',
+    marginHorizontal: 8,
   },
   buttonContainer: {
     flex: 1,
     justifyContent: 'flex-end',
     marginBottom: 16,
+  },
+
+  viewContainer: {
+    flex: 1,
+    justifyContent: 'center',
   },
 })

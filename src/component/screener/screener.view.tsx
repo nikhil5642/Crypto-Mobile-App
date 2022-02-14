@@ -1,21 +1,23 @@
 import * as React from 'react'
-import {useState} from 'react'
+import {FC, useState} from 'react'
 
 import {FlatList, View, Text, Pressable} from 'react-native'
 
+import {Props} from '../../core/component'
 import Lifecycle from '../lifecycle'
 
-import {Ticker} from './screener.interface'
+import {ScreenerInterface, ScreenerParams, Ticker} from './screener.interface'
 import {styles} from './screener.style'
 
-export const ScreenerView = ({e, m, p}) => {
+export const ScreenerView: FC<Props<ScreenerInterface, ScreenerParams>> = ({
+  e,
+  m,
+  p,
+}) => {
   const tickerList = ['BTC', 'ETH', 'XRP']
-  function onTickerSelected(item: Ticker) {
-    e.of('onTickerSelected').emit(item)
-  }
   const liveItem = ({item}) => {
     return (
-      <Pressable onPress={() => onTickerSelected(item)}>
+      <Pressable onPress={() => e.of('onTickerSelected').emit(item)}>
         <View style={styles.rowContainer}>
           <Text style={styles.name}>{item.name}</Text>
           <Text style={styles.price}>Rs. {item.price.toLocaleString()}</Text>
@@ -24,13 +26,11 @@ export const ScreenerView = ({e, m, p}) => {
     )
   }
 
-  function mount() {
-    e.of('updateState').emit(p)
-    e.of('mount').emit(tickerList)
-  }
-
   return (
-    <Lifecycle onMount={mount}>
+    <Lifecycle
+      onMount={() =>
+        e.of('mount').emit({userId: p.userId, tickers: tickerList})
+      }>
       <View style={styles.container}>
         <FlatList
           data={m.data}
