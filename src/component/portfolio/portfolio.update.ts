@@ -4,6 +4,7 @@ import {
   PortFolioInterface,
   PortFolioParams,
   PortFolioItem,
+  RecentTransaction,
 } from './portfolio.interface'
 
 export const update = matchR<PortFolioInterface>({
@@ -12,11 +13,25 @@ export const update = matchR<PortFolioInterface>({
   },
 
   completePortFolioResponse: (response, state) => {
-    console.log('completePortFolioResponse', response)
     const data: PortFolioItem[] = []
-    Object.entries(response).map(([_name, _value]) => {
+    Object.entries(response)?.map(([_name, _value]) => {
       data.push({name: _name, value: _value as string})
     })
-    return {...state, data: data}
+    return {...state, portfolio: data}
+  },
+
+  recentTransactionsResponse: (response, state) => {
+    const data: RecentTransaction[] = []
+    response.data?.map((item) => {
+      data.push({
+        transactionActionType: item.actionType,
+        transactionId: item.transactionId,
+        fromCurrency: item.fromCurrency,
+        toCurrency: item.toCurrency,
+        fromAmount: item.from,
+        toAmount: item.to,
+      })
+    })
+    return {...state, recentTransactions: data.reverse()}
   },
 })
