@@ -14,13 +14,31 @@ export const ScreenerView: FC<Props<ScreenerInterface, ScreenerParams>> = ({
   m,
   p,
 }) => {
-  const tickerList = ['BTC', 'ETH', 'XRP']
+  const tickerList = ['BTC', 'ETH', 'XRP', 'AVAX']
   const liveItem = ({item}) => {
     return (
       <Pressable onPress={() => e.of('onTickerSelected').emit(item)}>
         <View style={styles.rowContainer}>
-          <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.price}>Rs. {item.price.toLocaleString()}</Text>
+          <View>
+            <Text style={styles.name}>{item.name}</Text>
+            <Text style={styles.tickerId}>{item.id}</Text>
+          </View>
+          <View>
+            <Text style={styles.price}>Rs. {item.price.toLocaleString()}</Text>
+            <Text
+              style={
+                item.change < 0
+                  ? styles.percentageChangeNegative
+                  : styles.percentageChangePositive
+              }>
+              {item.change < 0 ? '⬇' : '⬆'}
+              {(item.change < 0
+                ? -item.change
+                : item.change
+              ).toLocaleString()}{' '}
+              %
+            </Text>
+          </View>
         </View>
       </Pressable>
     )

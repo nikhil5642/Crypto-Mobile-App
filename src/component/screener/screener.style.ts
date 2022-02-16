@@ -4,33 +4,51 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
+    flexDirection: 'column',
+  },
+  tagContainer: {
+    width: '100%',
+    height: 40,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  tag: {
+    fontSize: 14,
+    fontWeight: '600',
+    marginLeft: 16,
+    marginRight: 16,
   },
   rowContainer: {
     flex: 1,
-    width: '100%',
-    height: 40,
+    margin: 10,
     flexDirection: 'row',
     backgroundColor: '#FFFFFF',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottomColor: 'grey',
-    borderBottomWidth: 0.5,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderRadius: 8,
+    elevation: 1,
   },
   name: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginLeft: 16,
-    // color: 'white',
+  },
+  tickerId: {
+    fontSize: 10,
+    fontWeight: '400',
   },
   price: {
     fontSize: 14,
-    fontWeight: 'bold',
-    marginRight: 16,
-    // color: 'white',
+    fontWeight: '500',
+  },
+  percentageChangePositive: {
+    alignSelf: 'flex-end',
     color: 'green',
   },
-  bottomLine: {
-    width: 1,
-    backgroundColor: 'grey',
+  percentageChangeNegative: {
+    alignSelf: 'flex-end',
+    color: 'red',
   },
 })

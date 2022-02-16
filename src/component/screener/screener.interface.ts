@@ -9,4 +9,5 @@ export interface Ticker {
   name: string
   id: string
   price: string
+  change: number
 }

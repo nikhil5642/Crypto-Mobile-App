@@ -1,5 +1,6 @@
 export interface PortFolioInterface {
   userId: string
+  totalPortfolioValue: number
   portfolio: PortFolioItem[]
   recentTransactions: RecentTransaction[]
 }

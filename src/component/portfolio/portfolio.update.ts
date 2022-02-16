@@ -14,10 +14,14 @@ export const update = matchR<PortFolioInterface>({
 
   completePortFolioResponse: (response, state) => {
     const data: PortFolioItem[] = []
-    Object.entries(response)?.map(([_name, _value]) => {
+    Object.entries(response.data)?.map(([_name, _value]) => {
       data.push({name: _name, value: _value as string})
     })
-    return {...state, portfolio: data}
+    return {
+      ...state,
+      portfolio: data,
+      totalPortfolioValue: response.totalPortfolioValue,
+    }
   },
 
   recentTransactionsResponse: (response, state) => {

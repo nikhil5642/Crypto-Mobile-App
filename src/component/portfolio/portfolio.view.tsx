@@ -38,6 +38,14 @@ export const PortFolioView = ({e, m, p}) => {
     <Lifecycle onMount={() => e.of('mount').emit(p)}>
       <View style={styles.container}>
         <View>
+          <View style={styles.containerTotalPorfolioValue}>
+            <Text style={styles.textTotalPorfolioValue}>
+              Total Portfolio Value
+            </Text>
+            <Text style={styles.totalPorfolioValue}>
+              {m.totalPortfolioValue.toLocaleString()}
+            </Text>
+          </View>
           <Text style={styles.textAccountBalance}>
             {m.portfolio.length > 0 ? 'Account Balances' : ''}
           </Text>

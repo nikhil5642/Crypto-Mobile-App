@@ -6,6 +6,31 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
 
+  containerTotalPorfolioValue: {
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingTop: 10,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    marginHorizontal: 32,
+    marginVertical: 16,
+    flexDirection: 'column',
+  },
+
+  textTotalPorfolioValue: {
+    fontSize: 16,
+    fontWeight: '600',
+    alignSelf: 'center',
+    marginTop: 8,
+  },
+
+  totalPorfolioValue: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: 'black',
+    alignSelf: 'center',
+    marginVertical: 12,
+  },
   textAccountBalance: {
     fontSize: 16,
     fontWeight: '600',
