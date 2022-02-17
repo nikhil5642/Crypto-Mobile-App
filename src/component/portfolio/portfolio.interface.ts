@@ -3,6 +3,7 @@ export interface PortFolioInterface {
   totalPortfolioValue: number
   portfolio: PortFolioItem[]
   recentTransactions: RecentTransaction[]
+  refreshing: boolean
 }
 
 export type PortFolioParams = {userId: string}

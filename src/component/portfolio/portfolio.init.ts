@@ -5,4 +5,5 @@ export const init = (): PortFolioInterface => ({
   portfolio: [],
   totalPortfolioValue: 0,
   recentTransactions: [],
+  refreshing: false,
 })

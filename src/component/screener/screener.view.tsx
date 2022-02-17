@@ -40,8 +40,7 @@ export const ScreenerView: FC<Props<ScreenerInterface, ScreenerParams>> = ({
   )
 }
 
-const liveItem = (e: Smitten, item) => {
-  console.log('dfja;ldaslfa', item)
+const liveItem = (e: Smitten, item: any) => {
   return (
     <Pressable onPress={() => e.of('onTickerSelected').emit(item)}>
       <View style={styles.rowContainer}>
