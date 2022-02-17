@@ -3,33 +3,29 @@ import {StyleSheet} from 'react-native'
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
   },
 
   containerTotalPorfolioValue: {
     paddingBottom: 10,
     paddingLeft: 10,
     paddingTop: 10,
-    backgroundColor: 'white',
-    borderRadius: 10,
     marginHorizontal: 32,
     marginVertical: 16,
     flexDirection: 'column',
   },
 
   textTotalPorfolioValue: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '600',
     alignSelf: 'center',
-    marginTop: 8,
   },
 
   totalPorfolioValue: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: '600',
     color: 'black',
     alignSelf: 'center',
-    marginVertical: 12,
+    marginVertical: 4,
   },
   textAccountBalance: {
     fontSize: 16,
@@ -42,7 +38,6 @@ export const styles = StyleSheet.create({
 
   portFolioContainer: {
     flex: 1,
-    width: '100%',
     height: 40,
     flexDirection: 'row',
     backgroundColor: '#FFFFFF',
@@ -85,9 +80,8 @@ export const styles = StyleSheet.create({
   },
 
   transactionType: {
-    color: 'green',
     fontWeight: '800',
-    fontSize: 16,
+    fontSize: 14,
     paddingBottom: 5,
     paddingLeft: 2,
   },

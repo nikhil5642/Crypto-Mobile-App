@@ -18,10 +18,13 @@ export const PortFolioView = ({e, m, p}) => {
   }
 
   const recentTransactionItem = ({item}) => {
-    console.log(item)
     return (
       <View style={styles.transactionsContainer}>
-        <Text style={styles.transactionType}>
+        <Text
+          style={[
+            styles.transactionType,
+            {color: item.transactionActionType === 'buy' ? 'green' : 'red'},
+          ]}>
           {item.transactionActionType === 'buy' ? 'BUY' : 'SELL'}
         </Text>
         <Text style={styles.tranactionFrom}>
@@ -33,17 +36,16 @@ export const PortFolioView = ({e, m, p}) => {
       </View>
     )
   }
-  console.log('PortFolioView', m.recentTransactions)
   return (
     <Lifecycle onMount={() => e.of('mount').emit(p)}>
       <View style={styles.container}>
         <View>
           <View style={styles.containerTotalPorfolioValue}>
-            <Text style={styles.textTotalPorfolioValue}>
-              Total Portfolio Value
-            </Text>
             <Text style={styles.totalPorfolioValue}>
               {m.totalPortfolioValue.toLocaleString()}
+            </Text>
+            <Text style={styles.textTotalPorfolioValue}>
+              Total Portfolio Value
             </Text>
           </View>
           <Text style={styles.textAccountBalance}>
