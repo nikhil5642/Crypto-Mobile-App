@@ -1,6 +1,8 @@
 export interface ScreenerInterface {
   userId: string
   data: Ticker[]
+  tickers: string[]
+  refreshing: boolean
 }
 
 export type ScreenerParams = {userId: string}

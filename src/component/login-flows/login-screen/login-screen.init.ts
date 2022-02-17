@@ -1,3 +1,8 @@
 import {LoginScreenInterface} from './login-screen.interface'
 
-export const init = (): LoginScreenInterface => ({authorisation: ''})
+export const init = (): LoginScreenInterface => ({
+  sessionId: '',
+  otp: '',
+  mobileNumber: '',
+  screen: 'mob',
+})

@@ -48,17 +48,6 @@ class App extends PureComponent<InitParams> {
           params: {},
         }}
       />
-      // <navigator.view
-      //   e={this.e}
-      //   m={this.state}
-      //   p={{
-      //     route: Routes.TransactionStatusScreen,
-      //     params: {
-      //       transactionId: 'jkhlkhlk',
-      //       status: 'success',
-      //     },
-      //   }}
-      // />
     )
   }
 }

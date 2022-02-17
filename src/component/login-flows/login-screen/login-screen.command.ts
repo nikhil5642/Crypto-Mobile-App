@@ -3,30 +3,46 @@ import {matchC} from '@action-land/tarz'
 
 import {Routes} from '../../../navigator/navigator.interface'
 
-import {HTTPQuery, HTTPRequest} from './../../../helper/http-helper'
+import {HTTPRequest} from './../../../helper/http-helper'
 import {ReplaceScreenAction} from './../../../helper/navigation-helper'
 import {LoginScreenInterface} from './login-screen.interface'
 
 export const command = matchC<LoginScreenInterface>({
-  submitLogin: (action) => {
+  sendOTP: (_, state) => {
     return HTTPRequest({
-      endpoint: '/auth/login',
+      endpoint: '/auth/sendOTP',
       method: 'POST',
-      responseType: 'loginResponse',
+      responseType: 'sendOTPResponse',
       variables: {
-        mobileNumber: action.mobNum,
+        mobileNumber: state.mobileNumber,
       },
     })
   },
-  loginResponse: (res) => {
+
+  verifyOTP: (_, state) => {
     return HTTPRequest({
-      endpoint: '/auth/userId',
+      endpoint: '/auth/verifyOTP',
       method: 'POST',
-      responseType: 'userIdResponse',
+      responseType: 'verifyOTPResponse',
       variables: {
-        auth: res.Authorisation,
+        mobileNumber: state.mobileNumber,
+        otp: state.otp,
+        sessionId: state.sessionId,
       },
     })
+  },
+
+  verifyOTPResponse: (res) => {
+    return res.success === true
+      ? HTTPRequest({
+          endpoint: '/auth/userId',
+          method: 'POST',
+          responseType: 'userIdResponse',
+          variables: {
+            auth: res.Authorisation,
+          },
+        })
+      : Action.nil()
   },
 
   userIdResponse: (response) => {

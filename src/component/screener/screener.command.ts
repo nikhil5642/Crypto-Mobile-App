@@ -17,6 +17,16 @@ export const command = matchC<ScreenerInterface>({
       },
     })
   },
+  onRefresh: (_, state) => {
+    return HTTPRequest({
+      endpoint: '/market/getTickerLiveData',
+      method: 'POST',
+      responseType: 'liveTickerDataResponse',
+      variables: {
+        tickers: state.tickers,
+      },
+    })
+  },
   onTickerSelected: (item, state) => {
     return PushScreenAction({
       route: Routes.TickerDetails,

@@ -4,7 +4,10 @@ import {ScreenerInterface, ScreenerParams, Ticker} from './screener.interface'
 
 export const update = matchR<ScreenerInterface>({
   mount: (param, state) => {
-    return {...state, userId: param.userId}
+    return {...state, userId: param.userId, tickers: param.tickers}
+  },
+  onRefresh: (_, state) => {
+    return {...state, refreshing: true}
   },
   liveTickerDataResponse: (response, state) => {
     const data: Ticker[] = []
@@ -16,6 +19,6 @@ export const update = matchR<ScreenerInterface>({
         change: item.change,
       })
     })
-    return {...state, data: data}
+    return {...state, data: data, refreshing: false}
   },
 })

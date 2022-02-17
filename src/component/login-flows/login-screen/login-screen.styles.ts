@@ -3,18 +3,55 @@ import {StyleSheet} from 'react-native'
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 100,
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
     paddingLeft: 16,
     paddingRight: 16,
   },
+  otpViewContianer: {
+    alignSelf: 'center',
+    alignItems: 'center',
+  },
+  mobileNumberText: {
+    marginTop: 4,
+    color: 'black',
+    fontWeight: '600',
+    marginBottom: 16,
+  },
+
+  otpContainer: {
+    marginTop: 12,
+    flexDirection: 'row',
+    alignSelf: 'center',
+  },
+  otpText: {
+    backgroundColor: 'rgba(68, 60, 00, 0.4)',
+    borderRadius: 8,
+    fontSize: 16,
+    alignSelf: 'center',
+    textAlign: 'center',
+    marginHorizontal: 16,
+  },
+  otpPageBottomTextContainer: {
+    marginTop: 12,
+    flexDirection: 'row',
+    alignSelf: 'center',
+  },
+
+  resendOTP: {
+    fontWeight: '600',
+    color: '#005282',
+    textDecorationLine: 'underline',
+  },
+
   textInput: {
-    marginTop: 50,
     fontSize: 16,
     fontWeight: '600',
     backgroundColor: '#E3E2E6',
     color: '#1B1B1D',
-    borderBottomWidth: 0.5,
+    borderRadius: 12,
+    paddingLeft: 12,
   },
   button: {
     fontSize: 16,
