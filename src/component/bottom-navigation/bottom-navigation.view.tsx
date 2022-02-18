@@ -22,6 +22,11 @@ export const BottomNavigationView: FC<
     <View style={styles.container}>
       {getItem(
         e,
+        m.selection === BottomNavigationOptions.InvestmentIdeas,
+        BottomNavigationOptions.InvestmentIdeas,
+      )}
+      {getItem(
+        e,
         m.selection === BottomNavigationOptions.Market,
         BottomNavigationOptions.Market,
       )}

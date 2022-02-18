@@ -1,9 +1,9 @@
 import React, {FC} from 'react'
 
-import {Text, View} from 'react-native'
 import DefaultPreference from 'react-native-default-preference'
 import {SafeAreaView} from 'react-native-safe-area-context'
 
+import SplashLogo from '../../assets/SplashLogo'
 import {Props} from '../../core/component'
 import Lifecycle from '../lifecycle'
 
@@ -25,9 +25,7 @@ export const view: FC<Props<SplashScreenInterface, SplashScreenParams>> = ({
   return (
     <Lifecycle onMount={loadPreference}>
       <SafeAreaView style={styles.container}>
-        <View style={styles.textContainer}>
-          <Text style={styles.text}> First Learn then remove the 'L'</Text>
-        </View>
+        <SplashLogo width={'60%'} aspectRatio={1} alignSelf={'center'} />
       </SafeAreaView>
     </Lifecycle>
   )

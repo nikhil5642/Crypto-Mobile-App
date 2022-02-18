@@ -6,6 +6,7 @@ import {Props} from '../../core/component'
 import {accountBalance} from '../Balance/balance'
 import {bottomNavigation} from '../bottom-navigation/bottom-navigation'
 import {BottomNavigationOptions} from '../bottom-navigation/bottom-navigation.interface'
+import {investmentIdeas} from '../investment-ideas/investment-ideas'
 import {portfolio} from '../portfolio/portfolio'
 import {screener} from '../screener/screener'
 
@@ -19,6 +20,14 @@ export const view: FC<Props<HomeInterface, HomeParams>> = ({e, m, p}) => {
         p={{userId: p.userId}}
         m={m.accountBalance}
       />
+      {m.bottomNavigation.selection ===
+      BottomNavigationOptions.InvestmentIdeas ? (
+        <investmentIdeas.view
+          e={e.of('investmentIdeas')}
+          p={{userId: p.userId}}
+          m={m.investmentIdeas}
+        />
+      ) : null}
       {m.bottomNavigation.selection === BottomNavigationOptions.Market ? (
         <screener.view
           e={e.of('screener')}

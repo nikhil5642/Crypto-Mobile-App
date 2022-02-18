@@ -5,6 +5,8 @@ import {FlatList} from 'react-native-gesture-handler'
 import {SafeAreaView} from 'react-native-safe-area-context'
 
 import {Props} from '../../core/component'
+import {GeneralInfoItemVIew} from '../common-views/generalInfo'
+import {PolarGraphItemView} from '../common-views/polar-graph-item'
 import Lifecycle from '../lifecycle'
 
 import {
@@ -12,8 +14,6 @@ import {
   TickerDetailsParams,
 } from './ticker-details.interface'
 import {styles} from './ticker-details.styles'
-import {GeneralInfoItemVIew} from './ticker-items/generalInfo'
-import {PolarGraphItemView} from './ticker-items/polar-graph-item'
 
 export const TickerDetailView: FC<
   Props<TickerDetailsInterface, TickerDetailsParams>

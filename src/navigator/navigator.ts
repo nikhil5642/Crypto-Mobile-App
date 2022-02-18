@@ -8,6 +8,7 @@ import {Component} from '../core/component'
 import {forward} from '../core/forward'
 
 import {buySellScreen} from './../component/buy-sell-screen/buy-sell-screen'
+import {categoryDetails} from './../component/category-details/category-details'
 import {loginScreen} from './../component/login-flows/login-screen/login-screen'
 import {command} from './navigator.command'
 import {init} from './navigator.init'
@@ -23,6 +24,7 @@ export const navigator: Component<Navigator, NavigationParams> = R.compose(
     loginScreen,
     buySellScreen,
     transactionStatus,
+    categoryDetails,
   }),
 )({
   init: init,

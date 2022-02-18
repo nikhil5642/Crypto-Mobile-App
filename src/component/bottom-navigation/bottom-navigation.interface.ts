@@ -6,5 +6,6 @@ export type BottomNavigationParams = Record<string, any>
 
 export enum BottomNavigationOptions {
   Market = 'Market',
-  PortFolio = 'My PortFolio',
+  PortFolio = 'PortFolio',
+  InvestmentIdeas = 'Ideas',
 }

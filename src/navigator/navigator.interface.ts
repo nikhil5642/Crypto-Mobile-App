@@ -14,13 +14,14 @@ import {
   BuySellParams,
 } from './../component/buy-sell-screen/buy-sell-screen.interface'
 import {
+  CategoryDetailsInterface,
+  CatergoryDetailsParams,
+} from './../component/category-details/category-details.interface'
+import {
   LoginScreenInterface,
   LoginScreenParams,
 } from './../component/login-flows/login-screen/login-screen.interface'
-import {
-  transactionStatus,
-  TransactionStatusInterFace,
-} from './../component/transaction-status/transaction-status'
+import {TransactionStatusInterFace} from './../component/transaction-status/transaction-status'
 
 export enum Routes {
   Home = 'Home',
@@ -29,6 +30,7 @@ export enum Routes {
   LoginScreen = 'LoginScreen',
   BuySellScreen = 'BuySellScreen',
   TransactionStatusScreen = 'TransactionStatusScreen',
+  CatergoryDetailsScreen = 'CatergoryDetailsScreen',
 }
 
 export interface NavigationBase<R extends Routes, P> {
@@ -43,6 +45,7 @@ export type NavigationParams =
   | NavigationBase<Routes.LoginScreen, LoginScreenParams>
   | NavigationBase<Routes.BuySellScreen, BuySellParams>
   | NavigationBase<Routes.TransactionStatusScreen, TransactionStatusParms>
+  | NavigationBase<Routes.CatergoryDetailsScreen, CatergoryDetailsParams>
 
 export interface Navigator {
   home: HomeInterface
@@ -51,4 +54,5 @@ export interface Navigator {
   loginScreen: LoginScreenInterface
   buySellScreen: BuySellInterface
   transactionStatusScreen: TransactionStatusInterFace
+  categoryDetails: CategoryDetailsInterface
 }

@@ -11,6 +11,8 @@ export const styles = StyleSheet.create({
   },
   itemContainer: {
     flex: 1,
+    borderTopWidth: 1,
+    borderColor: '#686000',
   },
   bottomItemSelected: {
     flex: 1,

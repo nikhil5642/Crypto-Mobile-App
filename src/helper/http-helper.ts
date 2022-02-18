@@ -33,3 +33,7 @@ export const getHeaders = () => {
 }
 export const isHTTPRequestSuccess = (response: any) =>
   !(response instanceof Error)
+
+export const getImageURL = (enpoint: string): string => {
+  return baseUrl + enpoint
+}

@@ -48,6 +48,14 @@ class App extends PureComponent<InitParams> {
           params: {},
         }}
       />
+      // <navigator.view
+      //   e={this.e}
+      //   m={this.state}
+      //   p={{
+      //     route: Routes.CatergoryDetailsScreen,
+      //     params: {userId: '1', categoryId: 'metaverse'},
+      //   }}
+      // />
     )
   }
 }

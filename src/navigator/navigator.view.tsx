@@ -5,6 +5,8 @@ import {createStackNavigator} from '@react-navigation/stack'
 
 import {buySellScreen} from '../component/buy-sell-screen/buy-sell-screen'
 import {BuySellParams} from '../component/buy-sell-screen/buy-sell-screen.interface'
+import {categoryDetails} from '../component/category-details/category-details'
+import {CatergoryDetailsParams} from '../component/category-details/category-details.interface'
 import {home} from '../component/home/home'
 import {HomeParams} from '../component/home/home.interface'
 import {loginScreen} from '../component/login-flows/login-screen/login-screen'
@@ -86,6 +88,16 @@ export const view: FC<Props<Navigator, NavigationParams>> = ({e, m, p}) => {
               e={e.of('transactionStatus')}
               p={{...(p.params as TransactionStatusParms), ...route.params}}
               m={m.transactionStatusScreen}
+            />
+          )}
+        </Stack.Screen>
+
+        <Stack.Screen name={Routes.CatergoryDetailsScreen}>
+          {({route}) => (
+            <categoryDetails.view
+              e={e.of('categoryDetails')}
+              p={{...(p.params as CatergoryDetailsParams), ...route.params}}
+              m={m.categoryDetails}
             />
           )}
         </Stack.Screen>
