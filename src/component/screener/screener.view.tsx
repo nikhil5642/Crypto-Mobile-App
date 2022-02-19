@@ -57,17 +57,17 @@ const liveItem = (e: Smitten, item: any) => {
           <Text style={styles.tickerId}>{item.id}</Text>
         </View>
         <View style={{flex: 1}}>
-          <View style={styles.riskTagcontainer}>
-            <Text style={getRiskTagStyle(item.riskIndex)}>
-              {getRiskTagText(item.riskIndex)}
-            </Text>
-          </View>
           <View style={styles.featureTagsContainer}>
             {item.tags.map((val) => (
               <Pressable onPress={() => e.of('tagClicked').emit(val.name)}>
                 <Image style={styles.featureTag} source={val.icon} />
               </Pressable>
             ))}
+          </View>
+          <View style={styles.riskTagcontainer}>
+            <Text style={getRiskTagStyle(item.riskIndex)}>
+              {getRiskTagText(item.riskIndex)}
+            </Text>
           </View>
         </View>
         <View style={{flex: 1}}>

@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
 
   riskTagcontainer: {
     alignSelf: 'center',
+    marginTop: 2,
   },
 
   riskTag: {
@@ -26,7 +27,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   featureTag: {
-    marginTop: 4,
+    marginBottom: 2,
     marginHorizontal: 4,
     height: 16,
     width: 16,
