@@ -6,18 +6,25 @@ export const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'column',
   },
-  tagContainer: {
-    width: '100%',
-    height: 40,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  tag: {
-    fontSize: 14,
+  riskTag: {
+    fontSize: 8,
     fontWeight: '600',
-    marginLeft: 16,
-    marginRight: 16,
+    color: 'black',
+    borderWidth: 0.5,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    marginVertical: 1,
+    borderRadius: 16,
+  },
+  featureTagsContainer: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+  },
+  featureTag: {
+    marginTop: 4,
+    marginHorizontal: 2,
+    height: 16,
+    width: 16,
   },
   rowContainer: {
     flex: 1,

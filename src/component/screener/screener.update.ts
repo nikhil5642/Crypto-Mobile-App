@@ -1,6 +1,9 @@
+import Toast from 'react-native-simple-toast'
+
 import {matchR} from '@action-land/tarz'
 
 import {ScreenerInterface, ScreenerParams, Ticker} from './screener.interface'
+import {getFeatureTags} from './screener.utils'
 
 export const update = matchR<ScreenerInterface>({
   mount: (param, state) => {
@@ -8,6 +11,10 @@ export const update = matchR<ScreenerInterface>({
   },
   onRefresh: (_, state) => {
     return {...state, refreshing: true}
+  },
+  tagClicked: (name, state) => {
+    Toast.show(name, Toast.LONG)
+    return state
   },
   liveTickerDataResponse: (response, state) => {
     const data: Ticker[] = []
@@ -17,6 +24,8 @@ export const update = matchR<ScreenerInterface>({
         id: item.id,
         price: item.price,
         change: item.change,
+        riskIndex: item.riskIndex,
+        tags: getFeatureTags(item.tags),
       })
     })
     return {...state, data: data, refreshing: false}
