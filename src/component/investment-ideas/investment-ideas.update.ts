@@ -11,7 +11,7 @@ export const update = matchR<InvestmentIdeasInterface>({
   },
   causeIdeasResponse: (res, state) => {
     const data: InvestmentIdea[] = []
-    res.forEach((item) => {
+    res?.forEach((item) => {
       data.push({
         name: item.name,
         id: item.id,

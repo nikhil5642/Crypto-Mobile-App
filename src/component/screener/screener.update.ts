@@ -18,7 +18,7 @@ export const update = matchR<ScreenerInterface>({
   },
   liveTickerDataResponse: (response, state) => {
     const data: Ticker[] = []
-    response.result.forEach((item) => {
+    response.result?.forEach((item) => {
       data.push({
         name: item.name,
         id: item.id,
