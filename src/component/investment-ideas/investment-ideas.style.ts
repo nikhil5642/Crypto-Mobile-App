@@ -4,7 +4,8 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingTop: 16,
     backgroundColor: 'white',
   },
   titleText: {
@@ -40,5 +41,18 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  comingSoonTextContainer: {
+    marginHorizontal: 12,
+    marginTop: 12,
+    marginBottom: 32,
+    backgroundColor: 'lightgray',
+    borderRadius: 12,
+    paddingVertical: 24,
+  },
+  comingSoonText: {
+    fontWeight: '600',
+    alignSelf: 'center',
   },
 })

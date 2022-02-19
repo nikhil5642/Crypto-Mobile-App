@@ -8,6 +8,7 @@ import {
   ImageBackground,
   Pressable,
   RefreshControl,
+  ScrollView,
 } from 'react-native'
 
 import {Smitten} from '@action-land/smitten'
@@ -27,7 +28,7 @@ export const InvestmentIdeasView: FC<
 > = ({e, m, p}) => {
   return (
     <Lifecycle onMount={() => e.of('mount').emit(p)}>
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         {m.causeInvestment.length > 0 ? (
           <Text style={styles.titleText}>Invest in a Category</Text>
         ) : null}
@@ -36,6 +37,7 @@ export const InvestmentIdeasView: FC<
           renderItem={(item) => ideaItem(e, item.item)}
           keyExtractor={(item) => item.id}
           numColumns={2}
+          nestedScrollEnabled
           refreshControl={
             <RefreshControl
               refreshing={m.refreshing}
@@ -43,7 +45,11 @@ export const InvestmentIdeasView: FC<
             />
           }
         />
-      </View>
+        <Text style={styles.titleText}>Invest in a ICO</Text>
+        <View style={styles.comingSoonTextContainer}>
+          <Text style={styles.comingSoonText}>Coming Soon...</Text>
+        </View>
+      </ScrollView>
     </Lifecycle>
   )
 }
