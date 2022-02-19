@@ -52,14 +52,16 @@ const liveItem = (e: Smitten, item: any) => {
   return (
     <Pressable onPress={() => e.of('onTickerSelected').emit(item)}>
       <View style={styles.rowContainer}>
-        <View>
+        <View style={{flex: 1}}>
           <Text style={styles.name}>{item.name}</Text>
           <Text style={styles.tickerId}>{item.id}</Text>
         </View>
-        <View>
-          <Text style={getRiskTagStyle(item.riskIndex)}>
-            {getRiskTagText(item.riskIndex)}
-          </Text>
+        <View style={{flex: 1}}>
+          <View style={styles.riskTagcontainer}>
+            <Text style={getRiskTagStyle(item.riskIndex)}>
+              {getRiskTagText(item.riskIndex)}
+            </Text>
+          </View>
           <View style={styles.featureTagsContainer}>
             {item.tags.map((val) => (
               <Pressable onPress={() => e.of('tagClicked').emit(val.name)}>
@@ -68,7 +70,7 @@ const liveItem = (e: Smitten, item: any) => {
             ))}
           </View>
         </View>
-        <View>
+        <View style={{flex: 1}}>
           <Text style={styles.price}>
             Rs. {Math.round((item.price + Number.EPSILON) * 100) / 100}
           </Text>

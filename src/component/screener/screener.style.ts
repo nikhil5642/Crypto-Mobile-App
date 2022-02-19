@@ -6,6 +6,11 @@ export const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'column',
   },
+
+  riskTagcontainer: {
+    alignSelf: 'center',
+  },
+
   riskTag: {
     fontSize: 8,
     fontWeight: '600',
@@ -22,7 +27,7 @@ export const styles = StyleSheet.create({
   },
   featureTag: {
     marginTop: 4,
-    marginHorizontal: 2,
+    marginHorizontal: 4,
     height: 16,
     width: 16,
   },
@@ -49,6 +54,7 @@ export const styles = StyleSheet.create({
   price: {
     fontSize: 14,
     fontWeight: '500',
+    alignSelf: 'flex-end',
   },
   percentageChangePositive: {
     alignSelf: 'flex-end',
