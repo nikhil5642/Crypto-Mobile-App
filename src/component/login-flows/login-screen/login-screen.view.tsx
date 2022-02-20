@@ -26,15 +26,18 @@ export const LoginScreenView: FC<
   return (
     <SafeAreaView style={styles.container}>
       {m.screen === 'mob' ? (
-        <TextInput
-          style={styles.textInput}
-          placeholder="mobile no"
-          value={m.mobileNumber}
-          onChangeText={(num) => e.of('updateMobileNumber').emit(num)}
-          keyboardType="numeric"
-          selectionColor="#000"
-          maxLength={10}
-        />
+        <View>
+          <Text style={styles.welcomeText}>Welcome !</Text>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Mobile Number"
+            value={m.mobileNumber}
+            onChangeText={(num) => e.of('updateMobileNumber').emit(num)}
+            keyboardType="numeric"
+            selectionColor="#000"
+            maxLength={10}
+          />
+        </View>
       ) : (
         getOtpView(e, m)
       )}

@@ -22,4 +22,9 @@ export const update = matchR<BucketDetailsInterface>({
     Toast.show('This feature is coming soon')
     return state
   },
+
+  dropDownSelected: (item, state) => {
+    Toast.show(item.name + ' description will be here')
+    return state
+  },
 })

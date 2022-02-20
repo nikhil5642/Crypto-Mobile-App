@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '11.0'
 
-target 'docApp' do
+target 'Blunt' do
   config = use_native_modules!
 
   use_react_native!(
@@ -12,11 +12,7 @@ target 'docApp' do
     :hermes_enabled => false
   )
 
-  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
-
-  pod 'RNSVG', :path => '../node_modules/react-native-svg'
-
-  target 'docAppTests' do
+  target 'BluntTests' do
     inherit! :complete
     # Pods for testing
   end

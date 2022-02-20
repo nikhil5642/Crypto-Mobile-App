@@ -9,6 +9,14 @@ export const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
   },
+  welcomeText: {
+    alignSelf: 'center',
+    color: 'black',
+    fontSize: 20,
+    fontWeight: '600',
+    padding: 20,
+  },
+
   otpViewContianer: {
     alignSelf: 'center',
     alignItems: 'center',

@@ -16,10 +16,24 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: 'gray',
   },
-  portfolioItemText: {
+  portfolioItemNameText: {
     fontSize: 16,
     color: 'black',
     fontWeight: '400',
+  },
+  portfolioItemPercentageText: {
+    fontSize: 16,
+    color: 'black',
+    fontWeight: '400',
+    alignSelf: 'flex-end',
+    alignItems: 'flex-end',
+    marginRight: 20,
+  },
+  portfolioDropdownIcon: {
+    height: 16,
+    width: 16,
+    aspectRatio: 1,
+    alignSelf: 'flex-end',
   },
   buttonContainer: {
     flex: 1,

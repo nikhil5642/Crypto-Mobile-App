@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "docApp.app"
-               BlueprintName = "docApp"
-               ReferencedContainer = "container:docApp.xcodeproj">
+               BuildableName = "Blunt.app"
+               BlueprintName = "Blunt"
+               ReferencedContainer = "container:Blunt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "docAppTests.xctest"
-               BlueprintName = "docAppTests"
-               ReferencedContainer = "container:docApp.xcodeproj">
+               BuildableName = "BluntTests.xctest"
+               BlueprintName = "BluntTests"
+               ReferencedContainer = "container:Blunt.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "docApp.app"
-            BlueprintName = "docApp"
-            ReferencedContainer = "container:docApp.xcodeproj">
+            BuildableName = "Blunt.app"
+            BlueprintName = "Blunt"
+            ReferencedContainer = "container:Blunt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "docApp.app"
-            BlueprintName = "docApp"
-            ReferencedContainer = "container:docApp.xcodeproj">
+            BuildableName = "Blunt.app"
+            BlueprintName = "Blunt"
+            ReferencedContainer = "container:Blunt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,7 +1,9 @@
 import React, {FC} from 'react'
 
-import {View, Text, Pressable} from 'react-native'
+import {View, Text, Pressable, Image} from 'react-native'
 import {ScrollView} from 'react-native-gesture-handler'
+
+import {Smitten} from '@action-land/smitten'
 
 import {Props} from '../../core/component'
 import {GeneralInfoItemVIew} from '../common-views/generalInfo'
@@ -23,7 +25,7 @@ export const BucketDetailView: FC<
           data={{name: m.data.name, description: m.data.description}}
         />
         <View style={styles.portfolioContainer}>
-          {m.data?.portfolio?.map(portfolioItem)}
+          {m.data?.portfolio?.map((item) => portfolioItem(e, item))}
         </View>
         <Pressable
           style={styles.buttonContainer}
@@ -35,16 +37,24 @@ export const BucketDetailView: FC<
   )
 }
 
-export const portfolioItem = (item) => {
+export const portfolioItem = (e: Smitten, item) => {
   console.log('sflajdf', item)
   return (
     <View style={styles.portfolioItemContainer}>
-      <Text style={styles.portfolioItemText}>
+      <Text style={styles.portfolioItemNameText}>
         {item.name} ({item.id})
       </Text>
-      <Text style={styles.portfolioItemText}>
-        {(item.contribution * 100).toString()} %
-      </Text>
+      <View style={{flexDirection: 'row'}}>
+        <Text style={styles.portfolioItemPercentageText}>
+          {(item.contribution * 100).toString()} %
+        </Text>
+        <Pressable onPress={() => e.of('dropDownSelected').emit(item)}>
+          <Image
+            source={require('../../assets/ic_drop_down.png')}
+            style={styles.portfolioDropdownIcon}
+          />
+        </Pressable>
+      </View>
     </View>
   )
 }
