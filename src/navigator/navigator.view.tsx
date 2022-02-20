@@ -3,6 +3,8 @@ import React, {FC} from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 
+import {bucketDetails} from '../component/bucket-details/bucket-details'
+import {BucketDetailsParams} from '../component/bucket-details/bucket-details.interface'
 import {buySellScreen} from '../component/buy-sell-screen/buy-sell-screen'
 import {BuySellParams} from '../component/buy-sell-screen/buy-sell-screen.interface'
 import {categoryDetails} from '../component/category-details/category-details'
@@ -98,6 +100,16 @@ export const view: FC<Props<Navigator, NavigationParams>> = ({e, m, p}) => {
               e={e.of('categoryDetails')}
               p={{...(p.params as CatergoryDetailsParams), ...route.params}}
               m={m.categoryDetails}
+            />
+          )}
+        </Stack.Screen>
+
+        <Stack.Screen name={Routes.BucketDetailsScreen}>
+          {({route}) => (
+            <bucketDetails.view
+              e={e.of('bucketDetails')}
+              p={{...(p.params as BucketDetailsParams), ...route.params}}
+              m={m.bucketDetails}
             />
           )}
         </Stack.Screen>

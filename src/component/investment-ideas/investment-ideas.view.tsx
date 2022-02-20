@@ -50,8 +50,7 @@ export const InvestmentIdeasView: FC<
             ) : null
           }
         />
-        <Text style={styles.titleText}>Invest in a our buckets</Text>
-        {bucketList(e, m.buckets)}
+        {bucketList(e, 'Invest in a our buckets', styles.titleText, m.buckets)}
       </ScrollView>
     </Lifecycle>
   )

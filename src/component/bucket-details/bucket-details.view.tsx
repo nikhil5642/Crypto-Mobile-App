@@ -6,29 +6,20 @@ import {SafeAreaView} from 'react-native-safe-area-context'
 
 import {Props} from '../../core/component'
 import {GeneralInfoItemVIew} from '../common-views/generalInfo'
-import {bucketList} from '../investment-ideas/investment-buckets'
 import Lifecycle from '../lifecycle'
 
 import {
-  CategoryDetailsInterface,
-  CatergoryDetailsParams,
-} from './category-details.interface'
-import {styles} from './category-details.styles'
+  BucketDetailsInterface,
+  BucketDetailsParams,
+} from './bucket-details.interface'
+import {styles} from './bucket-details.styles'
 
-export const CategoryDetailView: FC<
-  Props<CategoryDetailsInterface, CatergoryDetailsParams>
+export const BucketDetailView: FC<
+  Props<BucketDetailsInterface, BucketDetailsParams>
 > = ({e, m, p}) => {
   return (
     <Lifecycle onMount={() => e.of('mount').emit(p)}>
       <ScrollView style={styles.container}>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={styles.scrollView}>
-          {m.imageUrls.map((image) => (
-            <Image source={{uri: image}} style={styles.slidingImage} />
-          ))}
-        </ScrollView>
         <GeneralInfoItemVIew
           data={{name: m.data.name, description: m.data.description}}
         />
@@ -40,12 +31,12 @@ export const CategoryDetailView: FC<
         </View>
 
         <View style={styles.comingSoon}>
-          {bucketList(
-            e,
-            'Top ' + m.name + ' Investment Buckets',
-            styles.comingSoonHeading,
-            m.buckets,
-          )}
+          <Text style={styles.comingSoonHeading}>
+            Top {m.name} Investment Buckets
+          </Text>
+          <View style={styles.comingSoonTextContainer}>
+            <Text style={styles.comingSoonText}>Coming Soon...</Text>
+          </View>
         </View>
 
         <View style={styles.comingSoon}>

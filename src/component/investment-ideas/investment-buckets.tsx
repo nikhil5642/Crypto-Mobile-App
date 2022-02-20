@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Text,
   View,
+  ViewProps,
 } from 'react-native'
 
 import {Smitten} from '@action-land/smitten'
@@ -20,15 +21,23 @@ export interface InvestmentBucketItem {
   imgUrl: string
 }
 
-export const bucketList = (e: Smitten, buckets: InvestmentBucketItem[]) => {
+export const bucketList = (
+  e: Smitten,
+  title: string,
+  titleStyle: any,
+  buckets: InvestmentBucketItem[],
+) => {
   return (
-    <FlatList
-      data={buckets}
-      renderItem={(item) => bucketItem(e, item.item)}
-      keyExtractor={(item) => item.id}
-      nestedScrollEnabled
-      horizontal
-    />
+    <View>
+      {buckets.length > 0 ? <Text style={titleStyle}>{title}</Text> : null}
+      <FlatList
+        data={buckets}
+        renderItem={(item) => bucketItem(e, item.item)}
+        keyExtractor={(item) => item.id}
+        nestedScrollEnabled
+        horizontal
+      />
+    </View>
   )
 }
 

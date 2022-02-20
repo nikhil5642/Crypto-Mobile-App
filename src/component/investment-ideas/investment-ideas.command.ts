@@ -29,7 +29,12 @@ export const command = matchC<InvestmentIdeasInterface>({
       })
     },
   ),
-
+  openBucket: (item, state) => {
+    return PushScreenAction({
+      route: Routes.BucketDetailsScreen,
+      params: {categoryId: item.id, userId: state.userId},
+    })
+  },
   categorySelected: (item, state) => {
     return PushScreenAction({
       route: Routes.CatergoryDetailsScreen,

@@ -2,6 +2,7 @@ import {buySellScreen} from '../component/buy-sell-screen/buy-sell-screen'
 import {home} from '../component/home/home'
 import {splashScreen} from '../component/splash-screen/splash-screen'
 
+import {bucketDetails} from './../component/bucket-details/bucket-details'
 import {categoryDetails} from './../component/category-details/category-details'
 import {loginScreen} from './../component/login-flows/login-screen/login-screen'
 import {tickerDetails} from './../component/ticker-details/ticker-details'
@@ -16,4 +17,5 @@ export const init = (): Navigator => ({
   buySellScreen: buySellScreen.init(),
   transactionStatusScreen: transactionStatus.init(),
   categoryDetails: categoryDetails.init(),
+  bucketDetails: bucketDetails.init(),
 })

@@ -10,6 +10,10 @@ import {
 import {TransactionStatusParms} from '../component/transaction-status/transaction-status'
 
 import {
+  BucketDetailsInterface,
+  BucketDetailsParams,
+} from './../component/bucket-details/bucket-details.interface'
+import {
   BuySellInterface,
   BuySellParams,
 } from './../component/buy-sell-screen/buy-sell-screen.interface'
@@ -31,6 +35,7 @@ export enum Routes {
   BuySellScreen = 'BuySellScreen',
   TransactionStatusScreen = 'TransactionStatusScreen',
   CatergoryDetailsScreen = 'CatergoryDetailsScreen',
+  BucketDetailsScreen = 'BucketDetailsScreen',
 }
 
 export interface NavigationBase<R extends Routes, P> {
@@ -46,6 +51,7 @@ export type NavigationParams =
   | NavigationBase<Routes.BuySellScreen, BuySellParams>
   | NavigationBase<Routes.TransactionStatusScreen, TransactionStatusParms>
   | NavigationBase<Routes.CatergoryDetailsScreen, CatergoryDetailsParams>
+  | NavigationBase<Routes.BucketDetailsScreen, BucketDetailsParams>
 
 export interface Navigator {
   home: HomeInterface
@@ -55,4 +61,5 @@ export interface Navigator {
   buySellScreen: BuySellInterface
   transactionStatusScreen: TransactionStatusInterFace
   categoryDetails: CategoryDetailsInterface
+  bucketDetails: BucketDetailsInterface
 }

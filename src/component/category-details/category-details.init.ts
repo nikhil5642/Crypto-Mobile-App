@@ -6,4 +6,5 @@ export const init = (): CategoryDetailsInterface => ({
   categoryId: '',
   data: {},
   imageUrls: [],
+  buckets: [],
 })
