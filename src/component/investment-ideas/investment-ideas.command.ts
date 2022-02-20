@@ -30,9 +30,10 @@ export const command = matchC<InvestmentIdeasInterface>({
     },
   ),
   openBucket: (item, state) => {
+    console.log('openBucket', item)
     return PushScreenAction({
       route: Routes.BucketDetailsScreen,
-      params: {categoryId: item.id, userId: state.userId},
+      params: {bucketId: item, userId: state.userId},
     })
   },
   categorySelected: (item, state) => {

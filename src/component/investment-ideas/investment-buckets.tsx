@@ -8,7 +8,6 @@ import {
   StyleSheet,
   Text,
   View,
-  ViewProps,
 } from 'react-native'
 
 import {Smitten} from '@action-land/smitten'
@@ -29,14 +28,20 @@ export const bucketList = (
 ) => {
   return (
     <View>
-      {buckets.length > 0 ? <Text style={titleStyle}>{title}</Text> : null}
-      <FlatList
-        data={buckets}
-        renderItem={(item) => bucketItem(e, item.item)}
-        keyExtractor={(item) => item.id}
-        nestedScrollEnabled
-        horizontal
-      />
+      <Text style={titleStyle}>{title}</Text>
+      {buckets.length > 0 ? (
+        <FlatList
+          data={buckets}
+          renderItem={(item) => bucketItem(e, item.item)}
+          keyExtractor={(item) => item.id}
+          nestedScrollEnabled
+          horizontal
+        />
+      ) : (
+        <View style={styles.emptyBucketContainer}>
+          <Text style={styles.emptyBucketText}> No bucket found</Text>
+        </View>
+      )}
     </View>
   )
 }
@@ -88,4 +93,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
   },
+  emptyBucketContainer: {
+    backgroundColor: 'lightgray',
+    borderRadius: 12,
+    paddingVertical: 16,
+    margin: 12,
+  },
+  emptyBucketText: {alignSelf: 'center'},
 })

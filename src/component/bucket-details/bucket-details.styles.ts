@@ -1,40 +1,39 @@
-import {Dimensions, StyleSheet} from 'react-native'
-
-const {width} = Dimensions.get('window')
+import {StyleSheet} from 'react-native'
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 0,
-  },
-  scrollView: {
-    height: width / 2 + 12,
-  },
-  slidingImage: {
-    aspectRatio: 3 / 2,
-    height: width / 2,
-    marginLeft: 12,
-    marginVertical: 12,
-    borderRadius: 12,
-    overflow: 'hidden',
-  },
-  comingSoon: {
+  container: {flex: 1},
+  portfolioContainer: {
     margin: 12,
     backgroundColor: 'white',
     borderRadius: 12,
     padding: 12,
   },
-  comingSoonHeading: {
+  portfolioItemContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 4,
+    borderBottomWidth: 0.5,
+    borderBottomColor: 'gray',
+  },
+  portfolioItemText: {
+    fontSize: 16,
     color: 'black',
-    fontWeight: '600',
+    fontWeight: '400',
   },
-  comingSoonTextContainer: {
-    margin: 12,
-    backgroundColor: 'lightgray',
-    borderRadius: 12,
-    paddingVertical: 24,
+  buttonContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    margin: 16,
   },
-  comingSoonText: {
+  button: {
+    fontSize: 16,
+    padding: 8,
+    borderRadius: 8,
     fontWeight: '600',
-    alignSelf: 'center',
+    color: '#FFFFFF',
+    backgroundColor: '#686000',
+    textAlign: 'center',
+    textAlignVertical: 'bottom',
   },
 })

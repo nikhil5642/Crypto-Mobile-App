@@ -21,7 +21,7 @@ export const command = matchC<CategoryDetailsInterface>({
   openBucket: (item, state) => {
     return PushScreenAction({
       route: Routes.BucketDetailsScreen,
-      params: {categoryId: item.id, userId: state.userId},
+      params: {bucketId: item, userId: state.userId},
     })
   },
 })

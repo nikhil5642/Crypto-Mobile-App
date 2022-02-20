@@ -1,8 +1,7 @@
 import React, {FC} from 'react'
 
-import {View, Image, Text} from 'react-native'
+import {View, Text, Pressable} from 'react-native'
 import {ScrollView} from 'react-native-gesture-handler'
-import {SafeAreaView} from 'react-native-safe-area-context'
 
 import {Props} from '../../core/component'
 import {GeneralInfoItemVIew} from '../common-views/generalInfo'
@@ -23,38 +22,29 @@ export const BucketDetailView: FC<
         <GeneralInfoItemVIew
           data={{name: m.data.name, description: m.data.description}}
         />
-        <View style={styles.comingSoon}>
-          <Text style={styles.comingSoonHeading}> Top Projects</Text>
-          <View style={styles.comingSoonTextContainer}>
-            <Text style={styles.comingSoonText}>Coming Soon...</Text>
-          </View>
+        <View style={styles.portfolioContainer}>
+          {m.data?.portfolio?.map(portfolioItem)}
         </View>
-
-        <View style={styles.comingSoon}>
-          <Text style={styles.comingSoonHeading}>
-            Top {m.name} Investment Buckets
-          </Text>
-          <View style={styles.comingSoonTextContainer}>
-            <Text style={styles.comingSoonText}>Coming Soon...</Text>
-          </View>
-        </View>
-
-        <View style={styles.comingSoon}>
-          <Text style={styles.comingSoonHeading}>Experts Projection</Text>
-          <View style={styles.comingSoonTextContainer}>
-            <Text style={styles.comingSoonText}>Coming Soon...</Text>
-          </View>
-        </View>
-
-        <View style={styles.comingSoon}>
-          <Text style={styles.comingSoonHeading}>
-            Important upcoming events
-          </Text>
-          <View style={styles.comingSoonTextContainer}>
-            <Text style={styles.comingSoonText}>Coming Soon...</Text>
-          </View>
-        </View>
+        <Pressable
+          style={styles.buttonContainer}
+          onPress={() => e.of('investInBucket').emit({})}>
+          <Text style={styles.button}>Invest Now</Text>
+        </Pressable>
       </ScrollView>
     </Lifecycle>
+  )
+}
+
+export const portfolioItem = (item) => {
+  console.log('sflajdf', item)
+  return (
+    <View style={styles.portfolioItemContainer}>
+      <Text style={styles.portfolioItemText}>
+        {item.name} ({item.id})
+      </Text>
+      <Text style={styles.portfolioItemText}>
+        {(item.contribution * 100).toString()} %
+      </Text>
+    </View>
   )
 }

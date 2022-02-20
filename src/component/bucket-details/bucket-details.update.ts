@@ -1,6 +1,6 @@
-import {matchR} from '@action-land/tarz'
+import Toast from 'react-native-simple-toast'
 
-import {getImageURL} from '../../helper/http-helper'
+import {matchR} from '@action-land/tarz'
 
 import {BucketDetailsInterface} from './bucket-details.interface'
 
@@ -8,13 +8,18 @@ export const update = matchR<BucketDetailsInterface>({
   mount: (params, state) => {
     return {
       ...state,
-      categoryId: params.categoryId,
+      bucketId: params.bucketId,
       userId: params.userId,
     }
   },
-  categoryDetailsResponse: (response, state) => {
-    const imgUrls: string[] = []
-    response.images?.map((item) => imgUrls.push(getImageURL(item)))
-    return {...state, data: response, imageUrls: imgUrls, name: response.name}
+  bucketDetailsResponse: (response, state) => {
+    return {
+      ...state,
+      data: response,
+    }
+  },
+  investInBucket: (_, state) => {
+    Toast.show('This feature is coming soon')
+    return state
   },
 })

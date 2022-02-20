@@ -7,12 +7,12 @@ import {BucketDetailsInterface} from './bucket-details.interface'
 export const command = matchC<BucketDetailsInterface>({
   mount: (params) => {
     return HTTPRequest({
-      endpoint: '/ideas/causeIdeaDetails',
+      endpoint: '/ideas/bucketDetails',
       method: 'POST',
-      responseType: 'categoryDetailsResponse',
+      responseType: 'bucketDetailsResponse',
       variables: {
         userId: params.userId,
-        categoryId: params.categoryId,
+        bucketId: params.bucketId,
       },
     })
   },
