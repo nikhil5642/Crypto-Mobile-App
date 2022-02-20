@@ -45,15 +45,18 @@ export const styles = StyleSheet.create({
     elevation: 1,
   },
   name: {
+    color: 'black',
     fontSize: 16,
     fontWeight: 'bold',
   },
   tickerId: {
+    color: 'black',
     fontSize: 10,
     fontWeight: '400',
   },
   price: {
     fontSize: 14,
+    color: 'black',
     fontWeight: '500',
     alignSelf: 'flex-end',
   },

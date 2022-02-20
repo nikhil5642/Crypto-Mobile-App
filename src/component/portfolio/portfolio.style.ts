@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     alignSelf: 'center',
+    color: 'grey',
   },
 
   totalPorfolioValue: {
@@ -50,6 +51,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginLeft: 16,
+    color: 'black',
   },
   price: {
     fontSize: 14,
@@ -88,9 +90,11 @@ export const styles = StyleSheet.create({
   tranactionFrom: {
     alignSelf: 'flex-start',
     paddingBottom: 5,
+    color: 'grey',
   },
   tranactionTo: {
     alignSelf: 'flex-start',
     paddingBottom: 5,
+    color: 'grey',
   },
 })

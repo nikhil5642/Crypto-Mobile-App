@@ -1,4 +1,4 @@
-import React, {FC, RefObject, useRef} from 'react'
+import React, {FC} from 'react'
 
 import {ColorValue, Pressable, Text, View} from 'react-native'
 import {TextInput} from 'react-native-gesture-handler'
@@ -20,7 +20,7 @@ export const LoginScreenView: FC<
     if (m.screen === 'mob')
       m.mobileNumber.length === 10
         ? e.of('sendOTP').emit({})
-        : Toast.show('Enter Valid Mobile no.', Toast.LONG)
+        : Toast.show('Enter Valid Mobile no. ', Toast.LONG)
     else e.of('verifyOTP').emit({})
   }
   return (
@@ -65,7 +65,7 @@ function getButtonStyle(state: any) {
 function getOtpView(e: Smitten, state: any) {
   return (
     <View style={styles.otpViewContianer}>
-      <Text>Enter OTP sent to:</Text>
+      <Text style={{color: 'gray'}}>Enter OTP sent to:</Text>
       <Text style={styles.mobileNumberText}>+91-{state.mobileNumber}</Text>
       <OtpInputs
         clearTextOnFocus
@@ -78,7 +78,7 @@ function getOtpView(e: Smitten, state: any) {
         style={styles.otpContainer}
       />
       <View style={styles.otpPageBottomTextContainer}>
-        <Text>Didn't receive the OTP? </Text>
+        <Text style={{color: 'gray'}}>Didn't receive the OTP? </Text>
         <Pressable onPress={() => e.of('sendOTP').emit({})}>
           <Text style={styles.resendOTP}>Resend OTP</Text>
         </Pressable>

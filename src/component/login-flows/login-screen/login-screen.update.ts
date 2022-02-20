@@ -9,7 +9,7 @@ export const update = matchR<LoginScreenInterface>({
   sendOTPResponse: (res, state) => {
     if (res.success === true)
       return {...state, sessionId: res.sessionId, screen: 'otp'}
-    else Toast.show('Enter Valid Mobile no.', Toast.LONG)
+    else Toast.show('Invalid Mobile no.', Toast.LONG)
     return state
   },
 

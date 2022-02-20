@@ -40,6 +40,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     textAlign: 'center',
     marginHorizontal: 16,
+    color: 'gray',
   },
   otpPageBottomTextContainer: {
     marginTop: 12,
