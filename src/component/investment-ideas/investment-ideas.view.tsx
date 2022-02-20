@@ -17,6 +17,7 @@ import {Props} from '../../core/component'
 import {getImageURL} from '../../helper/http-helper'
 import Lifecycle from '../lifecycle'
 
+import {bucketList, InvestmentBucketItem} from './investment-buckets'
 import {
   InvestmentIdeasInterface,
   InvestmentIdeasParams,
@@ -28,10 +29,9 @@ export const InvestmentIdeasView: FC<
 > = ({e, m, p}) => {
   return (
     <Lifecycle onMount={() => e.of('mount').emit(p)}>
-      <ScrollView style={styles.container}>
-        {m.causeInvestment.length > 0 ? (
-          <Text style={styles.titleText}>Invest in a Category</Text>
-        ) : null}
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.contentContainer}>
         <FlatList
           data={m.causeInvestment}
           renderItem={(item) => ideaItem(e, item.item)}
@@ -44,11 +44,14 @@ export const InvestmentIdeasView: FC<
               onRefresh={() => e.of('mount').emit(p)}
             />
           }
+          ListHeaderComponent={
+            m.causeInvestment.length > 0 ? (
+              <Text style={styles.titleText}>Invest in a Category</Text>
+            ) : null
+          }
         />
-        <Text style={styles.titleText}>Invest in a ICO</Text>
-        <View style={styles.comingSoonTextContainer}>
-          <Text style={styles.comingSoonText}>Coming Soon...</Text>
-        </View>
+        <Text style={styles.titleText}>Invest in a our buckets</Text>
+        {bucketList(e, m.buckets)}
       </ScrollView>
     </Lifecycle>
   )

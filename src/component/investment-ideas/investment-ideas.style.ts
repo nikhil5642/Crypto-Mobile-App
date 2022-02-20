@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native'
+import {Dimensions, StyleSheet} from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,6 +8,11 @@ export const styles = StyleSheet.create({
     paddingTop: 16,
     backgroundColor: 'white',
   },
+
+  contentContainer: {
+    paddingBottom: 32,
+  },
+
   titleText: {
     paddingLeft: 16,
     fontSize: 18,
@@ -20,6 +25,7 @@ export const styles = StyleSheet.create({
   },
   ideaItemImage: {
     aspectRatio: 1,
+    width: Dimensions.get('window').width / 3,
     borderRadius: 12,
     overflow: 'hidden',
     alignItems: 'center',
@@ -27,6 +33,7 @@ export const styles = StyleSheet.create({
   ideaItemTextContainer: {
     position: 'absolute',
     alignItems: 'center',
+    padding: 8,
     top: 0,
     left: 0,
     right: 0,
@@ -41,18 +48,5 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-
-  comingSoonTextContainer: {
-    marginHorizontal: 12,
-    marginTop: 12,
-    marginBottom: 32,
-    backgroundColor: 'lightgray',
-    borderRadius: 12,
-    paddingVertical: 24,
-  },
-  comingSoonText: {
-    fontWeight: '600',
-    alignSelf: 'center',
   },
 })

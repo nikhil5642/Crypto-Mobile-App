@@ -4,4 +4,5 @@ export const init = (): InvestmentIdeasInterface => ({
   userId: '',
   refreshing: false,
   causeInvestment: [],
+  buckets: [],
 })
