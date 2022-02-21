@@ -52,8 +52,8 @@ class App extends PureComponent<InitParams> {
         e={this.e}
         m={this.state}
         p={{
-          route: Routes.BucketDetailsScreen,
-          params: {userId: '1', bucketId: 'bucket_x'},
+          route: Routes.TickerDetails,
+          params: {userId: '1', tickerId: 'btc'},
         }}
       />
     )

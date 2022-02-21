@@ -27,11 +27,16 @@ export const update = matchR<BucketDetailsInterface>({
 
 const PieData = (portfolio: any) => {
   const values: any[] = []
-  portfolio?.forEach((item) =>
+  portfolio?.forEach((item) => {
     values.push({
       x: item.name,
       y: item.contribution * 100,
-    }),
-  )
+    })
+    // ,
+    // values.push({
+    //   x: item.name,
+    //   y: item.contribution * 100,
+    // })
+  })
   return {title: 'PortFolio', values: values}
 }

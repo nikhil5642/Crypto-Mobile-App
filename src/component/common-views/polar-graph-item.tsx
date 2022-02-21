@@ -1,9 +1,9 @@
 import React from 'react'
 
-import {Dimensions, View} from 'react-native'
+import {Dimensions, Text, View} from 'react-native'
 
 import {
-  VictoryBar,
+  VictoryArea,
   VictoryChart,
   VictoryLabel,
   VictoryPolarAxis,
@@ -22,44 +22,71 @@ export const PolarGraphItemView = ({data}) => {
         paddingTop: 12,
         marginHorizontal: 12,
         borderRadius: 12,
+        alignItems: 'center',
       }}>
-      <VictoryChart polar theme={VictoryTheme.material}>
-        <VictoryLabel
-          text={data.title}
-          x={SCREEN_WIDTH * 0.5}
-          y={SCREEN_WIDTH * 0.03}
-          textAnchor="middle"
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{
-            fontSize: 18,
-            fill: 'black',
-            fontWeight: '600',
-            paddingBottom: 12,
-          }}
-        />
+      <Text
+        style={{
+          color: 'black',
+          fontSize: 18,
+          fontWeight: '600',
+          alignSelf: 'center',
+        }}>
+        {data.title}
+      </Text>
+      <VictoryChart
+        polar
+        theme={VictoryTheme.material}
+        height={SCREEN_WIDTH * 0.8}
+        width={SCREEN_WIDTH * 0.8}
+        domain={{y: [0, 10]}}
+        startAngle={60}
+        endAngle={420}>
         {data.values.map((item, i) => {
           return (
             <VictoryPolarAxis
-              dependentAxis={true}
+              dependentAxis
               key={i}
               label={item.x}
+              axisValue={item.x}
               labelPlacement="perpendicular"
               style={{
-                tickLabels: {fill: 'none'},
-                axis: {stroke: 'blue'},
-                axisLabel: {fill: 'blue'},
-                grid: {
-                  stroke: 'blue', //CHANGE COLOR OF X-AXIS GRID LINES
-                  strokeDasharray: '7',
+                axis: {stroke: 'none'},
+                grid:
+                  i === 0
+                    ? {
+                        fill: 'black',
+                        fillOpacity: 0.1,
+                        strokeOpacity: 0,
+                      }
+                    : {strokeOpacity: 0},
+                tickLabels: {
+                  fillOpacity: 0,
                 },
               }}
-              axisValue={item.x}
+              axisLabelComponent={
+                <VictoryLabel
+                  labelPlacement="perpendicular"
+                  style={{
+                    fontSize: 12,
+                    fill: 'black',
+                    fontWeight: '600',
+                  }}
+                />
+              }
             />
           )
         })}
-        <VictoryBar
-          style={{data: {fill: 'lightblue', width: 25}}}
+        <VictoryArea
           data={data.values}
+          interpolation="cardinal"
+          style={{
+            data: {
+              fill: 'yellow',
+              fillOpacity: 0.4,
+              stroke: 'yellow',
+              strokeWidth: '2',
+            },
+          }}
         />
       </VictoryChart>
     </View>
