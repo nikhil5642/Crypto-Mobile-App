@@ -16,15 +16,22 @@ export const update = matchR<BucketDetailsInterface>({
     return {
       ...state,
       data: response,
+      portfolioData: PieData(response.portfolio),
     }
   },
   investInBucket: (_, state) => {
-    Toast.show('This feature is coming soon')
-    return state
-  },
-
-  dropDownSelected: (item, state) => {
-    Toast.show(item.name + ' description will be here')
+    Toast.show('Investing will start soon')
     return state
   },
 })
+
+const PieData = (portfolio: any) => {
+  const values: any[] = []
+  portfolio?.forEach((item) =>
+    values.push({
+      x: item.name,
+      y: item.contribution * 100,
+    }),
+  )
+  return {title: 'PortFolio', values: values}
+}

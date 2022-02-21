@@ -4,4 +4,5 @@ export const init = (): BucketDetailsInterface => ({
   userId: '',
   bucketId: '',
   data: {},
+  portfolioData: {},
 })

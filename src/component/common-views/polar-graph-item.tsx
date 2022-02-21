@@ -3,11 +3,9 @@ import React from 'react'
 import {Dimensions, View} from 'react-native'
 
 import {
-  Text,
   VictoryBar,
   VictoryChart,
   VictoryLabel,
-  VictoryLegend,
   VictoryPolarAxis,
   VictoryTheme,
 } from 'victory-native'
@@ -16,6 +14,7 @@ export const PolarGraphItemView = ({data}) => {
   const SCREEN_WIDTH = Dimensions.get('window').width
   return (
     <View
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         flex: 1,
         backgroundColor: 'white',
@@ -30,6 +29,7 @@ export const PolarGraphItemView = ({data}) => {
           x={SCREEN_WIDTH * 0.5}
           y={SCREEN_WIDTH * 0.03}
           textAnchor="middle"
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{
             fontSize: 18,
             fill: 'black',
