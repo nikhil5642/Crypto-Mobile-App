@@ -40,22 +40,25 @@ class App extends PureComponent<InitParams> {
 
   render() {
     return (
-      // <navigator.view
-      //   e={this.e}
-      //   m={this.state}
-      //   p={{
-      //     route: Routes.SplashScreen,
-      //     params: {},
-      //   }}
-      // />
       <navigator.view
         e={this.e}
         m={this.state}
         p={{
-          route: Routes.TickerDetails,
-          params: {userId: '1', tickerId: 'btc'},
+          route: Routes.SplashScreen,
+          params: {},
         }}
       />
+      // <navigator.view
+      //   e={this.e}
+      //   m={this.state}
+      //   p={{
+      //     route: Routes.Home,
+      //     params: {
+      //       userId: '1',
+      //       isOnboarding: true,
+      //     },
+      //   }}
+      // />
     )
   }
 }

@@ -1,4 +1,6 @@
-import {StyleSheet} from 'react-native'
+import {Dimensions, StyleSheet} from 'react-native'
+
+const SCREEN_WIDTH = Dimensions.get('window').width
 
 export const styles = StyleSheet.create({
   container: {
@@ -31,9 +33,10 @@ export const styles = StyleSheet.create({
     fontWeight: '400',
     textAlign: 'left',
   },
-  textCurrencyDonoter: {
+  textCurrencyDenoter: {
     flex: 1,
     fontSize: 14,
+    fontColor: 'grey',
     fontWeight: '600',
     textAlign: 'left',
     textAlignVertical: 'center',
@@ -56,7 +59,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
   buttonContainer: {
-    flex: 1,
+    width: SCREEN_WIDTH,
     justifyContent: 'flex-end',
     marginBottom: 16,
   },

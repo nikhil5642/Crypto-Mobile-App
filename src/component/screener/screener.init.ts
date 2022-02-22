@@ -5,4 +5,5 @@ export const init = (): ScreenerInterface => ({
   userId: '',
   tickers: [],
   refreshing: false,
+  onboarding: true,
 })

@@ -3,9 +3,10 @@ export interface ScreenerInterface {
   data: Ticker[]
   tickers: string[]
   refreshing: boolean
+  onboarding: boolean
 }
 
-export type ScreenerParams = {userId: string}
+export type ScreenerParams = {userId: string; onboarding: boolean}
 
 export interface Ticker {
   name: string

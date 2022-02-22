@@ -45,11 +45,12 @@ export const command = matchC<LoginScreenInterface>({
       : Action.nil()
   },
 
-  userIdResponse: (response) => {
+  userIdResponse: (response, state) => {
     return ReplaceScreenAction({
       route: Routes.Home,
       params: {
         userId: response.userID.toString(),
+        isOnboarding: state.onBoarding,
       },
     })
   },

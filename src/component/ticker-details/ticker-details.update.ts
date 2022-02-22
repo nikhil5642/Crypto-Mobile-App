@@ -11,9 +11,13 @@ export const update = matchR<TickerDetailsInterface>({
       ...state,
       tickerId: params.tickerId,
       userId: params.userId,
+      onBoarding: params.onBoarding,
     }
   },
   tickerDetailsResponse: (response, state) => {
     return {...state, data: response.result}
+  },
+  buyTicker: (_, state) => {
+    return {...state, onBoarding: false}
   },
 })

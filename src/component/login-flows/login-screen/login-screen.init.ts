@@ -5,4 +5,5 @@ export const init = (): LoginScreenInterface => ({
   otp: '',
   mobileNumber: '',
   screen: 'mob',
+  onBoarding: false,
 })

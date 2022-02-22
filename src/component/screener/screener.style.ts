@@ -7,6 +7,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
   },
 
+  pressableContainer: {
+    flex: 1,
+    width: '100%',
+  },
+
   riskTagcontainer: {
     alignSelf: 'center',
     marginTop: 2,

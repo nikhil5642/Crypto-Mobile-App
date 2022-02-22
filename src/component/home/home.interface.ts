@@ -15,4 +15,5 @@ export interface HomeInterface {
 
 export type HomeParams = {
   userId: string
+  isOnboarding: boolean
 }

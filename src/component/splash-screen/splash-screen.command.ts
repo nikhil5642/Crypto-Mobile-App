@@ -1,6 +1,3 @@
-import DefaultPreference from 'react-native-default-preference'
-
-import {Action} from '@action-land/core'
 import {matchC} from '@action-land/tarz'
 
 import {ReplaceScreenAction} from '../../helper/navigation-helper'
@@ -46,6 +43,7 @@ export const command = matchC<SplashScreenInterface>({
       route: Routes.Home,
       params: {
         userId: response.userID.toString(),
+        isOnboarding: false,
       },
     })
   },

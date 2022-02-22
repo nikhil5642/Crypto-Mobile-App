@@ -29,6 +29,7 @@ export const command = matchC<TickerDetailsInterface>({
         toCurrency: state.tickerId,
         fromCurrency: 'INR',
         actionType: 'buy',
+        onBoarding: state.onBoarding,
       },
     })
   },
@@ -41,6 +42,7 @@ export const command = matchC<TickerDetailsInterface>({
         toCurrency: 'INR',
         fromCurrency: state.tickerId,
         actionType: 'sell',
+        onBoarding: state.onBoarding,
       },
     })
   },

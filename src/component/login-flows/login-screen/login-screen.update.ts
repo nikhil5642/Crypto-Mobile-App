@@ -14,8 +14,10 @@ export const update = matchR<LoginScreenInterface>({
   },
 
   verifyOTPResponse: (res, state) => {
-    if (res.success === true) DefaultPreference.set('auth', res.Authorisation)
-    else Toast.show('Something went wrong. Try Again', Toast.LONG)
+    if (res.success === true) {
+      DefaultPreference.set('auth', res.Authorisation)
+      return {...state, onBoarding: res.newUser}
+    } else Toast.show('Something went wrong. Try Again', Toast.LONG)
     return state
   },
   updateMobileNumber: (num, state) => {

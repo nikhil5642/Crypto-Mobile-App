@@ -1,4 +1,6 @@
-import {StyleSheet} from 'react-native'
+import {Dimensions, StyleSheet} from 'react-native'
+
+const SCREEN_WIDTH = Dimensions.get('window').width
 
 export const styles = StyleSheet.create({
   container: {
@@ -7,10 +9,9 @@ export const styles = StyleSheet.create({
   buySellContainer: {
     flex: 0,
     flexDirection: 'row',
-    justifyContent: 'space-around',
   },
   buyContainer: {
-    flex: 1,
+    width: SCREEN_WIDTH / 2,
     backgroundColor: 'blue',
     padding: 10,
   },
@@ -19,7 +20,7 @@ export const styles = StyleSheet.create({
     color: 'white',
   },
   sellContainer: {
-    flex: 1,
+    width: SCREEN_WIDTH / 2,
     backgroundColor: 'red',
     padding: 10,
   },

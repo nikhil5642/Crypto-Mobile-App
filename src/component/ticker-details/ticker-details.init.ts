@@ -5,4 +5,5 @@ export const init = (): TickerDetailsInterface => ({
   userId: '',
   tickerId: '',
   data: [],
+  onBoarding: false,
 })

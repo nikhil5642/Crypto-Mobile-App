@@ -7,7 +7,7 @@ export interface InvestmentIdeasInterface {
   buckets: InvestmentBucketItem[]
 }
 
-export type InvestmentIdeasParams = {userId: string}
+export type InvestmentIdeasParams = {userId: string; onboarding: boolean}
 
 export interface InvestmentIdea {
   name: string

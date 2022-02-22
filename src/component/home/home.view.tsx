@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, {FC, useState} from 'react'
 
 import {SafeAreaView} from 'react-native-safe-area-context'
 
@@ -12,7 +12,7 @@ import {screener} from '../screener/screener'
 
 import {HomeInterface, HomeParams} from './home.interface'
 
-export const view: FC<Props<HomeInterface, HomeParams>> = ({e, m, p}) => {
+export const HomeView: FC<Props<HomeInterface, HomeParams>> = ({e, m, p}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <accountBalance.view
@@ -24,14 +24,20 @@ export const view: FC<Props<HomeInterface, HomeParams>> = ({e, m, p}) => {
       BottomNavigationOptions.InvestmentIdeas ? (
         <investmentIdeas.view
           e={e.of('investmentIdeas')}
-          p={{userId: p.userId}}
+          p={{
+            userId: p.userId,
+            onboarding: p.isOnboarding,
+          }}
           m={m.investmentIdeas}
         />
       ) : null}
       {m.bottomNavigation.selection === BottomNavigationOptions.Market ? (
         <screener.view
           e={e.of('screener')}
-          p={{userId: p.userId}}
+          p={{
+            userId: p.userId,
+            onboarding: p.isOnboarding && m.screener.onboarding,
+          }}
           m={m.screener}
         />
       ) : null}

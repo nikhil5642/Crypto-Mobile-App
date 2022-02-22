@@ -3,6 +3,7 @@ export interface LoginScreenInterface {
   otp: string
   mobileNumber: string
   screen: 'mob' | 'otp'
+  onBoarding: boolean
 }
 
 export type LoginScreenParams = Record<string, unknown>

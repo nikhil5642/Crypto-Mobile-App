@@ -3,9 +3,11 @@ export interface TickerDetailsInterface {
   userId: string
   tickerId: string
   data: []
+  onBoarding: boolean
 }
 
 export type TickerDetailsParams = {
   userId: string
   tickerId: string
+  onBoarding: boolean
 }

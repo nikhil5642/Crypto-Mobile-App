@@ -7,7 +7,15 @@ import {getFeatureTags} from './screener.utils'
 
 export const update = matchR<ScreenerInterface>({
   mount: (param, state) => {
-    return {...state, userId: param.userId, tickers: param.tickers}
+    return {
+      ...state,
+      userId: param.params.userId,
+      tickers: param.tickers,
+      onboarding: param.params.onboarding,
+    }
+  },
+  closeTooltip: (_, state) => {
+    return {...state, onboarding: false}
   },
   onRefresh: (_, state) => {
     return {...state, refreshing: true}
@@ -29,5 +37,11 @@ export const update = matchR<ScreenerInterface>({
       })
     })
     return {...state, data: data, refreshing: false}
+  },
+  dissmissTooltip: (_, state) => {
+    return {...state, onboarding: false}
+  },
+  onTickerSelected: (_, state) => {
+    return {...state, onboarding: false}
   },
 })

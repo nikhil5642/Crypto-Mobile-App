@@ -9,15 +9,17 @@ import {
   RefreshControl,
   Image,
 } from 'react-native'
+import Tooltip from 'react-native-walkthrough-tooltip'
 
 import {Smitten} from '@action-land/smitten'
 
 import {Props} from '../../core/component'
+import {TooltipItemView} from '../common-views/tooltip-item'
 import Lifecycle from '../lifecycle'
 
 import {ScreenerInterface, ScreenerParams} from './screener.interface'
 import {styles} from './screener.style'
-import {getRiskTagText, getRiskTagStyle, getFeatureTags} from './screener.utils'
+import {getRiskTagText, getRiskTagStyle} from './screener.utils'
 
 export const ScreenerView: FC<Props<ScreenerInterface, ScreenerParams>> = ({
   e,
@@ -28,13 +30,15 @@ export const ScreenerView: FC<Props<ScreenerInterface, ScreenerParams>> = ({
 
   return (
     <Lifecycle
-      onMount={() =>
-        e.of('mount').emit({userId: p.userId, tickers: tickerList})
-      }>
+      onMount={() => e.of('mount').emit({params: p, tickers: tickerList})}>
       <View style={styles.container}>
         <FlatList
           data={m.data}
-          renderItem={(item) => liveItem(e, item.item)}
+          renderItem={(item) =>
+            item.index === 0 && m.onboarding
+              ? liveItemOnboarding(e, item.item)
+              : liveItem(e, item.item)
+          }
           keyExtractor={(item) => item.id}
           refreshControl={
             <RefreshControl
@@ -48,9 +52,28 @@ export const ScreenerView: FC<Props<ScreenerInterface, ScreenerParams>> = ({
   )
 }
 
+const liveItemOnboarding = (e: Smitten, item: any) => {
+  return (
+    <Tooltip
+      isVisible={true}
+      content={
+        <TooltipItemView
+          description={"Let's start by choosing a currency."}
+          onContinue={() => e.of('onTickerSelected').emit(item)}
+        />
+      }
+      placement="bottom"
+      supportedOrientations={['portrait']}
+      useInteractionManager={true}>
+      {liveItem(e, item)}
+    </Tooltip>
+  )
+}
 const liveItem = (e: Smitten, item: any) => {
   return (
-    <Pressable onPress={() => e.of('onTickerSelected').emit(item)}>
+    <Pressable
+      onPress={() => e.of('onTickerSelected').emit(item)}
+      style={styles.pressableContainer}>
       <View style={styles.rowContainer}>
         <View style={{flex: 1}}>
           <Text style={styles.name}>{item.name}</Text>

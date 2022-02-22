@@ -30,7 +30,11 @@ export const command = matchC<ScreenerInterface>({
   onTickerSelected: (item, state) => {
     return PushScreenAction({
       route: Routes.TickerDetails,
-      params: {tickerId: item.id, userId: state.userId},
+      params: {
+        tickerId: item.id,
+        userId: state.userId,
+        onBoarding: state.onboarding,
+      },
     })
   },
 })

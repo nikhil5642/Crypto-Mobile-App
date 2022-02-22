@@ -12,7 +12,7 @@ import {command} from './home.command'
 import {init} from './home.init'
 import {HomeParams, HomeInterface} from './home.interface'
 import {update} from './home.update'
-import {view} from './home.view'
+import {HomeView} from './home.view'
 
 export const home: Component<HomeInterface, HomeParams> = R.compose(
   forward({
@@ -26,5 +26,5 @@ export const home: Component<HomeInterface, HomeParams> = R.compose(
   init: init,
   update: update,
   command: command,
-  view: view,
+  view: HomeView,
 })
