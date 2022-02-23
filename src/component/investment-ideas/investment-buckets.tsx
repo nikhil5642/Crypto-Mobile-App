@@ -9,10 +9,12 @@ import {
   Text,
   View,
 } from 'react-native'
+import Tooltip from 'react-native-walkthrough-tooltip'
 
 import {Smitten} from '@action-land/smitten'
 
 import {getImageURL} from '../../helper/http-helper'
+import {TooltipItemView} from '../common-views/tooltip-item'
 
 export interface InvestmentBucketItem {
   name: string
@@ -25,6 +27,7 @@ export const bucketList = (
   title: string,
   titleStyle: any,
   buckets: InvestmentBucketItem[],
+  onBoarding?: boolean,
 ) => {
   return (
     <View>
@@ -32,7 +35,11 @@ export const bucketList = (
       {buckets.length > 0 ? (
         <FlatList
           data={buckets}
-          renderItem={(item) => bucketItem(e, item.item)}
+          renderItem={(item) =>
+            onBoarding && item.index === 0
+              ? onBoardingBucketItem(e, item.item)
+              : bucketItem(e, item.item)
+          }
           keyExtractor={(item) => item.id}
           nestedScrollEnabled
           horizontal
@@ -46,6 +53,26 @@ export const bucketList = (
   )
 }
 
+const onBoardingBucketItem = (e: Smitten, item: any) => {
+  return (
+    <Tooltip
+      isVisible={true}
+      content={
+        <TooltipItemView
+          description={
+            'Here is some of our buckets we created for you. \nThey are as safe as mutual funds.'
+          }
+          onContinue={e.of('onBordingBucketsDone').emit}
+          lastItem={true}
+        />
+      }
+      placement="bottom"
+      supportedOrientations={['portrait']}
+      useInteractionManager={true}>
+      {bucketItem(e, item)}
+    </Tooltip>
+  )
+}
 const bucketItem = (e: Smitten, item: any) => {
   return (
     <Pressable

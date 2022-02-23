@@ -33,7 +33,7 @@ export const TickerDetailView: FC<
             content={
               <TooltipItemView
                 description={
-                  'Just one step away from buying your first currency.'
+                  'Just few step away from buying your first currency.'
                 }
                 onContinue={e.of('buyTicker').emit}
               />

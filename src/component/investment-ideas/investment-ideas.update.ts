@@ -1,3 +1,5 @@
+import DefaultPreference from 'react-native-default-preference'
+
 import {matchR} from '@action-land/tarz'
 
 import {InvestmentBucketItem} from './investment-buckets'
@@ -31,6 +33,16 @@ export const update = matchR<InvestmentIdeasInterface>({
       })
     })
     return {...state, buckets: data, refreshing: false}
+  },
+  investmentIdeasOnboardingLoaded: (val, state) => {
+    return {...state, onBoarding: val !== 'done' ?? true}
+  },
+  onBordingInvestInCategoryContinue: (_, state) => {
+    return {...state, onBoardingType: 'buckets'}
+  },
+  onBordingBucketsDone: (_, state) => {
+    DefaultPreference.set('investmentIdeasOnboarding', 'done')
+    return {...state, onBoarding: false}
   },
   onRefresh: (_, state) => {
     return {...state, refreshing: true}

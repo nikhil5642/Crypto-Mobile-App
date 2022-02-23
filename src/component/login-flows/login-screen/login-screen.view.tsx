@@ -21,7 +21,10 @@ export const LoginScreenView: FC<
       m.mobileNumber.length === 10
         ? e.of('sendOTP').emit({})
         : Toast.show('Enter Valid Mobile no. ', Toast.LONG)
-    else e.of('verifyOTP').emit({})
+    else
+      m.otp.length === 6
+        ? e.of('verifyOTP').emit({})
+        : Toast.show('Enter Valid OTP. ', Toast.LONG)
   }
   return (
     <SafeAreaView style={styles.container}>

@@ -7,7 +7,9 @@ export const TooltipItemView = (item: TooltipInterFace) => {
     <View style={styles.container}>
       <Text style={styles.descriptionText}>{item.description}</Text>
       <Pressable onPress={item.onContinue} style={styles.continueContainer}>
-        <Text style={styles.continueText}>Continue</Text>
+        <Text style={styles.continueText}>
+          {item.lastItem ? 'DONE' : 'Continue'}
+        </Text>
       </Pressable>
     </View>
   )
@@ -15,6 +17,7 @@ export const TooltipItemView = (item: TooltipInterFace) => {
 export interface TooltipInterFace {
   description: any
   onContinue: any
+  lastItem?: boolean
 }
 
 const styles = StyleSheet.create({
