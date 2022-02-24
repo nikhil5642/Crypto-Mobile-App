@@ -25,6 +25,10 @@ import {
   LoginScreenInterface,
   LoginScreenParams,
 } from './../component/login-flows/login-screen/login-screen.interface'
+import {
+  OnBoardingSliderInterface,
+  OnBoardingSliderParams,
+} from './../component/onboarding-slider/onboarding-slider'
 import {TransactionStatusInterFace} from './../component/transaction-status/transaction-status'
 
 export enum Routes {
@@ -36,6 +40,7 @@ export enum Routes {
   TransactionStatusScreen = 'TransactionStatusScreen',
   CatergoryDetailsScreen = 'CatergoryDetailsScreen',
   BucketDetailsScreen = 'BucketDetailsScreen',
+  OnBoardingSliderScreen = 'OnBoardingSliderScreen',
 }
 
 export interface NavigationBase<R extends Routes, P> {
@@ -52,6 +57,7 @@ export type NavigationParams =
   | NavigationBase<Routes.TransactionStatusScreen, TransactionStatusParms>
   | NavigationBase<Routes.CatergoryDetailsScreen, CatergoryDetailsParams>
   | NavigationBase<Routes.BucketDetailsScreen, BucketDetailsParams>
+  | NavigationBase<Routes.OnBoardingSliderScreen, OnBoardingSliderParams>
 
 export interface Navigator {
   home: HomeInterface
@@ -62,4 +68,5 @@ export interface Navigator {
   transactionStatusScreen: TransactionStatusInterFace
   categoryDetails: CategoryDetailsInterface
   bucketDetails: BucketDetailsInterface
+  onBoardingSlider: OnBoardingSliderInterface
 }

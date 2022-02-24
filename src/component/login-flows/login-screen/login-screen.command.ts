@@ -4,10 +4,21 @@ import {matchC} from '@action-land/tarz'
 import {Routes} from '../../../navigator/navigator.interface'
 
 import {HTTPRequest} from './../../../helper/http-helper'
-import {ReplaceScreenAction} from './../../../helper/navigation-helper'
+import {
+  PushScreenAction,
+  ReplaceScreenAction,
+} from './../../../helper/navigation-helper'
 import {LoginScreenInterface} from './login-screen.interface'
 
 export const command = matchC<LoginScreenInterface>({
+  onBoardingSlider: (val) => {
+    return val === 'done'
+      ? Action.nil()
+      : PushScreenAction({
+          route: Routes.OnBoardingSliderScreen,
+          params: {},
+        })
+  },
   sendOTP: (_, state) => {
     return HTTPRequest({
       endpoint: '/auth/sendOTP',

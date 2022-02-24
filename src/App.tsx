@@ -52,11 +52,8 @@ class App extends PureComponent<InitParams> {
       //   e={this.e}
       //   m={this.state}
       //   p={{
-      //     route: Routes.Home,
-      //     params: {
-      //       userId: '1',
-      //       isOnboarding: true,
-      //     },
+      //     route: Routes.OnBoardingSliderScreen,
+      //     params: {},
       //   }}
       // />
     )

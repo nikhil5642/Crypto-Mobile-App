@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react'
+import React, {FC, useEffect} from 'react'
 
 import {
   ActivityIndicator,
@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from 'react-native'
+import DefaultPreference from 'react-native-default-preference'
 import {TextInput} from 'react-native-gesture-handler'
 import OtpInputs from 'react-native-otp-inputs'
 import {SafeAreaView} from 'react-native-safe-area-context'
@@ -15,6 +16,7 @@ import Toast from 'react-native-simple-toast'
 import {Smitten} from '@action-land/smitten'
 
 import {Props} from '../../../core/component'
+import Lifecycle from '../../lifecycle'
 
 import {LoginScreenInterface, LoginScreenParams} from './login-screen.interface'
 import {styles} from './login-screen.styles'
@@ -42,40 +44,47 @@ export const LoginScreenView: FC<
       clearInterval(myInterval)
     }
   })
+  function loadPreference() {
+    DefaultPreference.get('onBoardingSlider').then((val) => {
+      e.of('onBoardingSlider').emit(val)
+    })
+  }
 
   return (
-    <SafeAreaView style={styles.container}>
-      {m.showLoader ? (
-        <ActivityIndicator
-          size="large"
-          pointerEvents="none"
-          color={'#686000'}
-          style={styles.activityIndicator}
-        />
-      ) : null}
-
-      {m.screen === 'mob' ? (
-        <View>
-          <Text style={styles.welcomeText}>Welcome !</Text>
-          <TextInput
-            style={styles.textInput}
-            placeholder="Mobile Number"
-            value={m.mobileNumber}
-            onChangeText={(num) => e.of('updateMobileNumber').emit(num)}
-            keyboardType="numeric"
-            selectionColor="#000"
-            maxLength={10}
+    <Lifecycle onMount={loadPreference}>
+      <SafeAreaView style={styles.container}>
+        {m.showLoader ? (
+          <ActivityIndicator
+            size="large"
+            pointerEvents="none"
+            color={'#686000'}
+            style={styles.activityIndicator}
           />
-        </View>
-      ) : (
-        getOtpView(e, m)
-      )}
-      <Pressable style={styles.buttonContainer} onPress={onButtonPress}>
-        <Text style={getButtonStyle(m)}>
-          {m.screen === 'mob' ? 'Send OTP' : 'Verify OTP'}
-        </Text>
-      </Pressable>
-    </SafeAreaView>
+        ) : null}
+
+        {m.screen === 'mob' ? (
+          <View>
+            <Text style={styles.welcomeText}>Welcome !</Text>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Mobile Number"
+              value={m.mobileNumber}
+              onChangeText={(num) => e.of('updateMobileNumber').emit(num)}
+              keyboardType="numeric"
+              selectionColor="#000"
+              maxLength={10}
+            />
+          </View>
+        ) : (
+          getOtpView(e, m)
+        )}
+        <Pressable style={styles.buttonContainer} onPress={onButtonPress}>
+          <Text style={getButtonStyle(m)}>
+            {m.screen === 'mob' ? 'Send OTP' : 'Verify OTP'}
+          </Text>
+        </Pressable>
+      </SafeAreaView>
+    </Lifecycle>
   )
 }
 function getButtonStyle(state: any) {

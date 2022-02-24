@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react'
+import React, {FC} from 'react'
 
 import {SafeAreaView} from 'react-native-safe-area-context'
 

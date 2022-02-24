@@ -11,6 +11,7 @@ import {forward} from '../core/forward'
 import {buySellScreen} from './../component/buy-sell-screen/buy-sell-screen'
 import {categoryDetails} from './../component/category-details/category-details'
 import {loginScreen} from './../component/login-flows/login-screen/login-screen'
+import {onBoardingSlider} from './../component/onboarding-slider/onboarding-slider'
 import {command} from './navigator.command'
 import {init} from './navigator.init'
 import {Navigator, NavigationParams} from './navigator.interface'
@@ -27,6 +28,7 @@ export const navigator: Component<Navigator, NavigationParams> = R.compose(
     transactionStatus,
     categoryDetails,
     bucketDetails,
+    onBoardingSlider,
   }),
 )({
   init: init,

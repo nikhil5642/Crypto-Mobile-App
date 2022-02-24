@@ -5,6 +5,7 @@ import {splashScreen} from '../component/splash-screen/splash-screen'
 import {bucketDetails} from './../component/bucket-details/bucket-details'
 import {categoryDetails} from './../component/category-details/category-details'
 import {loginScreen} from './../component/login-flows/login-screen/login-screen'
+import {onBoardingSlider} from './../component/onboarding-slider/onboarding-slider'
 import {tickerDetails} from './../component/ticker-details/ticker-details'
 import {transactionStatus} from './../component/transaction-status/transaction-status'
 import {Navigator} from './navigator.interface'
@@ -18,4 +19,5 @@ export const init = (): Navigator => ({
   transactionStatusScreen: transactionStatus.init(),
   categoryDetails: categoryDetails.init(),
   bucketDetails: bucketDetails.init(),
+  onBoardingSlider: onBoardingSlider.init(),
 })

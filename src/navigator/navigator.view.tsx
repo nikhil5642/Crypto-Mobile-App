@@ -13,6 +13,7 @@ import {home} from '../component/home/home'
 import {HomeParams} from '../component/home/home.interface'
 import {loginScreen} from '../component/login-flows/login-screen/login-screen'
 import {LoginScreenParams} from '../component/login-flows/login-screen/login-screen.interface'
+import {onBoardingSlider} from '../component/onboarding-slider/onboarding-slider'
 import {splashScreen} from '../component/splash-screen/splash-screen'
 import {SplashScreenParams} from '../component/splash-screen/splash-screen.interface'
 import {tickerDetails} from '../component/ticker-details/ticker-details'
@@ -110,6 +111,15 @@ export const view: FC<Props<Navigator, NavigationParams>> = ({e, m, p}) => {
               e={e.of('bucketDetails')}
               p={{...(p.params as BucketDetailsParams), ...route.params}}
               m={m.bucketDetails}
+            />
+          )}
+        </Stack.Screen>
+        <Stack.Screen name={Routes.OnBoardingSliderScreen}>
+          {({route}) => (
+            <onBoardingSlider.view
+              e={e.of('onBoardingSlider')}
+              p={{...(p.params as BucketDetailsParams), ...route.params}}
+              m={m.onBoardingSlider}
             />
           )}
         </Stack.Screen>
