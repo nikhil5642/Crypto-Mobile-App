@@ -1,4 +1,3 @@
-import {Action} from '@action-land/core'
 import {matchC, matchR} from '@action-land/tarz'
 import * as R from 'ramda'
 

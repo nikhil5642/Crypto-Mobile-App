@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Pressable, StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, View} from 'react-native'
 
 export const TooltipSimpleItemView = (item: TooltipSimpleInterFace) => {
   return (

@@ -4,7 +4,7 @@ import {Routes} from '../../navigator/navigator.interface'
 
 import {HTTPRequest} from './../../helper/http-helper'
 import {PushScreenAction} from './../../helper/navigation-helper'
-import {ScreenerInterface, Ticker} from './screener.interface'
+import {ScreenerInterface} from './screener.interface'
 
 export const command = matchC<ScreenerInterface>({
   mount: (param) => {

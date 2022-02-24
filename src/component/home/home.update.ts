@@ -1,5 +1,5 @@
 import {matchR} from '@action-land/tarz'
 
-import {HomeInterface, HomeParams} from './home.interface'
+import {HomeInterface} from './home.interface'
 
 export const update = matchR<HomeInterface>({})

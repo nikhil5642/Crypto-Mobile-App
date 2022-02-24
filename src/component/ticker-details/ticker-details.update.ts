@@ -1,9 +1,6 @@
 import {matchR} from '@action-land/tarz'
 
-import {
-  TickerDetailsInterface,
-  TickerDetailsParams,
-} from './ticker-details.interface'
+import {TickerDetailsInterface} from './ticker-details.interface'
 
 export const update = matchR<TickerDetailsInterface>({
   mount: (params, state) => {

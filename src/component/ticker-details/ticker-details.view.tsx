@@ -8,7 +8,6 @@ import Tooltip from 'react-native-walkthrough-tooltip'
 import {Props} from '../../core/component'
 import {GeneralInfoItemVIew} from '../common-views/generalInfo'
 import {PolarGraphItemView} from '../common-views/polar-graph-item'
-import {TooltipItemView} from '../common-views/tooltip-item'
 import {TooltipSimpleItemView} from '../common-views/tooltip-simple-item'
 import Lifecycle from '../lifecycle'
 

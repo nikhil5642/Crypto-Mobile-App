@@ -2,7 +2,7 @@ import Toast from 'react-native-simple-toast'
 
 import {matchR} from '@action-land/tarz'
 
-import {ScreenerInterface, ScreenerParams, Ticker} from './screener.interface'
+import {ScreenerInterface, Ticker} from './screener.interface'
 import {getFeatureTags} from './screener.utils'
 
 export const update = matchR<ScreenerInterface>({

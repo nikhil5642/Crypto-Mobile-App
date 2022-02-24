@@ -14,7 +14,6 @@ import Tooltip from 'react-native-walkthrough-tooltip'
 import {Smitten} from '@action-land/smitten'
 
 import {Props} from '../../core/component'
-import {TooltipItemView} from '../common-views/tooltip-item'
 import {TooltipSimpleItemView} from '../common-views/tooltip-simple-item'
 import Lifecycle from '../lifecycle'
 

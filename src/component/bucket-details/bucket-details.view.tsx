@@ -1,9 +1,7 @@
 import React, {FC} from 'react'
 
-import {View, Text, Pressable, Image} from 'react-native'
+import {View, Text, Pressable} from 'react-native'
 import {ScrollView} from 'react-native-gesture-handler'
-
-import {Smitten} from '@action-land/smitten'
 
 import {Props} from '../../core/component'
 import {GeneralInfoItemVIew} from '../common-views/generalInfo'

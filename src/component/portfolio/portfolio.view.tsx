@@ -1,13 +1,6 @@
 import * as React from 'react'
 
-import {
-  FlatList,
-  View,
-  Text,
-  Pressable,
-  ScrollView,
-  RefreshControl,
-} from 'react-native'
+import {FlatList, View, Text, RefreshControl} from 'react-native'
 
 import Lifecycle from '../lifecycle'
 

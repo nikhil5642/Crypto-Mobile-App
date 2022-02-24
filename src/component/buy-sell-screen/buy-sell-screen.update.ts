@@ -1,7 +1,5 @@
 import {matchR} from '@action-land/tarz'
 
-import {isHTTPRequestSuccess} from '../../helper/http-helper'
-
 import {BuySellInterface, BuySellParams} from './buy-sell-screen.interface'
 
 export const update = matchR<BuySellInterface>({

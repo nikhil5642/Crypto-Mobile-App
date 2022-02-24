@@ -18,13 +18,8 @@ const SplashLogo = (props) => (
         </LinearGradient>
       </Defs>
       <Path
-        style={{
-          enableBackground: 'accumulate',
-        }}
         d="m7 1016.362 16-1c0-3.049 2-8 2-8h5c2-4 5-12 7-12 0 0 1-4 3-4 2.631 0 17 9 17 9l-11 16s5.417-2.835 11-4c1.988-.415-.234-4.706 2-5 1.929-.253 4-1 5-1s2.032-13.249 4-11c7 8 21.405 17.281 25 21l-12-17-3 4-9-13-11 7-11-8-3 2-5-3-4 6-5-2-12 16-3.375-.625L7 1016.362"
-        overflow="visible"
         transform="matrix(2.57143 0 0 2.57143 -18 -2545.503)"
-        xmlns="http://www.w3.org/2000/svg"
         fill="url(#a)"
       />
       <Path
