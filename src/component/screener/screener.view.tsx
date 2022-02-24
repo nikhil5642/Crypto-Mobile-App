@@ -15,6 +15,7 @@ import {Smitten} from '@action-land/smitten'
 
 import {Props} from '../../core/component'
 import {TooltipItemView} from '../common-views/tooltip-item'
+import {TooltipSimpleItemView} from '../common-views/tooltip-simple-item'
 import Lifecycle from '../lifecycle'
 
 import {ScreenerInterface, ScreenerParams} from './screener.interface'
@@ -57,9 +58,8 @@ const liveItemOnboarding = (e: Smitten, item: any) => {
     <Tooltip
       isVisible={true}
       content={
-        <TooltipItemView
+        <TooltipSimpleItemView
           description={"Let's start by choosing a currency."}
-          onContinue={() => e.of('onTickerSelected').emit(item)}
         />
       }
       placement="bottom"

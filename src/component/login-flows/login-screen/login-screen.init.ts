@@ -6,4 +6,6 @@ export const init = (): LoginScreenInterface => ({
   mobileNumber: '',
   screen: 'mob',
   onBoarding: false,
+  showLoader: false,
+  timer: 0,
 })

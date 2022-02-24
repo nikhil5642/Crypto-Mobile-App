@@ -9,6 +9,7 @@ import {Props} from '../../core/component'
 import {GeneralInfoItemVIew} from '../common-views/generalInfo'
 import {PolarGraphItemView} from '../common-views/polar-graph-item'
 import {TooltipItemView} from '../common-views/tooltip-item'
+import {TooltipSimpleItemView} from '../common-views/tooltip-simple-item'
 import Lifecycle from '../lifecycle'
 
 import {
@@ -31,11 +32,10 @@ export const TickerDetailView: FC<
           <Tooltip
             isVisible={m.onBoarding}
             content={
-              <TooltipItemView
+              <TooltipSimpleItemView
                 description={
-                  'Just few step away from buying your first currency.'
+                  'Just few step away from buying your first currency. \nClick Below to buy.'
                 }
-                onContinue={e.of('buyTicker').emit}
               />
             }
             placement="top"

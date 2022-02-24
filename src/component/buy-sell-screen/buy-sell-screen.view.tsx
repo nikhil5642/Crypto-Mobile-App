@@ -7,6 +7,7 @@ import Tooltip from 'react-native-walkthrough-tooltip'
 
 import {Props} from '../../core/component'
 import {TooltipItemView} from '../common-views/tooltip-item'
+import {TooltipSimpleItemView} from '../common-views/tooltip-simple-item'
 import Lifecycle from '../lifecycle'
 
 import {BuySellInterface, BuySellParams} from './buy-sell-screen.interface'
@@ -53,11 +54,10 @@ export const view: FC<Props<BuySellInterface, BuySellParams>> = ({e, m, p}) => {
         <Tooltip
           isVisible={m.onBoarding && m.tooltipType === 'button'}
           content={
-            <TooltipItemView
+            <TooltipSimpleItemView
               description={
-                'Awesome! you are just one step away from buying your first Crypto Currency'
+                'Awesome! lastly just click Buy Now to buy your first Crypto Currency'
               }
-              onContinue={e.of('submitExchange').emit}
             />
           }
           placement="top"

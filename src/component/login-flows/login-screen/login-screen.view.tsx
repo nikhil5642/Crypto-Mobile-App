@@ -1,6 +1,12 @@
-import React, {FC} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 
-import {ColorValue, Pressable, Text, View} from 'react-native'
+import {
+  ActivityIndicator,
+  ColorValue,
+  Pressable,
+  Text,
+  View,
+} from 'react-native'
 import {TextInput} from 'react-native-gesture-handler'
 import OtpInputs from 'react-native-otp-inputs'
 import {SafeAreaView} from 'react-native-safe-area-context'
@@ -26,8 +32,28 @@ export const LoginScreenView: FC<
         ? e.of('verifyOTP').emit({})
         : Toast.show('Enter Valid OTP. ', Toast.LONG)
   }
+  useEffect(() => {
+    const myInterval = setInterval(() => {
+      if (m.timer > 0) {
+        e.of('updateTimer').emit({})
+      }
+    }, 1000)
+    return () => {
+      clearInterval(myInterval)
+    }
+  })
+
   return (
     <SafeAreaView style={styles.container}>
+      {m.showLoader ? (
+        <ActivityIndicator
+          size="large"
+          pointerEvents="none"
+          color={'#686000'}
+          style={styles.activityIndicator}
+        />
+      ) : null}
+
       {m.screen === 'mob' ? (
         <View>
           <Text style={styles.welcomeText}>Welcome !</Text>
@@ -82,8 +108,11 @@ function getOtpView(e: Smitten, state: any) {
       />
       <View style={styles.otpPageBottomTextContainer}>
         <Text style={{color: 'gray'}}>Didn't receive the OTP? </Text>
-        <Pressable onPress={() => e.of('sendOTP').emit({})}>
-          <Text style={styles.resendOTP}>Resend OTP</Text>
+        <Pressable
+          onPress={() => (state.timer === 0 ? e.of('sendOTP').emit({}) : null)}>
+          <Text style={styles.resendOTP}>
+            Resend OTP {state.timer > 0 ? ' in ' + state.timer.toString() : ''}
+          </Text>
         </Pressable>
       </View>
     </View>

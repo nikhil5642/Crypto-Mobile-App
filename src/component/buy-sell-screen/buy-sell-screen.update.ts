@@ -25,7 +25,7 @@ export const update = matchR<BuySellInterface>({
     return {...state, tooltipType: 'button'}
   },
   submitExchange: (_, state) => {
-    return {...state, onBoarding: false}
+    return {...state}
   },
   accountBalanceResponse: (response, state) => {
     return {...state, availableBalance: response}

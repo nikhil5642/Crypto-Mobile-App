@@ -41,7 +41,6 @@ export const PieGraphItemView = ({data}) => {
       </Text>
       <Svg width={SCREEN_WIDTH * 0.8} height={SCREEN_WIDTH * 0.8}>
         <VictoryPie
-          animate={{easing: 'exp'}}
           padAngle={1}
           colorScale={colorSchemas}
           innerRadius={70}

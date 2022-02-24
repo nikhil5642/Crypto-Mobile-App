@@ -9,6 +9,16 @@ export const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
   },
+  activityIndicator: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    backgroundColor: 'rgba(52, 52, 52, .2)',
+    zIndex: 10,
+  },
   welcomeText: {
     alignSelf: 'center',
     color: 'black',
@@ -51,7 +61,6 @@ export const styles = StyleSheet.create({
   resendOTP: {
     fontWeight: '600',
     color: '#005282',
-    textDecorationLine: 'underline',
   },
 
   textInput: {

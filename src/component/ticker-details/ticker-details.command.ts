@@ -3,7 +3,10 @@ import {matchC} from '@action-land/tarz'
 import {HTTPRequest} from '../../helper/http-helper'
 import {Routes} from '../../navigator/navigator.interface'
 
-import {PushScreenAction} from './../../helper/navigation-helper'
+import {
+  PopScreenAction,
+  PushScreenAction,
+} from './../../helper/navigation-helper'
 import {
   TickerDetailsInterface,
   TickerDetailsParams,
@@ -46,4 +49,5 @@ export const command = matchC<TickerDetailsInterface>({
       },
     })
   },
+  dismissTickerDetails: PopScreenAction,
 })

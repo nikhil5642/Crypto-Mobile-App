@@ -1,9 +1,11 @@
+import {Action} from '@action-land/core'
 import {concatC, matchC} from '@action-land/tarz'
 
 import {HTTPRequest} from '../../helper/http-helper'
-import {ReplaceScreenAction} from '../../helper/navigation-helper'
+import {PopScreenAction, PushScreenAction} from '../../helper/navigation-helper'
 import {Routes} from '../../navigator/navigator.interface'
 
+import {PopToTopScreenAction} from './../../helper/navigation-helper'
 import {BuySellInterface, BuySellParams} from './buy-sell-screen.interface'
 
 export const command = matchC<BuySellInterface>({
@@ -34,13 +36,19 @@ export const command = matchC<BuySellInterface>({
     })
   },
 
-  exchangeCurrencyResponse: (response) => {
-    return ReplaceScreenAction({
-      route: Routes.TransactionStatusScreen,
-      params: {
-        status: response.success ? 'success' : 'failure',
-        transactionId: response.success ? response.transactionId : '',
-      },
-    })
-  },
+  exchangeCurrencyResponse: concatC(
+    (_, state) => {
+      return state.onBoarding ? PopToTopScreenAction() : PopScreenAction()
+    },
+    (response) => {
+      return PushScreenAction({
+        route: Routes.TransactionStatusScreen,
+        params: {
+          status: response.success ? 'success' : 'failure',
+          transactionId: response.success ? response.transactionId : '',
+        },
+      })
+    },
+  ),
+  dismissTickerDetails: PopToTopScreenAction,
 })
