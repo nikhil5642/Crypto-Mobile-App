@@ -18,7 +18,7 @@ export const OnBoardingSliderView: FC<
   const scrollX = React.useRef(new Animated.Value(0)).current
 
   const onViewChangedRef = React.useRef((current) => {
-    e.of('pageChanged').emit(current.viewableItems[0]?.index ?? 0)
+    e.of('pageChanged').emit(current.viewableItems.pop()?.index ?? 0)
   })
   const pages = [
     {
@@ -35,9 +35,9 @@ export const OnBoardingSliderView: FC<
     },
     {
       image: require('../../assets/ic_prize.png'),
-      title: 'Win Real Prizes',
+      title: "Win Real Prize's",
       subtitle:
-        'Profits made during virtual tranding can be conveted to real prized',
+        "Profits made during virtual tranding can be conveted to real prize's.",
     },
     {
       image: require('../../assets/ic_professional.png'),
@@ -66,8 +66,9 @@ export const OnBoardingSliderView: FC<
           [{nativeEvent: {contentOffset: {x: scrollX}}}],
           {useNativeDriver: true},
         )}
+        onEndReached={e.of('endReached').emit}
       />
-      {m.pageNo !== pages.length - 1 ? (
+      {!(m.pageNo === pages.length - 1 && m.endReached) ? (
         <View style={styles.bottomContainer}>
           <Pressable
             style={styles.buttonContainer}

@@ -15,6 +15,7 @@ export const onBoardingSlider: Component<
 > = R.compose(forward({}))({
   init: (): OnBoardingSliderInterface => ({
     pageNo: 0,
+    endReached: false,
     listViewRef: null,
   }),
   update: matchR<OnBoardingSliderInterface>({
@@ -23,6 +24,9 @@ export const onBoardingSlider: Component<
     },
     pageChanged: (num, state) => {
       return {...state, pageNo: num}
+    },
+    endReached: (_, state) => {
+      return {...state, endReached: true}
     },
     completed: (_, state) => {
       DefaultPreference.set('onBoardingSlider', 'done')
@@ -37,6 +41,7 @@ export const onBoardingSlider: Component<
 
 export interface OnBoardingSliderInterface {
   pageNo: number
+  endReached: boolean
   listViewRef: any
 }
 
