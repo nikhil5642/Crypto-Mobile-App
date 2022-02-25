@@ -25,6 +25,7 @@ export const TickerDetailView: FC<
       <SafeAreaView style={styles.container}>
         <FlatList
           data={m.data}
+          bounces={false}
           renderItem={(item) => getAppropriateItem(item.item)}
         />
         <View style={styles.buySellContainer}>

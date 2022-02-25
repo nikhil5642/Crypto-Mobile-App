@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native'
+import {Platform, StyleSheet} from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
@@ -50,7 +50,9 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     textAlign: 'center',
     marginHorizontal: 16,
-    color: 'gray',
+    width: 24,
+    height: 40,
+    color: 'black',
   },
   otpPageBottomTextContainer: {
     marginTop: 12,
@@ -70,19 +72,26 @@ export const styles = StyleSheet.create({
     color: '#1B1B1D',
     borderRadius: 12,
     paddingLeft: 12,
+    paddingVertical: Platform.select({
+      ios: 12,
+    }),
   },
   button: {
     fontSize: 16,
     padding: 8,
     borderRadius: 8,
+    overflow: 'hidden',
     fontWeight: '600',
     color: '#FFFFFF',
     textAlign: 'center',
     textAlignVertical: 'bottom',
   },
   buttonContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    marginHorizontal: 16,
     marginBottom: 16,
   },
 })

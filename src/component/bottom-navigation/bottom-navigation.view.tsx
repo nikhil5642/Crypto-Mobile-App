@@ -45,7 +45,11 @@ function getItem(
 ) {
   return (
     <Pressable
-      style={styles.itemContainer}
+      style={
+        isSelected
+          ? styles.itemContainerSelected
+          : styles.itemContainerUnselected
+      }
       onPress={() => e.of('onOptionSelected').emit(currentItem)}>
       <Text
         style={
