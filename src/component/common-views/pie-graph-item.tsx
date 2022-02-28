@@ -132,7 +132,6 @@ export const portfolioItem = (
   selectedItemName,
   setSelectedItemName,
 ) => {
-  console.log(item)
   return (
     <Pressable
       style={[

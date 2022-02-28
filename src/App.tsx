@@ -40,22 +40,22 @@ class App extends PureComponent<InitParams> {
 
   render() {
     return (
-      <navigator.view
-        e={this.e}
-        m={this.state}
-        p={{
-          route: Routes.SplashScreen,
-          params: {},
-        }}
-      />
       // <navigator.view
       //   e={this.e}
       //   m={this.state}
       //   p={{
-      //     route: Routes.OnBoardingSliderScreen,
+      //     route: Routes.SplashScreen,
       //     params: {},
       //   }}
       // />
+      <navigator.view
+        e={this.e}
+        m={this.state}
+        p={{
+          route: Routes.CatergoryDetailsScreen,
+          params: {userId: '1', categoryId: 'metaverse'},
+        }}
+      />
     )
   }
 }

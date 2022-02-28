@@ -30,13 +30,8 @@ const PieData = (portfolio: any) => {
   portfolio?.forEach((item) => {
     values.push({
       x: item.name,
-      y: item.contribution * 100,
+      y: item.contribution,
     })
-    // ,
-    // values.push({
-    //   x: item.name,
-    //   y: item.contribution * 100,
-    // })
   })
   return {title: 'PortFolio', values: values}
 }
