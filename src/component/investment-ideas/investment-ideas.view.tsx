@@ -5,7 +5,7 @@ import {
   View,
   Text,
   FlatList,
-  ImageBackground,
+  Image,
   Pressable,
   RefreshControl,
   ScrollView,
@@ -42,35 +42,28 @@ export const InvestmentIdeasView: FC<
         loadPreference()
         e.of('mount').emit(p)
       }}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
+      <ScrollView style={styles.container}>
+        {m.causeInvestment.length > 0 ? (
+          <Text style={styles.categoryHeaderText}>
+            Categories you can explore
+          </Text>
+        ) : null}
         <FlatList
           data={m.causeInvestment}
+          contentContainerStyle={styles.categoriesContentContainer}
           renderItem={(item) =>
             item.index === 0 && m.onBoarding && m.onBoardingType === 'category'
               ? onBoardingIdeaItem(e, item.item)
               : ideaItem(e, item.item)
           }
           keyExtractor={(item) => item.id}
-          numColumns={2}
-          nestedScrollEnabled
-          refreshControl={
-            <RefreshControl
-              refreshing={m.refreshing}
-              onRefresh={() => e.of('mount').emit(p)}
-            />
-          }
-          ListHeaderComponent={
-            m.causeInvestment.length > 0 ? (
-              <Text style={styles.titleText}>Invest in a Category</Text>
-            ) : null
-          }
+          horizontal
+          showsHorizontalScrollIndicator={false}
         />
         {bucketList(
           e,
           'Invest in a our buckets',
-          styles.titleText,
+          styles.bucketHeaderText,
           m.buckets,
           m.onBoarding && m.onBoardingType === 'buckets',
         )}
@@ -101,13 +94,16 @@ const ideaItem = (e: Smitten, item: any) => {
     <Pressable
       style={styles.ideaItemContainer}
       onPress={() => e.of('categorySelected').emit(item)}>
-      <ImageBackground
+      <Text style={styles.ideaItemTextHeading}>{item.name}</Text>
+      <Text style={styles.ideaItemTextDescrption}>{item.description}</Text>
+      <Image
         style={styles.ideaItemImage}
-        source={{uri: getImageURL(item.imgUrl)}}>
-        <View style={styles.ideaItemTextContainer}>
-          <Text style={styles.ideaItemText}>{item.name}</Text>
-        </View>
-      </ImageBackground>
+        source={{uri: getImageURL(item.imgUrl)}}
+      />
+      <Image
+        style={styles.ideaItemArrowImage}
+        source={require('../../assets/right_arrow_long.png')}
+      />
     </Pressable>
   )
 }

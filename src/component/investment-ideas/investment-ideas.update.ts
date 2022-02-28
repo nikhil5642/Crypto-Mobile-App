@@ -18,6 +18,7 @@ export const update = matchR<InvestmentIdeasInterface>({
       data.push({
         name: item.name,
         id: item.id,
+        description: item.short_desc,
         imgUrl: item.titleImg,
       })
     })
@@ -28,6 +29,12 @@ export const update = matchR<InvestmentIdeasInterface>({
     res?.forEach((item) => {
       data.push({
         name: item.name,
+        category: item.category,
+        description: item.short_desc,
+        return_one_yr: item.return_one_yr,
+        return_three_yr: item.return_three_yr,
+        minAmount: item.minAmount,
+        riskLevel: item.riskLevel,
         id: item.id,
         imgUrl: item.titleImg,
       })

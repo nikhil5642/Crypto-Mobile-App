@@ -3,7 +3,7 @@ import React from 'react'
 import {
   Dimensions,
   FlatList,
-  ImageBackground,
+  Image,
   Pressable,
   StyleSheet,
   Text,
@@ -18,6 +18,12 @@ import {TooltipItemView} from '../common-views/tooltip-item'
 
 export interface InvestmentBucketItem {
   name: string
+  category: string
+  description: string
+  return_one_yr: string
+  return_three_yr: string
+  minAmount: string
+  riskLevel: number
   id: string
   imgUrl: string
 }
@@ -35,6 +41,7 @@ export const bucketList = (
       {buckets.length > 0 ? (
         <FlatList
           data={buckets}
+          contentContainerStyle={styles.contentContainer}
           renderItem={(item) =>
             onBoarding && item.index === 0
               ? onBoardingBucketItem(e, item.item)
@@ -42,7 +49,6 @@ export const bucketList = (
           }
           keyExtractor={(item) => item.id}
           nestedScrollEnabled
-          horizontal
         />
       ) : (
         <View style={styles.emptyBucketContainer}>
@@ -78,48 +84,144 @@ const bucketItem = (e: Smitten, item: any) => {
     <Pressable
       style={styles.bucketItemContainer}
       onPress={() => e.of('openBucket').emit(item.id)}>
-      <ImageBackground
-        style={styles.bucketItemImage}
-        source={{uri: getImageURL(item.imgUrl)}}>
-        <View style={styles.bucketItemTextContainer}>
-          <Text style={styles.bucketItemText}>{item.name}</Text>
+      <View style={styles.bucketItemHeaderContainer}>
+        <Image
+          style={styles.bucketItemImage}
+          source={{uri: getImageURL(item.imgUrl)}}
+        />
+        <View>
+          <Text style={styles.bucketItemHeaderText}>{item.name}</Text>
+          <Text style={styles.bucketItemCategoryText}>{item.category}</Text>
         </View>
-      </ImageBackground>
+        <Text
+          style={[
+            styles.bucketRiskTag,
+            {backgroundColor: riskTagBackground(item.riskLevel)},
+          ]}>
+          {riskTag(item.riskLevel)}
+        </Text>
+      </View>
+      <Text style={styles.bucketItemShortDescText}>{item.description}</Text>
+      <View style={styles.bucketItemFooterContainer}>
+        <View style={styles.bucketSubItemFooterContainer}>
+          <Text style={styles.bucketItemFooterName}>1Y Returns</Text>
+          <Text style={styles.bucketItemFooterValue}>
+            {item.return_one_yr}%
+          </Text>
+        </View>
+        <View style={styles.bucketSubItemFooterContainer}>
+          <Text style={styles.bucketItemFooterName}>3Y Returns</Text>
+          <Text style={styles.bucketItemFooterValue}>
+            {item.return_three_yr}%
+          </Text>
+        </View>
+        <View style={styles.bucketSubItemFooterContainer}>
+          <Text style={styles.bucketItemFooterName}>Min Amount</Text>
+          <Text style={styles.bucketItemFooterValue}>{item.minAmount}</Text>
+        </View>
+      </View>
     </Pressable>
   )
 }
 
+const riskTag = (value: number) => {
+  if (value === 0) {
+    return 'Low Risk'
+  } else if (value === 1) {
+    return 'Moderate Risk'
+  } else {
+    return 'High Risk'
+  }
+}
+const riskTagBackground = (value: number) => {
+  if (value === 0) {
+    return '#6F975C'
+  } else if (value === 1) {
+    return '#D2D462'
+  } else {
+    return '#FF6361'
+  }
+}
+
 const styles = StyleSheet.create({
   bucketItemContainer: {
-    flex: 1,
+    marginHorizontal: 16,
+    marginVertical: 8,
     padding: 12,
+    borderRadius: 8,
+    overflow: 'hidden',
+    backgroundColor: 'white',
+    elevation: 4,
+    shadowOpacity: 0.25,
+  },
+
+  contentContainer: {
+    paddingBottom: 32,
+  },
+  bucketItemHeaderContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   bucketItemImage: {
     aspectRatio: 1,
-    width: Dimensions.get('window').width / 4,
-    borderRadius: 12,
+    width: 32,
+    borderRadius: 16,
     overflow: 'hidden',
-  },
-  bucketItemTextContainer: {
-    position: 'absolute',
-    alignItems: 'center',
-    padding: 8,
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    backgroundColor: 'black',
     justifyContent: 'center',
-    backgroundColor: 'rgba(52, 52, 52, 0.2)',
   },
-  bucketItemText: {
-    elevation: 1,
-    color: 'white',
+  bucketItemHeaderText: {
+    color: 'black',
     fontSize: 16,
-    fontWeight: '600',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
+    fontWeight: '400',
+    marginLeft: 12,
   },
+  bucketItemCategoryText: {
+    color: '#B4B4B4',
+    fontSize: 10,
+    fontWeight: '400',
+    marginLeft: 12,
+  },
+  bucketRiskTag: {
+    fontSize: 12,
+    fontWeight: '600',
+    position: 'absolute',
+    right: 8,
+    top: 4,
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    color: 'white',
+    borderRadius: 4,
+  },
+  bucketItemShortDescText: {
+    color: '#646464',
+    fontSize: 12,
+    fontWeight: '400',
+    marginTop: 16,
+  },
+
+  bucketItemFooterContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 12,
+    justifyContent: 'space-between',
+  },
+
+  bucketSubItemFooterContainer: {
+    marginTop: 12,
+  },
+  bucketItemFooterName: {
+    fontSize: 12,
+    color: '#646464',
+    fontWeight: '500',
+  },
+  bucketItemFooterValue: {
+    fontSize: 16,
+    color: 'black',
+    fontWeight: '500',
+    alignSelf: 'center',
+  },
+
   emptyBucketContainer: {
     backgroundColor: 'lightgray',
     borderRadius: 12,

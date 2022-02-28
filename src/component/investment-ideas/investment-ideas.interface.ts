@@ -14,5 +14,6 @@ export type InvestmentIdeasParams = {userId: string; onboarding: boolean}
 export interface InvestmentIdea {
   name: string
   id: string
+  description: string
   imgUrl: string
 }
