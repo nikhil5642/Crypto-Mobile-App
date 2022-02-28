@@ -3,8 +3,6 @@ import {InvestmentBucketItem} from './investment-buckets'
 export interface InvestmentIdeasInterface {
   userId: string
   refreshing: boolean
-  onBoarding: boolean
-  onBoardingType: 'category' | 'buckets'
   causeInvestment: InvestmentIdea[]
   buckets: InvestmentBucketItem[]
 }
