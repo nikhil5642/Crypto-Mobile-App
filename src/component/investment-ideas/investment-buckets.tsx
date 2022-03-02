@@ -11,7 +11,7 @@ export interface InvestmentBucketItem {
   category: string
   description: string
   return_one_yr: string
-  return_three_yr: string
+  unitPrice: string
   minAmount: string
   riskLevel: number
   id: string
@@ -75,10 +75,8 @@ const bucketItem = (e: Smitten, item: any) => {
           </Text>
         </View>
         <View style={styles.bucketSubItemFooterContainer}>
-          <Text style={styles.bucketItemFooterName}>3Y Returns</Text>
-          <Text style={styles.bucketItemFooterValue}>
-            {item.return_three_yr}%
-          </Text>
+          <Text style={styles.bucketItemFooterName}>Current Price</Text>
+          <Text style={styles.bucketItemFooterValue}>{item.unitPrice}</Text>
         </View>
         <View style={styles.bucketSubItemFooterContainer}>
           <Text style={styles.bucketItemFooterName}>Min Amount</Text>

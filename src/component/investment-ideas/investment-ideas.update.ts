@@ -30,7 +30,7 @@ export const update = matchR<InvestmentIdeasInterface>({
         category: item.category,
         description: item.short_desc,
         return_one_yr: item.return_one_yr,
-        return_three_yr: item.return_three_yr,
+        unitPrice: item.unitPrice,
         minAmount: item.minAmount,
         riskLevel: item.riskLevel,
         id: item.id,

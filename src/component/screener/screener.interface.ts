@@ -14,5 +14,4 @@ export interface Ticker {
   price: string
   change: number
   riskIndex: number
-  tags: any[]
 }
