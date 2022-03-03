@@ -1,7 +1,7 @@
 import {Action} from '@action-land/core'
 
-const baseUrl = 'http://10.0.2.2:8000'
-// const baseUrl = 'http://15.206.100.229'
+// const baseUrl = 'http://10.0.2.2:8000'
+const baseUrl = 'http://15.206.100.229'
 
 export const HTTP_QUERY = 'httpQuery'
 export type HTTP_QUERY = typeof HTTP_QUERY

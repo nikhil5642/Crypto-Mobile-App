@@ -26,7 +26,7 @@ export const update = matchR<ScreenerInterface>({
         id: item.id,
         price: item.price,
         change: item.change,
-        riskIndex: item.riskIndex,
+        riskIndex: item.volatility,
       })
     })
     return {...state, data: data, refreshing: false}

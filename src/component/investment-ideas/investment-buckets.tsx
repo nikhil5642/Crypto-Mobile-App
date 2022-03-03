@@ -76,7 +76,9 @@ const bucketItem = (e: Smitten, item: any) => {
         </View>
         <View style={styles.bucketSubItemFooterContainer}>
           <Text style={styles.bucketItemFooterName}>Current Price</Text>
-          <Text style={styles.bucketItemFooterValue}>{item.unitPrice}</Text>
+          <Text style={styles.bucketItemFooterValue}>
+            {item.unitPrice.toFixed(2)}
+          </Text>
         </View>
         <View style={styles.bucketSubItemFooterContainer}>
           <Text style={styles.bucketItemFooterName}>Min Amount</Text>
