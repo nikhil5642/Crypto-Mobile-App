@@ -1,4 +1,4 @@
-import {matchC} from '@action-land/tarz'
+import {concatC, matchC} from '@action-land/tarz'
 
 import {HTTPRequest} from '../../helper/http-helper'
 import {Routes} from '../../navigator/navigator.interface'
@@ -13,16 +13,28 @@ import {
 } from './ticker-details.interface'
 
 export const command = matchC<TickerDetailsInterface>({
-  mount: (params: TickerDetailsParams) => {
-    return HTTPRequest({
-      endpoint: '/market/tickerDetails',
-      method: 'POST',
-      responseType: 'tickerDetailsResponse',
-      variables: {
-        tickerId: params.tickerId,
-      },
-    })
-  },
+  mount: concatC(
+    (params: TickerDetailsParams) => {
+      return HTTPRequest({
+        endpoint: '/market/tickerDetails',
+        method: 'POST',
+        responseType: 'tickerDetailsResponse',
+        variables: {
+          tickerId: params.tickerId,
+        },
+      })
+    },
+    (params: TickerDetailsParams) => {
+      return HTTPRequest({
+        endpoint: '/market/chartData',
+        method: 'POST',
+        responseType: 'chartDataResponse',
+        variables: {
+          tickerId: params.tickerId,
+        },
+      })
+    },
+  ),
 
   buyTicker: (_, state) => {
     return PushScreenAction({
