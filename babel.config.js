@@ -5,5 +5,8 @@ module.exports = {
       plugins: ['react-native-paper/babel'],
     },
   },
-  plugins: ['@babel/plugin-proposal-numeric-separator'],
+  plugins: [
+    '@babel/plugin-proposal-numeric-separator',
+    'react-native-reanimated/plugin',
+  ],
 }

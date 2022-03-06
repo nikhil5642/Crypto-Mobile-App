@@ -9,5 +9,6 @@
     "**/*.d.ts": false,
     "**/*.js.map": true,
     "*/**/*.js": true
-  }
+  },
+  "java.configuration.updateBuildConfiguration": "automatic"
 }
