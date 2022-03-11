@@ -26,7 +26,7 @@ export const ScreenerView: FC<Props<ScreenerInterface, ScreenerParams>> = ({
   m,
   p,
 }) => {
-  const tickerList = ['BTC', 'ETH', 'XRP', 'AVAX']
+  const tickerList = ['BTC', 'ETH', 'XRP', 'AVAX', 'USDT']
 
   return (
     <Lifecycle

@@ -21,7 +21,7 @@ export const PolarGraphItemView = ({data}) => {
         flexDirection: 'column',
         paddingTop: 12,
         marginHorizontal: 12,
-        borderRadius: 12,
+        // borderRadius: 12,
         alignItems: 'center',
       }}>
       <Text
@@ -38,9 +38,9 @@ export const PolarGraphItemView = ({data}) => {
         theme={VictoryTheme.material}
         height={SCREEN_WIDTH * 0.8}
         width={SCREEN_WIDTH * 0.8}
-        domain={{y: [0, 10]}}
-        startAngle={60}
-        endAngle={420}>
+        domain={{y: [0, 100]}}
+        startAngle={0}
+        endAngle={360}>
         {data.values.map((item, i) => {
           return (
             <VictoryPolarAxis

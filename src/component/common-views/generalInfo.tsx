@@ -21,10 +21,8 @@ export const GeneralInfoItemVIew = ({data}) => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 12,
-    borderRadius: 12,
+    marginHorizontal: 12,
     backgroundColor: 'white',
-    elevation: 1,
   },
 
   heading: {

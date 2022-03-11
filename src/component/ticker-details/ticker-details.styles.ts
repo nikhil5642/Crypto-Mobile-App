@@ -5,6 +5,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 12,
   },
   buySellContainer: {
     flex: 0,

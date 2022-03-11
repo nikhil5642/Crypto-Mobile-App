@@ -14,9 +14,7 @@ export const update = matchR<TickerDetailsInterface>({
   tickerDetailsResponse: (response, state) => {
     return {...state, data: response.result}
   },
-  chartDataResponse: (response, state) => {
-    return state
-  },
+
   buyTicker: (_, state) => {
     return {...state, onBoarding: false}
   },
