@@ -9,9 +9,14 @@ import {Props} from '../../core/component'
 import {GeneralInfoItemVIew} from '../common-views/generalInfo'
 import {PolarGraphItemView} from '../common-views/polar-graph-item'
 import {PriceChartComponent} from '../common-views/price-chart-component'
+import {TagListItemView} from '../common-views/tagsList'
 import {TooltipSimpleItemView} from '../common-views/tooltip-simple-item'
 import Lifecycle from '../lifecycle'
 
+import {
+  getStablitityGraphTitleText,
+  getStatbilityGraphTitleStyle,
+} from './ticker-details-utils'
 import {
   TickerDetailsInterface,
   TickerDetailsParams,
@@ -64,9 +69,26 @@ function getAppropriateItem(item: any) {
   if (item.itemType === 'GeneralInfo') {
     return <GeneralInfoItemVIew data={item.data} />
   } else if (item.itemType === 'PolarGraph') {
-    return <PolarGraphItemView data={item.data} />
+    return (
+      <PolarGraphItemView
+        title={getTitle(item.data.overall)}
+        values={item.data.values}
+      />
+    )
   } else if (item.itemType === 'ChartData') {
     return <PriceChartComponent chartData={item.data} />
+  } else if (item.itemType === 'Tags') {
+    return <TagListItemView data={item.data} />
   }
   return <View />
+}
+
+function getTitle(overallScore: number) {
+  return (
+    <View>
+      <Text style={getStatbilityGraphTitleStyle(overallScore)}>
+        {getStablitityGraphTitleText(overallScore)}
+      </Text>
+    </View>
+  )
 }

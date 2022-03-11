@@ -29,7 +29,13 @@ const BluntLineChart = ({data}) => {
       return ''
     }
     const d = new Date(Math.round(timestamp * 1000))
-    return d.toLocaleString()
+    return d.toLocaleString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+    })
   }
   return (
     <View style={styles.container}>

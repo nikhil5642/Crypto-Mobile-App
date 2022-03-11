@@ -10,7 +10,7 @@ import {
   VictoryTheme,
 } from 'victory-native'
 
-export const PolarGraphItemView = ({data}) => {
+export const PolarGraphItemView = ({title, values}) => {
   const SCREEN_WIDTH = Dimensions.get('window').width
   return (
     <View
@@ -24,15 +24,7 @@ export const PolarGraphItemView = ({data}) => {
         // borderRadius: 12,
         alignItems: 'center',
       }}>
-      <Text
-        style={{
-          color: 'black',
-          fontSize: 18,
-          fontWeight: '600',
-          alignSelf: 'center',
-        }}>
-        {data.title}
-      </Text>
+      {title}
       <VictoryChart
         polar
         theme={VictoryTheme.material}
@@ -41,7 +33,7 @@ export const PolarGraphItemView = ({data}) => {
         domain={{y: [0, 100]}}
         startAngle={0}
         endAngle={360}>
-        {data.values.map((item, i) => {
+        {values.map((item, i) => {
           return (
             <VictoryPolarAxis
               dependentAxis
@@ -77,7 +69,7 @@ export const PolarGraphItemView = ({data}) => {
           )
         })}
         <VictoryArea
-          data={data.values}
+          data={values}
           interpolation="cardinal"
           style={{
             data: {
