@@ -6,8 +6,6 @@ export interface BuySellInterface {
   amount: number
   amountText: string
   availableBalance: number
-  onBoarding: boolean
-  tooltipType: 'input' | 'button'
 }
 
 export type BuySellParams = {

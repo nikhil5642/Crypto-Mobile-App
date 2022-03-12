@@ -19,9 +19,7 @@ export const update = matchR<BuySellInterface>({
   onAmountChanged: (amount, state) => {
     return {...state, amountText: amount, amount: parseFloat(amount)}
   },
-  amountContinue: (_, state) => {
-    return {...state, tooltipType: 'button'}
-  },
+
   submitExchange: (_, state) => {
     return {...state}
   },

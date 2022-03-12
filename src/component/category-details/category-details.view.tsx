@@ -1,17 +1,14 @@
 import React, {FC} from 'react'
 
 import {View, Image, Text, Pressable} from 'react-native'
-import {FlatList, ScrollView} from 'react-native-gesture-handler'
+import {ScrollView} from 'react-native-gesture-handler'
 
 import {Smitten} from '@action-land/smitten'
 
 import {Props} from '../../core/component'
 import {getImageURL} from '../../helper/http-helper'
 import {GeneralInfoItemVIew} from '../common-views/generalInfo'
-import {
-  bucketList,
-  InvestmentBucketItem,
-} from '../investment-ideas/investment-buckets'
+import {InvestmentBucketItem} from '../investment-ideas/investment-buckets'
 import Lifecycle from '../lifecycle'
 
 import {

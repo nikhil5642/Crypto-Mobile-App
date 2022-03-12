@@ -3,14 +3,12 @@ import React, {FC} from 'react'
 import {View, Text, Pressable} from 'react-native'
 import {FlatList} from 'react-native-gesture-handler'
 import {SafeAreaView} from 'react-native-safe-area-context'
-import Tooltip from 'react-native-walkthrough-tooltip'
 
 import {Props} from '../../core/component'
 import {GeneralInfoItemVIew} from '../common-views/generalInfo'
 import {PolarGraphItemView} from '../common-views/polar-graph-item'
 import {PriceChartComponent} from '../common-views/price-chart-component'
 import {TagListItemView} from '../common-views/tagsList'
-import {TooltipSimpleItemView} from '../common-views/tooltip-simple-item'
 import Lifecycle from '../lifecycle'
 
 import {
@@ -36,24 +34,12 @@ export const TickerDetailView: FC<
         />
 
         <View style={styles.buySellContainer}>
-          <Tooltip
-            isVisible={m.onBoarding}
-            content={
-              <TooltipSimpleItemView
-                description={
-                  'Just few step away from buying your first currency. \nClick Below to buy.'
-                }
-              />
-            }
-            placement="top"
-            supportedOrientations={['portrait']}
-            useInteractionManager={true}>
-            <Pressable
-              style={styles.buyContainer}
-              onPress={e.of('buyTicker').emit}>
-              <Text style={styles.buyText}>Buy</Text>
-            </Pressable>
-          </Tooltip>
+          <Pressable
+            style={styles.buyContainer}
+            onPress={e.of('buyTicker').emit}>
+            <Text style={styles.buyText}>Buy</Text>
+          </Pressable>
+
           <Pressable
             style={styles.sellContainer}
             onPress={e.of('sellTicker').emit}>

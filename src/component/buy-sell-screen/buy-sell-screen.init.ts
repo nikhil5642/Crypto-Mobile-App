@@ -8,6 +8,4 @@ export const init = (): BuySellInterface => ({
   amount: 0,
   amountText: '',
   availableBalance: 0,
-  onBoarding: false,
-  tooltipType: 'input',
 })

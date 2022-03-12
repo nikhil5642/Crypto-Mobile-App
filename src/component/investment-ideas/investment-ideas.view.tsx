@@ -1,23 +1,12 @@
 import * as React from 'react'
 import {FC} from 'react'
 
-import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  Pressable,
-  RefreshControl,
-  ScrollView,
-} from 'react-native'
-import DefaultPreference from 'react-native-default-preference'
-import Tooltip from 'react-native-walkthrough-tooltip'
+import {Text, FlatList, Image, Pressable, ScrollView} from 'react-native'
 
 import {Smitten} from '@action-land/smitten'
 
 import {Props} from '../../core/component'
 import {getImageURL} from '../../helper/http-helper'
-import {TooltipItemView} from '../common-views/tooltip-item'
 import Lifecycle from '../lifecycle'
 
 import {bucketList} from './investment-buckets'

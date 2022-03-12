@@ -8,12 +8,12 @@ import Lifecycle from '../lifecycle'
 import BluntLineChart from './BluntLineChart'
 
 export const PriceChartComponent = ({chartData}) => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState<any>([])
   const [selection, setSelection] = useState('day')
 
   const updateSelection = (currentSel) => {
     setSelection(currentSel)
-    const currentData = []
+    const currentData: any[] = []
     chartData[currentSel]?.forEach((element) => {
       currentData.push({x: element.time, y: element.close})
     })
@@ -64,6 +64,7 @@ const getTagValue = (tag) => {
   } else if (tag === 'year') {
     return '1Y'
   }
+  return ''
 }
 
 const styles = StyleSheet.create({

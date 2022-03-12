@@ -36,8 +36,8 @@ export const command = matchC<BuySellInterface>({
   },
 
   exchangeCurrencyResponse: concatC(
-    (_, state) => {
-      return state.onBoarding ? PopToTopScreenAction() : PopScreenAction()
+    (_) => {
+      return PopScreenAction()
     },
     (response) => {
       return PushScreenAction({

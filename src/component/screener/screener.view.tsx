@@ -1,20 +1,11 @@
 import * as React from 'react'
 import {FC} from 'react'
 
-import {
-  FlatList,
-  View,
-  Text,
-  Pressable,
-  RefreshControl,
-  Image,
-} from 'react-native'
-import Tooltip from 'react-native-walkthrough-tooltip'
+import {FlatList, View, Text, Pressable, RefreshControl} from 'react-native'
 
 import {Smitten} from '@action-land/smitten'
 
 import {Props} from '../../core/component'
-import {TooltipSimpleItemView} from '../common-views/tooltip-simple-item'
 import Lifecycle from '../lifecycle'
 
 import {ScreenerInterface, ScreenerParams} from './screener.interface'
@@ -34,11 +25,7 @@ export const ScreenerView: FC<Props<ScreenerInterface, ScreenerParams>> = ({
       <View style={styles.container}>
         <FlatList
           data={m.data}
-          renderItem={(item) =>
-            item.index === 0 && m.onboarding
-              ? liveItemOnboarding(e, item.item)
-              : liveItem(e, item.item)
-          }
+          renderItem={(item) => liveItem(e, item.item)}
           keyExtractor={(item) => item.id}
           refreshControl={
             <RefreshControl
@@ -52,22 +39,6 @@ export const ScreenerView: FC<Props<ScreenerInterface, ScreenerParams>> = ({
   )
 }
 
-const liveItemOnboarding = (e: Smitten, item: any) => {
-  return (
-    <Tooltip
-      isVisible={true}
-      content={
-        <TooltipSimpleItemView
-          description={"Let's start by choosing a currency."}
-        />
-      }
-      placement="bottom"
-      supportedOrientations={['portrait']}
-      useInteractionManager={true}>
-      {liveItem(e, item)}
-    </Tooltip>
-  )
-}
 const liveItem = (e: Smitten, item: any) => {
   return (
     <Pressable
