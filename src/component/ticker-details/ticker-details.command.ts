@@ -13,28 +13,16 @@ import {
 } from './ticker-details.interface'
 
 export const command = matchC<TickerDetailsInterface>({
-  mount: concatC(
-    (params: TickerDetailsParams) => {
-      return HTTPRequest({
-        endpoint: '/market/tickerDetails',
-        method: 'POST',
-        responseType: 'tickerDetailsResponse',
-        variables: {
-          tickerId: params.tickerId,
-        },
-      })
-    },
-    (params: TickerDetailsParams) => {
-      return HTTPRequest({
-        endpoint: '/market/chartData',
-        method: 'POST',
-        responseType: 'chartDataResponse',
-        variables: {
-          tickerId: params.tickerId,
-        },
-      })
-    },
-  ),
+  mount: concatC((params: TickerDetailsParams) => {
+    return HTTPRequest({
+      endpoint: '/market/tickerDetails',
+      method: 'POST',
+      responseType: 'tickerDetailsResponse',
+      variables: {
+        tickerId: params.tickerId,
+      },
+    })
+  }),
 
   buyTicker: (_, state) => {
     return PushScreenAction({
