@@ -6,6 +6,7 @@ import {ScrollView} from 'react-native-gesture-handler'
 import {Props} from '../../core/component'
 import {GeneralInfoItemVIew} from '../common-views/generalInfo'
 import {PieGraphItemView} from '../common-views/pie-graph-item'
+import {PriceChartComponent} from '../common-views/price-chart-component'
 import Lifecycle from '../lifecycle'
 
 import {
@@ -21,6 +22,7 @@ export const BucketDetailView: FC<
     <Lifecycle onMount={() => e.of('mount').emit(p)}>
       <View style={styles.container}>
         <ScrollView>
+          {m.chartData ? <PriceChartComponent chartData={m.chartData} /> : null}
           <GeneralInfoItemVIew
             data={{name: m.data.name, description: m.data.description}}
           />

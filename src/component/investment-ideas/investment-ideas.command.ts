@@ -8,16 +8,16 @@ import {InvestmentIdeasInterface} from './investment-ideas.interface'
 
 export const command = matchC<InvestmentIdeasInterface>({
   mount: concatC(
-    (param) => {
-      return HTTPRequest({
-        endpoint: '/ideas/causeIdeas',
-        method: 'POST',
-        responseType: 'causeIdeasResponse',
-        variables: {
-          userId: param.userId,
-        },
-      })
-    },
+    // (param) => {
+    //   return HTTPRequest({
+    //     endpoint: '/ideas/causeIdeas',
+    //     method: 'POST',
+    //     responseType: 'causeIdeasResponse',
+    //     variables: {
+    //       userId: param.userId,
+    //     },
+    //   })
+    // },
     (param) => {
       return HTTPRequest({
         endpoint: '/ideas/bucketsList',

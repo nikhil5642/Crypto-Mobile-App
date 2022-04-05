@@ -5,11 +5,12 @@ import Toast from 'react-native-simple-toast'
 
 import Lifecycle from '../lifecycle'
 
-import BluntLineChart from './BluntLineChart'
+import BluntFlowingLineChart from './BluntFlowingLineChart'
+import BluntSimpleLineChart from './BluntSimpleLineChart'
 
 export const PriceChartComponent = ({chartData}) => {
   const [data, setData] = useState<any>([])
-  const [selection, setSelection] = useState('day')
+  const [selection, setSelection] = useState('')
 
   const updateSelection = (currentSel) => {
     setSelection(currentSel)
@@ -20,22 +21,21 @@ export const PriceChartComponent = ({chartData}) => {
     setData(currentData)
   }
 
-  const availableKeys = ['day', 'week', 'month', 'year'].map((key) =>
-    Object.keys(chartData).includes(key) ? key : undefined,
-  )
+  const availableKeys = Object.keys(chartData)
 
   return (
-    <Lifecycle onMount={() => updateSelection('day')}>
-      <BluntLineChart data={data} />
+    <Lifecycle onMount={() => updateSelection(availableKeys[0])}>
+      <BluntSimpleLineChart data={data} />
       <View style={styles.bottomBarContainer}>
-        {availableKeys.map((key) => (
+        {availableKeys.map((item, key) => (
           <Pressable
+            key={key}
             style={[
               styles.tagContainer,
-              selection === key ? styles.tagSelected : {},
+              selection === item ? styles.tagSelected : {},
             ]}
-            onPress={() => updateSelection(key)}>
-            <Text style={styles.tagText}>{getTagValue(key)}</Text>
+            onPress={() => updateSelection(item)}>
+            <Text style={styles.tagText}>{getTagValue(item)}</Text>
           </Pressable>
         ))}
 
@@ -57,11 +57,15 @@ export const PriceChartComponent = ({chartData}) => {
 const getTagValue = (tag) => {
   if (tag === 'day') {
     return '1D'
-  } else if (tag === 'week') {
+  } else if (tag === 'week' || tag === 'one_week') {
     return '1W'
-  } else if (tag === 'month') {
+  } else if (tag === 'month' || tag === 'one_month') {
     return '1M'
-  } else if (tag === 'year') {
+  } else if (tag === 'three_month') {
+    return '3M'
+  } else if (tag === 'six_month') {
+    return '6M'
+  } else if (tag === 'year' || tag === 'one_year') {
     return '1Y'
   }
   return ''

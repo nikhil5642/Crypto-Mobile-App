@@ -12,9 +12,8 @@ import {
 } from '@rainbow-me/animated-charts'
 
 export const SIZE = Dimensions.get('window').width - 24
-const BluntLineChart = ({data}) => {
-  const points = monotoneCubicInterpolation({data, range: 40})
-
+const BluntFlowingLineChart = ({data}) => {
+  const points = monotoneCubicInterpolation({data, range: 100})
   const formatPrice = (value) => {
     'worklet'
     if (value === '') {
@@ -53,7 +52,7 @@ const BluntLineChart = ({data}) => {
   )
 }
 
-export default BluntLineChart
+export default BluntFlowingLineChart
 
 const styles = StyleSheet.create({
   container: {

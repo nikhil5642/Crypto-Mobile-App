@@ -10,20 +10,21 @@ export const update = matchR<InvestmentIdeasInterface>({
   mount: (param, state) => {
     return {...state, userId: param.userId}
   },
-  causeIdeasResponse: (res, state) => {
-    const data: InvestmentIdea[] = []
-    res?.forEach((item) => {
-      data.push({
-        name: item.name,
-        id: item.id,
-        description: item.short_desc,
-        imgUrl: item.titleImg,
-      })
-    })
-    return {...state, causeInvestment: data, refreshing: false}
-  },
+  // causeIdeasResponse: (res, state) => {
+  //   const data: InvestmentIdea[] = []
+  //   res?.forEach((item) => {
+  //     data.push({
+  //       name: item.name,
+  //       id: item.id,
+  //       description: item.short_desc,
+  //       imgUrl: item.titleImg,
+  //     })
+  //   })
+  //   return {...state, causeInvestment: data, refreshing: false}
+  // },
   bucketsListResponse: (res, state) => {
     const data: InvestmentBucketItem[] = []
+
     res?.forEach((item) => {
       data.push({
         name: item.name,

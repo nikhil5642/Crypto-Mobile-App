@@ -23,6 +23,9 @@ export const update = matchR<BucketDetailsInterface>({
     Toast.show('Investing will start soon')
     return state
   },
+  chartDataResponse: (response, state) => {
+    return {...state, chartData: response.result}
+  },
 })
 
 const PieData = (portfolio: any) => {

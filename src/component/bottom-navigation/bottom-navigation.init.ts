@@ -4,5 +4,5 @@ import {
 } from './bottom-navigation.interface'
 
 export const init = (): BottomNavigationInterface => ({
-  selection: BottomNavigationOptions.Market,
+  selection: BottomNavigationOptions.InvestmentIdeas,
 })

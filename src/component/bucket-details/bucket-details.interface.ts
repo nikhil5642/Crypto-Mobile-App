@@ -3,6 +3,7 @@ export interface BucketDetailsInterface {
   bucketId: string
   data: any
   portfolioData: any
+  chartData: any
 }
 
 export type BucketDetailsParams = {

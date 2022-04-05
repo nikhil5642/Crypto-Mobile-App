@@ -25,11 +25,11 @@ export const BottomNavigationView: FC<
         m.selection === BottomNavigationOptions.InvestmentIdeas,
         BottomNavigationOptions.InvestmentIdeas,
       )}
-      {getItem(
+      {/* {getItem(
         e,
         m.selection === BottomNavigationOptions.Market,
         BottomNavigationOptions.Market,
-      )}
+      )} */}
       {getItem(
         e,
         m.selection === BottomNavigationOptions.PortFolio,

@@ -5,4 +5,5 @@ export const init = (): BucketDetailsInterface => ({
   bucketId: '',
   data: {},
   portfolioData: {},
+  chartData: null,
 })
