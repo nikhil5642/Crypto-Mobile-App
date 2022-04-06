@@ -3,7 +3,6 @@ import React, {FC} from 'react'
 import {SafeAreaView} from 'react-native-safe-area-context'
 
 import {Props} from '../../core/component'
-import {accountBalance} from '../Balance/balance'
 import {bottomNavigation} from '../bottom-navigation/bottom-navigation'
 import {BottomNavigationOptions} from '../bottom-navigation/bottom-navigation.interface'
 import {investmentIdeas} from '../investment-ideas/investment-ideas'
@@ -15,11 +14,6 @@ import {HomeInterface, HomeParams} from './home.interface'
 export const HomeView: FC<Props<HomeInterface, HomeParams>> = ({e, m, p}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
-      <accountBalance.view
-        e={e.of('accountBalance')}
-        p={{userId: p.userId}}
-        m={m.accountBalance}
-      />
       {m.bottomNavigation.selection ===
       BottomNavigationOptions.InvestmentIdeas ? (
         <investmentIdeas.view

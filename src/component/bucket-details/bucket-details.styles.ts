@@ -3,6 +3,28 @@ import {StyleSheet} from 'react-native'
 export const styles = StyleSheet.create({
   container: {flex: 1},
 
+  headerContainer: {
+    flexDirection: 'row',
+    verticalAlign: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+    backgroundColor: 'white',
+  },
+  backArrow: {
+    height: 24,
+    width: 24,
+    aspectRatio: 1,
+    resizeMode: 'center',
+    alignSelf: 'center',
+  },
+  titleText: {
+    textAlignVertical: 'center',
+    fontSize: 16,
+    fontWeight: '700',
+    color: 'black',
+    marginLeft: 20,
+  },
+
   portfolioContainer: {
     margin: 12,
     backgroundColor: 'white',

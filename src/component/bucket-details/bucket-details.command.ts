@@ -1,6 +1,7 @@
 import {concatC, matchC} from '@action-land/tarz'
 
 import {HTTPRequest} from '../../helper/http-helper'
+import {PopScreenAction} from '../../helper/navigation-helper'
 
 import {BucketDetailsInterface} from './bucket-details.interface'
 
@@ -28,4 +29,5 @@ export const command = matchC<BucketDetailsInterface>({
       })
     },
   ),
+  back: PopScreenAction,
 })

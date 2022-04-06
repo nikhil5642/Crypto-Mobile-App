@@ -11,5 +11,4 @@ export const init = (): HomeInterface => ({
   screener: screener.init(),
   investmentIdeas: investmentIdeas.init(),
   portfolio: portfolio.init(),
-  accountBalance: accountBalance.init(),
 })

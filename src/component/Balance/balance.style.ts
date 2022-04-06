@@ -2,25 +2,24 @@ import {StyleSheet} from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
-    height: 40,
-    backgroundColor: '#686000',
+    backgroundColor: 'white',
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
     flex: 0,
-    borderBottomLeftRadius: 16,
-    borderBottomEndRadius: 16,
-    marginHorizontal: 1,
+    borderRadius: 20,
+    marginHorizontal: 12,
+    paddingVertical: 20,
   },
 
   balanceTitle: {
     fontSize: 16,
-    color: 'white',
+    color: 'black',
     marginLeft: 16,
   },
   balanceText: {
     fontSize: 16,
-    color: 'white',
+    color: 'black',
     marginRight: 16,
   },
 })

@@ -33,7 +33,6 @@ const BluntSimpleLineChart = ({data}) => {
   }
 
   const formatDate = (timestamp) => {
-    console.log('timest', timestamp)
     if (timestamp === '') {
       return ''
     }
@@ -64,7 +63,7 @@ const BluntSimpleLineChart = ({data}) => {
 
       <VictoryChart
         width={SIZE}
-        height={SIZE * 0.8}
+        height={SIZE * 0.6}
         containerComponent={
           <VictoryCursorContainer
             cursorDimension="x"

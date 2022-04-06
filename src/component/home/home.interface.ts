@@ -10,7 +10,6 @@ export interface HomeInterface {
   screener: ScreenerInterface
   investmentIdeas: InvestmentIdeasInterface
   portfolio: PortFolioInterface
-  accountBalance: BalanceInterface
 }
 
 export type HomeParams = {

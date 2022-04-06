@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 
-import {View, Text, Pressable} from 'react-native'
+import {View, Text, Pressable, Image} from 'react-native'
 import {ScrollView} from 'react-native-gesture-handler'
 
 import {Props} from '../../core/component'
@@ -21,6 +21,15 @@ export const BucketDetailView: FC<
   return (
     <Lifecycle onMount={() => e.of('mount').emit(p)}>
       <View style={styles.container}>
+        <View style={styles.headerContainer}>
+          <Pressable onPress={e.of('back').emit}>
+            <Image
+              style={styles.backArrow}
+              source={require('../../assets/ic_back_arrow.png')}
+            />
+          </Pressable>
+          <Text style={styles.titleText}>{m.data.name}</Text>
+        </View>
         <ScrollView>
           {m.chartData ? <PriceChartComponent chartData={m.chartData} /> : null}
           <GeneralInfoItemVIew

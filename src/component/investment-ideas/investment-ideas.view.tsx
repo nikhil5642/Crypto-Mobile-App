@@ -7,6 +7,7 @@ import {Smitten} from '@action-land/smitten'
 
 import {Props} from '../../core/component'
 import {getImageURL} from '../../helper/http-helper'
+import {accountBalance} from '../Balance/balance'
 import Lifecycle from '../lifecycle'
 
 import {bucketList} from './investment-buckets'
@@ -25,6 +26,11 @@ export const InvestmentIdeasView: FC<
         e.of('mount').emit(p)
       }}>
       <ScrollView style={styles.container}>
+        <accountBalance.view
+          e={e.of('accountBalance')}
+          p={{userId: p.userId}}
+          m={m.accountBalance}
+        />
         {m.causeInvestment.length > 0 ? (
           <Text style={styles.categoryHeaderText}>
             Categories you can explore
