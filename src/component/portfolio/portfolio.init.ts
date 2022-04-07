@@ -1,3 +1,5 @@
+import {accountBalance} from '../Balance/balance'
+
 import {PortFolioInterface} from './portfolio.interface'
 
 export const init = (): PortFolioInterface => ({
@@ -6,4 +8,5 @@ export const init = (): PortFolioInterface => ({
   totalPortfolioValue: 0,
   recentTransactions: [],
   refreshing: false,
+  accountBalance: accountBalance.init(),
 })

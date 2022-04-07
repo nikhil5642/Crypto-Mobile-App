@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import {FlatList, View, Text, RefreshControl} from 'react-native'
 
+import {accountBalance} from '../Balance/balance'
 import Lifecycle from '../lifecycle'
 
 import {styles} from './portfolio.style'
@@ -11,8 +12,16 @@ export const PortFolioView = ({e, m, p}) => {
   const portFolioItem = ({item}) => {
     return (
       <View style={styles.portFolioContainer}>
-        <Text style={styles.name}>{item.name}</Text>
-        <Text style={styles.price}> {getRoundedAmount(item.value)}</Text>
+        <View>
+          <Text style={styles.id}>{item.id.toUpperCase()}</Text>
+          <Text style={styles.name}>{item.name.toUpperCase()}</Text>
+        </View>
+        <View>
+          <Text style={styles.price}> {getRoundedAmount(item.quantity)}</Text>
+          <Text style={styles.value}>
+            {(item.price * item.quantity).toFixed(2)}
+          </Text>
+        </View>
       </View>
     )
   }
@@ -45,6 +54,11 @@ export const PortFolioView = ({e, m, p}) => {
           keyExtractor={(item) => item.id}
           ListHeaderComponent={
             <View>
+              <accountBalance.view
+                e={e.of('accountBalance')}
+                p={{userId: p.userId}}
+                m={m.accountBalance}
+              />
               <View style={styles.containerTotalPorfolioValue}>
                 <Text style={styles.totalPorfolioValue}>
                   {m.totalPortfolioValue.toLocaleString()}

@@ -35,7 +35,7 @@ export const accountBalance: Component<
         responseType: 'accountBalanceResponse',
         variables: {
           userId: params.userId,
-          currency: 'INR',
+          currency: 'USDT',
         },
       })
     },

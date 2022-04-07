@@ -14,27 +14,43 @@ export const update = matchR<PortFolioInterface>({
 
   completePortFolioResponse: (response, state) => {
     const data: PortFolioItem[] = []
-    Object.entries(response.data)?.map(([_name, _value]) => {
-      data.push({name: _name, value: _value as string})
-    })
+    response.data?.forEach((item) =>
+      data.push({
+        name: item.name,
+        id: item.id,
+        price: item.price,
+        quantity: item.quantity,
+      }),
+    )
     return {
       ...state,
       portfolio: data,
-      totalPortfolioValue: response.totalPortfolioValue,
+      totalPortfolioValue: response.totalInvestedValue,
     }
   },
 
   recentTransactionsResponse: (response, state) => {
     const data: RecentTransaction[] = []
     response.data?.map((item) => {
-      data.push({
-        transactionActionType: item.actionType,
-        transactionId: item.transactionId,
-        fromCurrency: item.fromCurrency,
-        toCurrency: item.toCurrency,
-        fromAmount: item.from,
-        toAmount: item.to,
-      })
+      if ('bucket_id' in item) {
+        data.push({
+          transactionActionType: item.order_type,
+          transactionId: item.transactionId,
+          fromCurrency: 'USDT',
+          toCurrency: item.bucket_id,
+          fromAmount: item.amount_usdt,
+          toAmount: item.units,
+        })
+      } else {
+        data.push({
+          transactionActionType: item.actionType,
+          transactionId: item.transactionId,
+          fromCurrency: item.fromCurrency,
+          toCurrency: item.toCurrency,
+          fromAmount: item.from,
+          toAmount: item.to,
+        })
+      }
     })
     return {...state, recentTransactions: data.reverse()}
   },

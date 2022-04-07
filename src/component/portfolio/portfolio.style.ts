@@ -47,17 +47,29 @@ export const styles = StyleSheet.create({
     borderBottomColor: 'grey',
     borderBottomWidth: 0.5,
   },
-  name: {
+  id: {
     fontSize: 16,
     fontWeight: 'bold',
     marginLeft: 16,
     color: 'black',
+  },
+  name: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    marginLeft: 16,
+    color: 'grey',
   },
   price: {
     fontSize: 14,
     fontWeight: 'bold',
     marginRight: 16,
     color: 'green',
+    textAlign: 'right',
+  },
+  value: {
+    marginRight: 16,
+    color: 'black',
+    textAlign: 'right',
   },
   bottomLine: {
     width: 1,
