@@ -1,9 +1,12 @@
-import React, {FC} from 'react'
+import React, {FC, useRef, useState} from 'react'
 
 import {View, Text, Pressable, Image} from 'react-native'
 import {ScrollView} from 'react-native-gesture-handler'
 
+import {BottomSheetModal} from '@gorhom/bottom-sheet'
+
 import {Props} from '../../core/component'
+import {BluntBottomSheet} from '../common-views/BluntBottomSheet'
 import {GeneralInfoItemVIew} from '../common-views/generalInfo'
 import {PieGraphItemView} from '../common-views/pie-graph-item'
 import {PriceChartComponent} from '../common-views/price-chart-component'
@@ -18,6 +21,12 @@ import {styles} from './bucket-details.styles'
 export const BucketDetailView: FC<
   Props<BucketDetailsInterface, BucketDetailsParams>
 > = ({e, m, p}) => {
+  // const bottomSheetRef = useRef<BottomSheetModal>(null)
+  // <BluntBottomSheet
+  //         bottomSheetRef={bottomSheetRef}
+  //         visible={m.bottomSheetVisibility}
+  //         onDismiss={() => e.of('dismissBottomsheet').emit({})}
+  //       />
   return (
     <Lifecycle onMount={() => e.of('mount').emit(p)}>
       <View style={styles.container}>
@@ -30,6 +39,7 @@ export const BucketDetailView: FC<
           </Pressable>
           <Text style={styles.titleText}>{m.data.name}</Text>
         </View>
+
         <ScrollView>
           {m.chartData ? <PriceChartComponent chartData={m.chartData} /> : null}
           <GeneralInfoItemVIew

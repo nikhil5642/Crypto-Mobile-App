@@ -1,3 +1,4 @@
+import {Action} from '@action-land/core'
 import {concatC, matchC} from '@action-land/tarz'
 
 import {HTTPRequest} from '../../helper/http-helper'
@@ -30,4 +31,8 @@ export const command = matchC<BucketDetailsInterface>({
     },
   ),
   back: PopScreenAction,
+
+  investInBucket: (_, state) => {
+    return Action.nil()
+  },
 })

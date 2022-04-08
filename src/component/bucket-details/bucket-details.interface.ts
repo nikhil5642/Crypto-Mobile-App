@@ -4,6 +4,7 @@ export interface BucketDetailsInterface {
   data: any
   portfolioData: any
   chartData: any
+  bottomSheetVisibility: boolean
 }
 
 export type BucketDetailsParams = {

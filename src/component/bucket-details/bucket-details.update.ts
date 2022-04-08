@@ -1,5 +1,3 @@
-import Toast from 'react-native-simple-toast'
-
 import {matchR} from '@action-land/tarz'
 
 import {BucketDetailsInterface} from './bucket-details.interface'
@@ -19,12 +17,17 @@ export const update = matchR<BucketDetailsInterface>({
       portfolioData: PieData(response.portfolio),
     }
   },
-  investInBucket: (_, state) => {
-    Toast.show('Investing will start soon')
-    return state
-  },
+
   chartDataResponse: (response, state) => {
     return {...state, chartData: response.result}
+  },
+
+  showBottomsheet: (_, state) => {
+    return {...state, bottomSheetVisibility: true}
+  },
+
+  dismissBottomsheet: (_, state) => {
+    return {...state, bottomSheetVisibility: false}
   },
 })
 

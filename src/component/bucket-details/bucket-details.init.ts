@@ -6,4 +6,5 @@ export const init = (): BucketDetailsInterface => ({
   data: {},
   portfolioData: {},
   chartData: null,
+  bottomSheetVisibility: false,
 })
