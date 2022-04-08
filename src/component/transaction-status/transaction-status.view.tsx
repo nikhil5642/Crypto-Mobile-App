@@ -31,6 +31,7 @@ export const TransactionStatusView: FC<
             ? 'Transaction Successful'
             : 'Transaction Failed'}
         </Text>
+        <Text style={styles.text}>{p.message}</Text>
         {p.status === 'success' ? (
           <Text style={styles.textTransationId}>
             {'Transaction ID: ' + p.transactionId}

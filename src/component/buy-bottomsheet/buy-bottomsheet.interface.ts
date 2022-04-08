@@ -4,6 +4,7 @@ export interface BuyBottomSheetInterface {
   amount: number
   amountText: string
   availableBalance: number
+  visible: boolean
 }
 
 export type BuyBottomSheetParams = {

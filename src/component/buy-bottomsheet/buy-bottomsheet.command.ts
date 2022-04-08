@@ -10,7 +10,7 @@ import {
 } from './buy-bottomsheet.interface'
 
 export const command = matchC<BuyBottomSheetInterface>({
-  mount: concatC((params: BuyBottomSheetParams) => {
+  load: concatC((params: BuyBottomSheetParams) => {
     return HTTPRequest({
       endpoint: '/portfolio/getRemainingAmount',
       method: 'POST',
@@ -21,31 +21,28 @@ export const command = matchC<BuyBottomSheetInterface>({
     })
   }),
 
-  submitExchange: (_, state) => {
+  buyFund: (_, state) => {
     return HTTPRequest({
-      endpoint: '/portfolio/exchangeCurrency',
+      endpoint: '/ideas/buyFund',
       method: 'POST',
-      responseType: 'exchangeCurrencyResponse',
+      responseType: 'buyFundResponse',
       variables: {
         userId: state.userId,
-        fundID: state.fundID,
         amount: state.amount,
+        fundID: state.fundID,
       },
     })
   },
 
-  exchangeCurrencyResponse: concatC(
-    (_) => {
-      return PopScreenAction()
-    },
-    (response) => {
-      return PushScreenAction({
-        route: Routes.TransactionStatusScreen,
-        params: {
-          status: response.success ? 'success' : 'failure',
-          transactionId: response.success ? response.transactionId : '',
-        },
-      })
-    },
-  ),
+  buyFundResponse: concatC((response) => {
+    console.log(response)
+    return PushScreenAction({
+      route: Routes.TransactionStatusScreen,
+      params: {
+        status: response.success ? 'success' : 'failure',
+        message: response.msg,
+        transactionId: response.transactionId,
+      },
+    })
+  }),
 })

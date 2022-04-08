@@ -10,14 +10,14 @@ import {
   BuyBottomSheetParams,
 } from './buy-bottomsheet.interface'
 import {update} from './buy-bottomsheet.update'
-import {view} from './buy-bottomsheet.view'
+import {BuyBottomSheetView} from './buy-bottomsheet.view'
 
-export const buySellScreen: Component<
+export const buyBottomSheet: Component<
   BuyBottomSheetInterface,
   BuyBottomSheetParams
 > = R.compose(forward({}))({
   init: init,
   update: update,
   command: command,
-  view: view,
+  view: BuyBottomSheetView,
 })

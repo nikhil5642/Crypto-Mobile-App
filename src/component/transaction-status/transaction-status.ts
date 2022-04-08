@@ -11,6 +11,7 @@ export interface TransactionStatusInterFace {}
 
 export type TransactionStatusParms = {
   status: 'success' | 'failure'
+  message: string
   transactionId: string
 }
 

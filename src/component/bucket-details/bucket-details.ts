@@ -3,6 +3,7 @@ import * as R from 'ramda'
 import {Component} from '../../core/component'
 import {forward} from '../../core/forward'
 
+import {buyBottomSheet} from './../buy-bottomsheet/buy-bottomsheet'
 import {command} from './bucket-details.command'
 import {init} from './bucket-details.init'
 import {
@@ -15,7 +16,7 @@ import {BucketDetailView} from './bucket-details.view'
 export const bucketDetails: Component<
   BucketDetailsInterface,
   BucketDetailsParams
-> = R.compose(forward({}))({
+> = R.compose(forward({buyBottomSheet}))({
   init: init,
   update: update,
   command: command,

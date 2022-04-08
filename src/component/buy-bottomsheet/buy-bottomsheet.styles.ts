@@ -5,8 +5,20 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     backgroundColor: '#FFFFFF',
+  },
+  textInputContainer: {
+    marginHorizontal: 12,
+    textAlign: 'left',
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: 'gray',
+  },
+
+  textInput: {
+    fontSize: 20,
+    fontWeight: '600',
+    textAlign: 'left',
   },
   text: {
     textAlign: 'center',
@@ -28,11 +40,6 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
 
-  textCurrencyInput: {
-    fontSize: 12,
-    fontWeight: '400',
-    textAlign: 'left',
-  },
   textCurrencyDenoter: {
     flex: 1,
     fontSize: 14,
@@ -43,11 +50,6 @@ export const styles = StyleSheet.create({
     paddingBottom: 2,
   },
 
-  textInputContainer: {
-    flex: 0,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
   button: {
     fontSize: 16,
     padding: 8,

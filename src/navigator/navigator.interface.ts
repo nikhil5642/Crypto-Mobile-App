@@ -1,3 +1,4 @@
+import {BuyBottomSheetParams} from '../component/buy-bottomsheet/buy-bottomsheet.interface'
 import {HomeInterface, HomeParams} from '../component/home/home.interface'
 import {
   SplashScreenInterface,
@@ -13,6 +14,8 @@ import {
   BucketDetailsInterface,
   BucketDetailsParams,
 } from './../component/bucket-details/bucket-details.interface'
+import {buyBottomSheet} from './../component/buy-bottomsheet/buy-bottomsheet'
+import {BuyBottomSheetInterface} from './../component/buy-bottomsheet/buy-bottomsheet.interface'
 import {
   BuySellInterface,
   BuySellParams,

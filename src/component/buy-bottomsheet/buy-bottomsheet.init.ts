@@ -6,4 +6,5 @@ export const init = (): BuyBottomSheetInterface => ({
   amount: 0,
   amountText: '',
   availableBalance: 0,
+  visible: false,
 })

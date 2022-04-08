@@ -8,6 +8,7 @@ import {transactionStatus} from '../component/transaction-status/transaction-sta
 import {Component} from '../core/component'
 import {forward} from '../core/forward'
 
+import {buyBottomSheet} from './../component/buy-bottomsheet/buy-bottomsheet'
 import {buySellScreen} from './../component/buy-sell-screen/buy-sell-screen'
 import {categoryDetails} from './../component/category-details/category-details'
 import {loginScreen} from './../component/login-flows/login-screen/login-screen'
@@ -29,6 +30,7 @@ export const navigator: Component<Navigator, NavigationParams> = R.compose(
     categoryDetails,
     bucketDetails,
     onBoardingSlider,
+    buyBottomSheet,
   }),
 )({
   init: init,

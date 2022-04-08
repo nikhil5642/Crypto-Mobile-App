@@ -9,27 +9,21 @@ export const BluntBottomSheet = ({
   bottomSheetRef,
   visible,
   onDismiss,
+  height,
 }) => {
   if (visible) {
     bottomSheetRef?.current?.present()
   } else {
     bottomSheetRef?.current?.dismiss()
   }
-  const snapPoints = useMemo(() => ['20%'], [])
+  const snapPoints = useMemo(() => [height], [height])
   const close = useCallback(() => {
     onDismiss()
     bottomSheetRef?.current?.dismiss()
   }, [bottomSheetRef, onDismiss])
 
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          height: visible ? '100%' : 0,
-          width: visible ? '100%' : 0,
-        },
-      ]}>
+    <View style={styles.container}>
       <BottomSheetModalProvider>
         <Pressable style={styles.bottomSheetOverlay} onPress={close} />
         <BottomSheetModal
@@ -46,6 +40,8 @@ export const BluntBottomSheet = ({
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
+    height: '100%',
+    width: '100%',
     zIndex: 1,
   },
   bottomSheetOverlay: {

@@ -35,9 +35,7 @@ export const view: FC<Props<Navigator, NavigationParams>> = ({e, m, p}) => {
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator
         initialRouteName={p.route}
-        mode="modal"
-        screenOptions={rootNavigatorScreenOptions}
-        headerMode="screen">
+        screenOptions={rootNavigatorScreenOptions}>
         <Stack.Screen name={Routes.Home}>
           {({route}) => (
             <home.view

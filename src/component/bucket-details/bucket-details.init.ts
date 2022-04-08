@@ -1,3 +1,5 @@
+import {buyBottomSheet} from '../buy-bottomsheet/buy-bottomsheet'
+
 import {BucketDetailsInterface} from './bucket-details.interface'
 
 export const init = (): BucketDetailsInterface => ({
@@ -6,5 +8,5 @@ export const init = (): BucketDetailsInterface => ({
   data: {},
   portfolioData: {},
   chartData: null,
-  bottomSheetVisibility: false,
+  buyBottomSheet: buyBottomSheet.init(),
 })

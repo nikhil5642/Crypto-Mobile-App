@@ -22,12 +22,8 @@ export const update = matchR<BucketDetailsInterface>({
     return {...state, chartData: response.result}
   },
 
-  showBottomsheet: (_, state) => {
-    return {...state, bottomSheetVisibility: true}
-  },
-
-  dismissBottomsheet: (_, state) => {
-    return {...state, bottomSheetVisibility: false}
+  investInBucket: (_, state) => {
+    return {...state, buyBottomSheet: {...state.buyBottomSheet, visible: true}}
   },
 })
 
