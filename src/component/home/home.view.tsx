@@ -9,11 +9,14 @@ import {investmentIdeas} from '../investment-ideas/investment-ideas'
 import {portfolio} from '../portfolio/portfolio'
 import {screener} from '../screener/screener'
 
+import {Header} from './header'
 import {HomeInterface, HomeParams} from './home.interface'
+import {styles} from './home.styles'
 
 export const HomeView: FC<Props<HomeInterface, HomeParams>> = ({e, m, p}) => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={styles.container}>
+      <Header e={e} m={m} />
       {m.bottomNavigation.selection ===
       BottomNavigationOptions.InvestmentIdeas ? (
         <investmentIdeas.view
@@ -21,6 +24,7 @@ export const HomeView: FC<Props<HomeInterface, HomeParams>> = ({e, m, p}) => {
           p={{
             userId: p.userId,
             onboarding: p.isOnboarding,
+            baseCurrency: m.baseCurrency,
           }}
           m={m.investmentIdeas}
         />
@@ -39,7 +43,7 @@ export const HomeView: FC<Props<HomeInterface, HomeParams>> = ({e, m, p}) => {
       {m.bottomNavigation.selection === BottomNavigationOptions.PortFolio ? (
         <portfolio.view
           e={e.of('portfolio')}
-          p={{userId: p.userId}}
+          p={{userId: p.userId, baseCurrency: m.baseCurrency}}
           m={m.portfolio}
         />
       ) : null}

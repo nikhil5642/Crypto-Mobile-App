@@ -1,6 +1,7 @@
 import * as R from 'ramda'
 
 import {bucketDetails} from '../component/bucket-details/bucket-details'
+import {currencyChange} from '../component/currency-change/currency-change'
 import {home} from '../component/home/home'
 import {splashScreen} from '../component/splash-screen/splash-screen'
 import {tickerDetails} from '../component/ticker-details/ticker-details'
@@ -31,6 +32,7 @@ export const navigator: Component<Navigator, NavigationParams> = R.compose(
     bucketDetails,
     onBoardingSlider,
     buyBottomSheet,
+    currencyChange,
   }),
 )({
   init: init,

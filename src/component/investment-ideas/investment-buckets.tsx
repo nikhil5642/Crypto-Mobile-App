@@ -5,6 +5,7 @@ import {FlatList, Image, Pressable, StyleSheet, Text, View} from 'react-native'
 import {Smitten} from '@action-land/smitten'
 
 import {getImageURL} from '../../helper/http-helper'
+import {CurrencyItem} from '../currency-change/currency-change'
 
 export interface InvestmentBucketItem {
   name: string
@@ -23,6 +24,7 @@ export const bucketList = (
   title: string,
   titleStyle: any,
   buckets: InvestmentBucketItem[],
+  baseCurrency: CurrencyItem,
 ) => {
   return (
     <View>
@@ -31,7 +33,7 @@ export const bucketList = (
         <FlatList
           data={buckets}
           contentContainerStyle={styles.contentContainer}
-          renderItem={(item) => bucketItem(e, item.item)}
+          renderItem={(item) => bucketItem(e, item.item, baseCurrency)}
           keyExtractor={(item) => item.id}
           nestedScrollEnabled
         />
@@ -44,7 +46,7 @@ export const bucketList = (
   )
 }
 
-const bucketItem = (e: Smitten, item: any) => {
+const bucketItem = (e: Smitten, item: any, baseCurrency: CurrencyItem) => {
   return (
     <Pressable
       style={styles.bucketItemContainer}
@@ -77,7 +79,10 @@ const bucketItem = (e: Smitten, item: any) => {
         <View style={styles.bucketSubItemFooterContainer}>
           <Text style={styles.bucketItemFooterName}>Current Price</Text>
           <Text style={styles.bucketItemFooterValue}>
-            {item.unitPrice.toFixed(2)}
+            {baseCurrency.template.replace(
+              '%s',
+              (item.unitPrice * baseCurrency.price).toFixed(2).toLocaleString(),
+            )}
           </Text>
         </View>
         <View style={styles.bucketSubItemFooterContainer}>

@@ -1,9 +1,9 @@
 import {buySellScreen} from '../component/buy-sell-screen/buy-sell-screen'
+import {currencyChange} from '../component/currency-change/currency-change'
 import {home} from '../component/home/home'
 import {splashScreen} from '../component/splash-screen/splash-screen'
 
 import {bucketDetails} from './../component/bucket-details/bucket-details'
-import {buyBottomSheet} from './../component/buy-bottomsheet/buy-bottomsheet'
 import {categoryDetails} from './../component/category-details/category-details'
 import {loginScreen} from './../component/login-flows/login-screen/login-screen'
 import {onBoardingSlider} from './../component/onboarding-slider/onboarding-slider'
@@ -21,4 +21,5 @@ export const init = (): Navigator => ({
   categoryDetails: categoryDetails.init(),
   bucketDetails: bucketDetails.init(),
   onBoardingSlider: onBoardingSlider.init(),
+  currencyChange: currencyChange.init(),
 })

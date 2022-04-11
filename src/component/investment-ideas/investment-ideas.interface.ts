@@ -1,5 +1,6 @@
 import {BalanceInterface} from '../Balance/balance'
 
+import {CurrencyItem} from './../currency-change/currency-change'
 import {InvestmentBucketItem} from './investment-buckets'
 
 export interface InvestmentIdeasInterface {
@@ -10,7 +11,11 @@ export interface InvestmentIdeasInterface {
   buckets: InvestmentBucketItem[]
 }
 
-export type InvestmentIdeasParams = {userId: string; onboarding: boolean}
+export type InvestmentIdeasParams = {
+  userId: string
+  onboarding: boolean
+  baseCurrency: CurrencyItem
+}
 
 export interface InvestmentIdea {
   name: string

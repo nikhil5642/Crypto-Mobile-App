@@ -1,4 +1,5 @@
 import {BalanceInterface} from '../Balance/balance'
+import {CurrencyItem} from '../currency-change/currency-change'
 
 export interface PortFolioInterface {
   userId: string
@@ -9,7 +10,10 @@ export interface PortFolioInterface {
   refreshing: boolean
 }
 
-export type PortFolioParams = {userId: string}
+export type PortFolioParams = {
+  userId: string
+  baseCurrency: CurrencyItem
+}
 
 export interface PortFolioItem {
   name: string

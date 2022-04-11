@@ -1,4 +1,4 @@
-import React, {FC, useRef} from 'react'
+import React, {FC, useCallback, useRef} from 'react'
 
 import {ColorValue, Pressable, Text, TextInput, View} from 'react-native'
 import Toast from 'react-native-simple-toast'
@@ -19,6 +19,7 @@ export const BuyBottomSheetView: FC<
   Props<BuyBottomSheetInterface, BuyBottomSheetParams>
 > = ({e, m, p}) => {
   const bottomSheetRef = useRef<BottomSheetModal>(null)
+
   return (
     <Lifecycle onMount={() => e.of('load').emit(p)}>
       <BluntBottomSheet

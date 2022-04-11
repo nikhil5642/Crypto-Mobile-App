@@ -20,7 +20,10 @@ export const AccountBalanceView: FC<Props<BalanceInterface, BalanceParams>> = ({
       <View style={styles.container}>
         <Text style={styles.balanceTitle}>Remaining Balance: </Text>
         <Text style={styles.balanceText}>
-          {m.balance.toLocaleString()} USDT
+          {p.baseCurrency.template.replace(
+            '%s',
+            (m.balance * p.baseCurrency.price).toLocaleString(),
+          )}
         </Text>
       </View>
     </Lifecycle>

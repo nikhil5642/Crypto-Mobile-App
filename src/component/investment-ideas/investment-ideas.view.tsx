@@ -28,7 +28,7 @@ export const InvestmentIdeasView: FC<
       <ScrollView style={styles.container}>
         <accountBalance.view
           e={e.of('accountBalance')}
-          p={{userId: p.userId}}
+          p={{userId: p.userId, baseCurrency: p.baseCurrency}}
           m={m.accountBalance}
         />
         {m.causeInvestment.length > 0 ? (
@@ -49,6 +49,7 @@ export const InvestmentIdeasView: FC<
           'Invest in a our buckets',
           styles.bucketHeaderText,
           m.buckets,
+          p.baseCurrency,
         )}
       </ScrollView>
     </Lifecycle>

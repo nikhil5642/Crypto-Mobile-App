@@ -9,7 +9,7 @@ import {styles} from './portfolio.style'
 import {getRoundedAmount} from './portfolio.utils'
 
 export const PortFolioView = ({e, m, p}) => {
-  const portFolioItem = ({item}) => {
+  const portFolioItem = (item, baseCurrency) => {
     return (
       <View style={styles.portFolioContainer}>
         <View>
@@ -19,7 +19,12 @@ export const PortFolioView = ({e, m, p}) => {
         <View>
           <Text style={styles.price}> {getRoundedAmount(item.quantity)}</Text>
           <Text style={styles.value}>
-            {(item.price * item.quantity).toFixed(2)}
+            {p.baseCurrency.template.replace(
+              '%s',
+              (item.price * item.quantity * p.baseCurrency.price)
+                .toFixed(2)
+                .toLocaleString(),
+            )}
           </Text>
         </View>
       </View>
@@ -50,18 +55,23 @@ export const PortFolioView = ({e, m, p}) => {
       <View style={styles.container}>
         <FlatList
           data={m.portfolio}
-          renderItem={portFolioItem}
+          renderItem={(item) => portFolioItem(item.item, p.baseCurrency)}
           keyExtractor={(item) => item.id}
           ListHeaderComponent={
             <View>
               <accountBalance.view
                 e={e.of('accountBalance')}
-                p={{userId: p.userId}}
+                p={{userId: p.userId, baseCurrency: p.baseCurrency}}
                 m={m.accountBalance}
               />
               <View style={styles.containerTotalPorfolioValue}>
                 <Text style={styles.totalPorfolioValue}>
-                  {m.totalPortfolioValue.toLocaleString()}
+                  {p.baseCurrency.template.replace(
+                    '%s',
+                    (m.totalPortfolioValue * p.baseCurrency.price)
+                      .toFixed(2)
+                      .toLocaleString(),
+                  )}
                 </Text>
                 <Text style={styles.textTotalPorfolioValue}>
                   Total Portfolio Value

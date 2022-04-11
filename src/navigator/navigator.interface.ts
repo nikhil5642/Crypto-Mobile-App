@@ -25,6 +25,10 @@ import {
   CatergoryDetailsParams,
 } from './../component/category-details/category-details.interface'
 import {
+  CurrencyChangeInteface,
+  CurrencyChangeParams,
+} from './../component/currency-change/currency-change'
+import {
   LoginScreenInterface,
   LoginScreenParams,
 } from './../component/login-flows/login-screen/login-screen.interface'
@@ -44,6 +48,7 @@ export enum Routes {
   CatergoryDetailsScreen = 'CatergoryDetailsScreen',
   BucketDetailsScreen = 'BucketDetailsScreen',
   OnBoardingSliderScreen = 'OnBoardingSliderScreen',
+  CurrencyChangeScreen = 'CurrencyChangeScreen',
 }
 
 export interface NavigationBase<R extends Routes, P> {
@@ -61,6 +66,7 @@ export type NavigationParams =
   | NavigationBase<Routes.CatergoryDetailsScreen, CatergoryDetailsParams>
   | NavigationBase<Routes.BucketDetailsScreen, BucketDetailsParams>
   | NavigationBase<Routes.OnBoardingSliderScreen, OnBoardingSliderParams>
+  | NavigationBase<Routes.CurrencyChangeScreen, CurrencyChangeParams>
 
 export interface Navigator {
   home: HomeInterface
@@ -72,4 +78,5 @@ export interface Navigator {
   categoryDetails: CategoryDetailsInterface
   bucketDetails: BucketDetailsInterface
   onBoardingSlider: OnBoardingSliderInterface
+  currencyChange: CurrencyChangeInteface
 }
